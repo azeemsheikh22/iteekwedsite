@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.single-page-main{
+    background: white;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-page-main .img-box{
+    background-color: #F6F6F6;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.single-page-main .img-box img{
+    height: 350px;
+}
+
+.single-page-main .multi-box{
+    background-color: #F6F6F6;
+    height: 190px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.single-page-main .multi-box img{
+    height: 100px;
+}
+
+.single-page-main .content-product h2{
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.single-page-main .content-product span{
+    font-size: 1.5rem;
+    color: #FA6BFF;
+
+}
+
+.single-page-main .content-product p{
+    color: rgb(74, 73, 73);
+    line-height: 25px;
+}
+
+.single-page-main .content-product .line-black{
+    border-bottom: 1px solid rgb(185, 185, 185);
+}
+
+.single-page-main .content-product .add-btn button{
+    background-color: #343538;
+    border: none;
+    border-radius: 0px;
+    padding: 14px 30px;
+    font-weight: bold;
+   
+}
+
+.single-page-main .content-product .add-btn button:hover{
+    background-color: #62B026;
+    border: none;
+    border-radius: 0px;
+    padding: 14px 30px;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.single-page-main .content-product h4{
+    font-size: 1.1rem;
+    color: rgb(156, 155, 155);
+    font-weight: 400;
+}

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+.Category-main{
+    width: 100%;
+    min-height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Category-main .category-cart{
+    background-color: #F6F6F6;
+    height: 200px;
+    /* border-radius: 2px; */
+    overflow: hidden;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Category-main .category-cart .cart-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Category-main .category-cart .cart-text h3{
+    color: #915342;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.Category-main .category-cart img{
+    height: 150px;
+    transition: 0.3s ease-in;
+}
+.Category-main .category-cart img:hover{
+    transform: scale(1.2);
+}
+
+.Category-main .category-cart .cart-text .circle-box{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    border: 2px solid #915342;
+    background-color: #915342;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Category-main .category-cart .cart-text .circle-box i{
+    color: white;
+}
