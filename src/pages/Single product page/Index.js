@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Index.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
@@ -11,6 +11,10 @@ const Index = () => {
   const img = [img0, img1, img2]
   const [imgNo, setimgNo] = useState(0)
   console.log(img)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
 
   return (
     <div>
