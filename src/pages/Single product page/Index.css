@@ -12,7 +12,7 @@
 
 .single-page-main .img-box{
     background-color: #F6F6F6;
-    height: 580px;
+    height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,12 +20,12 @@
 }
 
 .single-page-main .img-box img{
-    height: 350px;
+    height: 320px;
 }
 
 .single-page-main .multi-box{
     background-color: #F6F6F6;
-    height: 190px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@
 }
 
 .single-page-main .multi-box img{
-    height: 100px;
+    height: 90px;
 }
 
 .single-page-main .content-product h2{

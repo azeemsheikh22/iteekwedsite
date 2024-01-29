@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.css'
 import logo from '../assiets/img/logo.png'
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCartTotal } from '../features/Cartslice'
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
+    const { totalQuantity } = useSelector((state) => state.carts);
+
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //   dispatch(getCartTotal());
+    // }, [cart]);
+
     return (
         <div className='nav-main'>
             <nav className="navbar navbar-expand-lg bg-body-white">
@@ -18,7 +31,7 @@ const Navbar = () => {
                                 <NavLink to="/" className="nav-link" aria-current="page" >Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Shop</a>
+                                <NavLink to="/products" className="nav-link" aria-current="page" >Products</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" aria-current="page" href="#">Collection</a>
@@ -32,11 +45,13 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <i class="fa-regular fa-circle-user nav-link"></i>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <i class="fa-regular fa-heart nav-link"></i>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
-                                <i class="fa-solid fa-cart-shopping nav-link"></i>
+                                <i class="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
+                                <sup> {totalQuantity} </sup>
+                                </i>
                             </li>
                         </ul>
                     </div>

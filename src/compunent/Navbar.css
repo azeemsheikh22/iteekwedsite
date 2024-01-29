@@ -30,8 +30,22 @@
     font-size: 1.5rem;
     /* font-weight: bold; */
     color: black;
+    cursor: pointer;
 }
 
 .nav-main .navbar .nav-item .active{
     color: #39792C;
+}
+
+.nav-main .navbar sup{
+    background-color: black;
+    font-size: 0.7rem;
+    /* margin-bottom: 10px; */
+    /* width: 15px; */
+    padding: 3px 4px;
+    border-radius: 50%;
+    color: white;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }

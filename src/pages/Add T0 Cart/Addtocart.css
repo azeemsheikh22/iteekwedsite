@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+.addtocart-main {
+    width: 100%;
+    min-height: 70vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.addtocart-main h2 {
+    font-size: 1.5rem;
+}
+
+.addtocart-main .border-line {
+    height: 600px;
+    /* min-width: 300px; */
+    border: 1px solid rgb(212, 211, 211);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+/* 
+@media only screen and (max-width: 600px) {
+    .addtocart-main .border-line {
+        height: 600px;
+        width: 100%;
+        border: 1px solid rgb(212, 211, 211);
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+} */
+
+.addtocart-main .border-line .first-text {
+    background-color: #F9F9F9;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addtocart-main .border-line .first-text h3 {
+    font-size: 1rem;
+}
+
+.addtocart-main .border-line .second-text {
+    height: 150px;
+    border-bottom: 1px solid rgb(193, 193, 193);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.addtocart-main .border-line .second-text .img-box {
+    height: 120px;
+    background-color: #F9F9F9;
+    width: 130px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addtocart-main .border-line .second-text .img-box img {
+    height: 80px;
+}
+
+.addtocart-main .border-line .second-text h4 {
+    font-size: 1.1rem;
+}
+
+.addtocart-main .border-line .second-text h4 i{
+    cursor: pointer;
+}
