@@ -37,15 +37,17 @@
     color: #39792C;
 }
 
-.nav-main .navbar sup{
-    background-color: black;
-    font-size: 0.7rem;
-    /* margin-bottom: 10px; */
-    /* width: 15px; */
-    padding: 3px 4px;
-    border-radius: 50%;
-    color: white;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+.nav-main .navbar .cart-counter{
+ background-color: black;
+ font-size: 11px;
+ color: white;
+ /* padding: 2px 5px; */
+ border-radius: 50px;
+ margin-left: -10px;
+ padding-top: 3px;
+ height: 19px;
+ width: 19px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }

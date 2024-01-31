@@ -3,7 +3,7 @@ import './Addtocart.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
 // import watch from '../../assiets/img/smart watches png.png'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { removeItem } from '../../features/Cartslice'
 
 
@@ -28,7 +28,7 @@ const Addtocart = () => {
                     <div className='row text-start mb-2'>
                         <h2>Your cart items</h2>
                     </div>
-
+                    {/* 
                     <div className='row border-line'>
                         <div className='container-fluid'>
                             <div className='row first-text'>
@@ -62,7 +62,7 @@ const Addtocart = () => {
                                             <h4>$ {item.products[0].sell_price}</h4>
                                         </div>
                                         <div className='col'>
-                                            <h4><i class="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.name))}></i></h4>
+                                            <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.name))}></i></h4>
                                         </div>
                                     </div>
                                 })
@@ -72,6 +72,42 @@ const Addtocart = () => {
 
 
                         </div>
+                    </div> */}
+
+                    <div className='border-line'>
+                        <table className="table">
+                            <thead>
+                                <tr className=''>
+                                    <th scope="col" className='first-text'><h3>IMAGE</h3></th>
+                                    <th scope="col" className='first-text'><h3>PRODUCT NAME</h3></th>
+                                    <th scope="col" className='first-text'><h3>PRICE</h3></th>
+                                    <th scope="col" className='first-text'><h3>ACTION</h3></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    cart?.map((item, index) => {
+                                        return <tr key={index}>
+                                            <th scope="row" className='second-text '>
+                                                <div className='img-box mx-auto'>
+                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products[0].images[0]}`} alt='' className='img-fluid'></img>
+                                                </div>
+                                            </th>
+                                            <td className='second-text pt-4'>
+                                                <h4>{item.name}</h4>
+                                            </td>
+                                            <td className='second-text pt-4'><h4>$ {item.products[0].sell_price}</h4></td>
+                                            <td className='second-text pt-4'>
+                                                <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.name))}></i></h4>
+                                            </td>
+                                        </tr>
+
+                                    })
+                                }
+
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

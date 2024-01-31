@@ -16,11 +16,12 @@
 }
 
 .addtocart-main .border-line {
-    height: 600px;
+    height: 560px;
     /* min-width: 300px; */
     border: 1px solid rgb(212, 211, 211);
     overflow: hidden;
     overflow-y: scroll;
+    overflow-x: scroll;
 }
 /* 
 @media only screen and (max-width: 600px) {
@@ -35,10 +36,7 @@
 
 .addtocart-main .border-line .first-text {
     background-color: #F9F9F9;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+     height: 70px;
 }
 
 .addtocart-main .border-line .first-text h3 {
@@ -48,10 +46,6 @@
 .addtocart-main .border-line .second-text {
     height: 150px;
     border-bottom: 1px solid rgb(193, 193, 193);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
 .addtocart-main .border-line .second-text .img-box {

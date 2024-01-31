@@ -7,6 +7,8 @@ import img1 from '../../assiets/img/battery IPHOne.png'
 import img2 from '../../assiets/img/iphones_-2-removebg-preview.png'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { addtocart } from '../../features/Cartslice'
 
 const Index = () => {
 
@@ -15,6 +17,8 @@ const Index = () => {
   const [imgdata, setimgdata] = useState([])
   const params = useParams();
   // console.log(params)
+  const navgate = useNavigate("")
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
@@ -85,7 +89,7 @@ const Index = () => {
 
               <div className='row mt-lg-4 mt-3 add-btn'>
                 <div className='col'>
-                  <button className='btn btn-primary'>ADD TO CART</button>
+                  <button className='btn btn-primary' onClick={() => addtocart(productdata[0])}>ADD TO CART</button>
                 </div>
               </div>
 

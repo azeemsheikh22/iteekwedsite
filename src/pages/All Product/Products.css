@@ -3,11 +3,11 @@
 
 .product-main{
     width: 100%;
-    min-height: 100vh;
+    height: auto;
     background: white;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -58,11 +58,28 @@
 
 .product-main .cart-box .row-icon i:hover{
     font-size: 1.5rem;
-    color: #FA6BFF;
+    color: #407a17;
     cursor: pointer;
 }
 
-.product-main .side-content label{
+.product-main .side-content .labelheading{
     color: black;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.product-main .side-content .category-check{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.product-main .side-content .category-check input{
+    width: 20px;
+    height: 20px;
+}
+
+.product-main .side-content .category-check label{
+    font-size: 1.1rem;
+    color: gray;
 }

@@ -48,10 +48,12 @@ const Navbar = () => {
                             {/* <li className="nav-item">
                                 <i class="fa-regular fa-heart nav-link"></i>
                             </li> */}
-                            <li className="nav-item">
+                            <li className="nav-item d-flex justify-content-center">
                                 <i class="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
-                                <sup> {totalQuantity} </sup>
+                                {/* <sup> {totalQuantity} </sup> */}
+                                {/* <span>23</span> */}
                                 </i>
+                                <span className="cart-counter">{totalQuantity}</span>
                             </li>
                         </ul>
                     </div>
