@@ -77,9 +77,17 @@
 .product-main .side-content .category-check input{
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 .product-main .side-content .category-check label{
     font-size: 1.1rem;
-    color: gray;
+    color: rgb(89, 88, 88);
+    cursor: pointer;
+}
+
+.product-main .height-product{
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }

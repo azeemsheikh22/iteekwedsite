@@ -81,3 +81,40 @@
     color: rgb(98, 98, 98);
     font-weight: 400;
 }
+
+.single-page-main .content-product .more-detail h3{
+    font-size: 1rem;
+
+}
+
+.single-page-main .related-product h1{
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.single-page-main .related-product .related-img-box{
+    background-color: #F6F6F6;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.single-page-main .related-product .related-img-box img{
+    height: 170px;
+}
+
+.single-page-main .related-product h3{
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #383838;
+}
+
+.single-page-main .related-product h4{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}

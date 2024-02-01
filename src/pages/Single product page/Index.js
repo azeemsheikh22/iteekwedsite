@@ -9,15 +9,20 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { addtocart } from '../../features/Cartslice'
+import { useDispatch } from 'react-redux'
+import Loading from '../../Loading'
 
 const Index = () => {
 
   const img = [img0, img1, img2]
   const [imgNo, setimgNo] = useState(0)
+  const [noproduct, setnoproduct] = useState(0)
   const [imgdata, setimgdata] = useState([])
+  const [loadersubmit, setloadersubmit] = useState(false)
   const params = useParams();
   // console.log(params)
   const navgate = useNavigate("")
+  const dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -28,15 +33,40 @@ const Index = () => {
   const [productdata, setproductdata] = useState([])
 
   const getdata = () => {
+    setloadersubmit(true)
     axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
       .then((res) => {
         console.warn(res.data)
         setproductdata(res.data)
-        setimgdata(res.data[0].images)
+        setimgdata(res.data[noproduct].images)
+        setloadersubmit(false)
       }).catch((e) => {
         console.log(e)
+        // setloadersubmit(false)
+        // navgate("/")
       })
   };
+
+  if (loadersubmit) {
+    return (
+      <Loading />
+    )
+  }
+
+  const handelrelatedproduct = (value) => {
+    setnoproduct(value)
+    axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
+      .then((res) => {
+        console.warn(res.data)
+        setproductdata(res.data)
+        setimgdata(res.data[value].images)
+        // setloadersubmit(false)
+      }).catch((e) => {
+        console.log(e)
+        // setloadersubmit(false)
+        // navgate("/")
+      })
+  }
 
   return (
     <div>
@@ -49,7 +79,7 @@ const Index = () => {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='img-box'>
-                      <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${productdata[0]?.images[imgNo]?productdata[0].images[imgNo]:""}`} className='img-fluid' alt=''></img>
+                      <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${productdata[noproduct]?.images[imgNo] ? productdata[noproduct].images[imgNo] : ""}`} className='img-fluid' alt=''></img>
                     </div>
                   </div>
                 </div>
@@ -72,33 +102,73 @@ const Index = () => {
 
             <div className='col-lg-6 content-product text-start px-lg-5 mt-4 mt-lg-0'>
               <div className='row'>
-                <h2>{productdata[0]?.name?productdata[0].name:""}</h2>
+                <h2>{productdata[noproduct]?.display_name ? productdata[noproduct].display_name : ""}</h2>
               </div>
 
               <div className='row mt-2'>
-                <h3>$ {productdata[0]?.sell_price?productdata[0].sell_price:0}</h3>
+                <h3>£ {productdata[noproduct]?.sell_price ? productdata[noproduct].sell_price : 0}</h3>
               </div>
 
               <div className='row mt-4'>
-                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur It is a long established fact that a
-                  reader will be distracted by the readable content .</p>
+                <p>{productdata[noproduct]?.description ? productdata[noproduct].description : ""}</p>
               </div>
+
+              {
+                productdata[noproduct]?.attributes ? productdata[noproduct].attributes.map((item, index) => {
+                  return <div className='row more-detail' key={index}>
+                    <div className='col-6'>
+                      <h3>{item.name}</h3>
+                    </div>
+                    <div className='col-6'>
+                      <h3>{item.option_index.option}</h3>
+                    </div>
+                  </div>
+                }) : ""
+              }
 
               <div className='row line-black mt-3'>
               </div>
 
               <div className='row mt-lg-4 mt-3 add-btn'>
                 <div className='col'>
-                  <button className='btn btn-primary' onClick={() => addtocart(productdata[0])}>ADD TO CART</button>
+                  <button className='btn btn-primary' onClick={() => dispatch(addtocart(productdata[noproduct]))}>ADD TO CART</button>
                 </div>
               </div>
 
               <div className='row mt-4'>
-                <h4>Categories : accessories</h4>
+                <h4>Categories : {productdata[noproduct]?.category ? productdata[noproduct].category.name : ""}</h4>
               </div>
               {/* <div className='row mt-2'>
                 <h4>Tags : accessories</h4>
               </div> */}
+            </div>
+          </div>
+
+
+          <div className='row related-product mt-4'>
+            <div className='container-fluid'>
+              <div className='row'>
+                <h1>Related Products</h1>
+              </div>
+
+              <div className='row mt-4'>
+                {
+                  productdata ? productdata.map((item, index) => {
+                    return <div className='col-lg-3 col-sm-6' key={index}>
+                      <div className='related-img-box' onClick={() => handelrelatedproduct(index)}>
+                        <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.images[0]}`} className='img-fluid' alt=''></img>
+                      </div>
+                      <div className='row mt-3 px-4'>
+                          <h3>{item.display_name}</h3>
+                      </div>
+                      <div className='row mt-1'>
+                          <h4>£ {item.sell_price}</h4>
+                      </div>
+                    </div>
+                  }) : ""
+                }
+
+              </div>
             </div>
           </div>
         </div>

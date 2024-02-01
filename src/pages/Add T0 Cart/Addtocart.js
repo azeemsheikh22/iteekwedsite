@@ -13,13 +13,6 @@ const Addtocart = () => {
 
     const dispatch = useDispatch();
 
-    // if (cart[0]?.name) {
-    //     localStorage.setItem("cart", JSON.stringify(cart))
-
-    // }
-
-    // const result = JSON.parse(localStorage.getItem("cart"))
-
     return (
         <div>
             <Navbar />
@@ -28,52 +21,6 @@ const Addtocart = () => {
                     <div className='row text-start mb-2'>
                         <h2>Your cart items</h2>
                     </div>
-                    {/* 
-                    <div className='row border-line'>
-                        <div className='container-fluid'>
-                            <div className='row first-text'>
-                                <div className='col'>
-                                    <h3>IMAGE</h3>
-                                </div>
-                                <div className='col'>
-                                    <h3>PRODUCT NAME</h3>
-                                </div>
-                                <div className='col'>
-                                    <h3>PRICE</h3>
-                                </div>
-                                <div className='col'>
-                                    <h3>ACTION</h3>
-                                </div>
-                            </div>
-
-                            {
-                                cart?.map((item, index) => {
-
-                                    return <div className='row second-text' key={index}>
-                                        <div className='col'>
-                                            <div className='img-box mx-auto'>
-                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products[0].images[0]}`} alt='' className='img-fluid'></img>
-                                            </div>
-                                        </div>
-                                        <div className='col'>
-                                            <h4>{item.name}</h4>
-                                        </div>
-                                        <div className='col'>
-                                            <h4>$ {item.products[0].sell_price}</h4>
-                                        </div>
-                                        <div className='col'>
-                                            <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.name))}></i></h4>
-                                        </div>
-                                    </div>
-                                })
-                            }
-
-
-
-
-                        </div>
-                    </div> */}
-
                     <div className='border-line'>
                         <table className="table">
                             <thead>
@@ -90,15 +37,15 @@ const Addtocart = () => {
                                         return <tr key={index}>
                                             <th scope="row" className='second-text '>
                                                 <div className='img-box mx-auto'>
-                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products[0].images[0]}`} alt='' className='img-fluid'></img>
+                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products ? item.products[0].images[0] : item.images[0]?item.images[0]:"null"}`} alt='' className='img-fluid'></img>
                                                 </div>
                                             </th>
                                             <td className='second-text pt-4'>
-                                                <h4>{item.name}</h4>
+                                                <h4>{item.products ? item.products[0].display_name : item.display_name?item.display_name:"null"}</h4>
                                             </td>
-                                            <td className='second-text pt-4'><h4>$ {item.products[0].sell_price}</h4></td>
+                                            <td className='second-text pt-4'><h4>£ {item.products ? item.products[0].sell_price : item.sell_price?item.sell_price:0}</h4></td>
                                             <td className='second-text pt-4'>
-                                                <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.name))}></i></h4>
+                                                <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.products ? item.products[0].name : item.name?item.name:""))}></i></h4>
                                             </td>
                                         </tr>
 

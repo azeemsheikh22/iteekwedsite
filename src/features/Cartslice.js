@@ -20,14 +20,15 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addtocart: (state, action) => {
-            let find = state.cart.findIndex((item) => item.name === action.payload.name);
+            let find = state.cart.findIndex((item) => item.display_name === action.payload.display_name);
             if (find >= 0) {
                 // state.cart[find].quantity += 1;
-                console.log(state.cart.name)
+                console.log("hello")
             } else {
                 state.cart.push(action.payload);
                 console.log(find)
                 state.totalQuantity += 1;
+                console.log("hello")
 
             }
         },

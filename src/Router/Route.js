@@ -12,7 +12,7 @@ const Routelink = () => {
                 <Route path='/' element={<HomeLink />}></Route>
                 <Route path='/product-detail/:id' element={<Index />}></Route>
                 <Route path='/addtocart' element={<Addtocart />}></Route>
-                <Route path='/products' element={<Products />}></Route>
+                <Route path='/products/:id?' element={<Products />}></Route>
             </Routes>
         </div>
     )

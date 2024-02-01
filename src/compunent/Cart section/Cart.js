@@ -19,10 +19,16 @@ const Cart = () => {
 
     useEffect(() => {
         dispatch(productsdata())
-        console.log("dobara chala");
     }, []);
 
     const items = useSelector((state) => state.carts);
+
+    const pageSize = 8;
+    const page = 1;
+    const pages = Math.ceil(items.products.length / pageSize);
+
+    const pageData = items.products.slice((page * pageSize) - pageSize, page * pageSize);
+    // console.log(pageData);
 
     const handladdtocart = (e) => {
         // toast.success('🦄 Wow so easy!', {
@@ -52,10 +58,9 @@ const Cart = () => {
                 </div>
 
                 <div className='row mt-5'>
-
                     {
-                        items.products.map((item, index) => {
-                            return <div className='col-lg-3' key={index}>
+                        pageData.map((item, index) => {
+                            return <div className='col-lg-3 col-sm-6' key={index}>
                                 <div className='cart-box'>
                                     <div className='container-fluid'>
                                         <div className='row cart-img-box' onClick={() => navgate(`/product-detail/${item.products[0].urlName}`)}>
@@ -73,7 +78,7 @@ const Cart = () => {
                                                 <ToastContainer />
                                             </div>
                                             <div className='col-2 '>
-                                                <i className="fa-solid fa-eye" style={{ fontSize: "20px" }}></i>
+                                                <i className="fa-solid fa-eye" style={{ fontSize: "20px" }} onClick={() => navgate(`/product-detail/${item.products[0].urlName}`)}></i>
                                             </div>
                                         </div>
                                     </div>
@@ -81,8 +86,6 @@ const Cart = () => {
                             </div>
                         })
                     }
-
-
                 </div>
 
                 {/* <div className='row mt-5'>
