@@ -91,7 +91,7 @@ const Index = () => {
                   {
                     // productdata[0].images?
                     imgdata.map((item, index) => {
-                      return <div className='col-4' key={index}>
+                      return <div className='col-3' key={index}>
                         <div className='multi-box' onClick={() => setimgNo(index)}>
                           <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item}`} className='img-fluid' alt=''></img>
                         </div>
