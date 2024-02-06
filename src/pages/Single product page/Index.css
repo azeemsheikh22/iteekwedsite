@@ -20,7 +20,7 @@
 }
 
 .single-page-main .img-box img{
-    height: 320px;
+    height: 400px;
 }
 
 .single-page-main .multi-box{
@@ -87,6 +87,13 @@
 
 }
 
+.single-page-main .content-product .more-detail button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+}
+
 .single-page-main .related-product h1{
     font-size: 2rem;
     font-weight: 600;
@@ -105,6 +112,11 @@
 
 .single-page-main .related-product .related-img-box img{
     height: 170px;
+    transition: 0.2s ease;
+}
+
+.single-page-main .related-product .related-img-box img:hover{
+    transform: scale(1.2);
 }
 
 .single-page-main .related-product h3{

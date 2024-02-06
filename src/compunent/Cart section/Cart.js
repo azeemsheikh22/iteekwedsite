@@ -3,7 +3,7 @@ import './Cart.css'
 // import watch from '../../assiets/img/smart watches png.png'
 // import battery from '../../assiets/img/battery IPHOne.png'
 // import phone from '../../assiets/img/iphones_-2-removebg-preview.png'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 // import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addtocart, productsdata } from '../../features/Cartslice'
@@ -11,6 +11,10 @@ import { useSelector } from 'react-redux'
 // import { Bounce } from 'react-toastify'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+// import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
 
 const Cart = () => {
 
@@ -28,6 +32,7 @@ const Cart = () => {
     const pages = Math.ceil(items.products.length / pageSize);
 
     const pageData = items.products.slice((page * pageSize) - pageSize, page * pageSize);
+    // const pageData = ""
     // console.log(pageData);
 
     const handladdtocart = (e) => {
@@ -50,7 +55,7 @@ const Cart = () => {
         <div className='cart-main py-3'>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-lg-2 col-6'>
+                    <div className='col-lg-3 col-6'>
                         <div className='text-line active'>
                             <h5>New Arrivals</h5>
                         </div>
@@ -59,7 +64,7 @@ const Cart = () => {
 
                 <div className='row mt-5'>
                     {
-                        pageData.map((item, index) => {
+                        pageData ? pageData.map((item, index) => {
                             return <div className='col-lg-3 col-sm-6' key={index}>
                                 <div className='cart-box'>
                                     <div className='container-fluid'>
@@ -70,11 +75,11 @@ const Cart = () => {
                                             <h4>{item.products[0].name}</h4>
                                         </div>
                                         <div className='row text-start'>
-                                            <h5>£ {item.products[0].sell_price}</h5>
+                                            <h5>€ {item.products[0].sell_price}</h5>
                                         </div>
                                         <div className='row row-icon'>
                                             <div className='col-2 text-start'>
-                                                <i className="fa-solid fa-cart-shopping" onClick={() => handladdtocart(item)}></i>
+                                                <i className="fa-solid fa-cart-shopping" onClick={() => handladdtocart(item.products[0])}></i>
                                                 <ToastContainer />
                                             </div>
                                             <div className='col-2 '>
@@ -84,197 +89,40 @@ const Cart = () => {
                                     </div>
                                 </div>
                             </div>
-                        })
+                        }) : <>
+                           <div className='col-lg-3'>
+                           <Box sx={{ mt: -12 }}>
+                                <Skeleton width="100%"height="450px" />
+                            </Box>
+                           </div>
+                           <div className='col-lg-3'>
+                           <Box sx={{ mt: -12 }}>
+                                <Skeleton width="100%"height="450px" />
+                            </Box>
+                           </div>
+                           <div className='col-lg-3'>
+                           <Box sx={{ mt: -12 }}>
+                                <Skeleton width="100%"height="450px" />
+                            </Box>
+                           </div>
+                           <div className='col-lg-3'>
+                           <Box sx={{ mt: -12 }}>
+                                <Skeleton width="100%"height="450px" />
+                            </Box>
+                           </div>
+                        </>
                     }
                 </div>
 
-                {/* <div className='row mt-5'>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box' onClick={() => navgate("/product-detail/:id")}>
-                                    <img src={watch} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping" onClick={() => dispatch(productsdata())}></i>
-                                    </div>
-                                    <div className='col-2 '>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                {pageData ? <>
+                    <div className='row mt-3 third-row'>
+                        <NavLink to="/products" style={{ color: 'rgb(57, 57, 57)', fontWeight: "bold" }}> VIEW MORE PRODUCTS </NavLink>
                     </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={battery} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </> : <>
+                    <div className='row mt-3 third-row'>
+                        <h2 style={{ color: 'rgb(57, 57, 57)', fontWeight: "bold", fontSize: "1.2rem" }}> NO PRODUCT FOUND </h2>
                     </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={phone} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={watch} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={watch} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={phone} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={battery} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-3'>
-                        <div className='cart-box'>
-                            <div className='container-fluid'>
-                                <div className='row cart-img-box'>
-                                    <img src={battery} alt='' className='img-fluid'></img>
-                                </div>
-                                <div className='row mt-3 text-start'>
-                                    <h4>Lorem ipsum accessories nine</h4>
-                                </div>
-                                <div className='row text-start'>
-                                    <h5>€3.67 - <span>€5.24</span></h5>
-                                </div>
-                                <div className='row row-icon'>
-                                    <div className='col-2 text-start'>
-                                        <i className="fa-solid fa-cart-shopping"></i>
-                                    </div>
-                                    <div className='col-2'>
-                                        <i className="fa-solid fa-eye" style={{fontSize: "20px"}}></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 
-                </div> */}
+                </>}
             </div>
         </div>
     )

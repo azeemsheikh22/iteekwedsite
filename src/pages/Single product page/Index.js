@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './Index.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
-import img0 from '../../assiets/img/smart watches png.png'
-import img1 from '../../assiets/img/battery IPHOne.png'
-import img2 from '../../assiets/img/iphones_-2-removebg-preview.png'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -14,13 +11,13 @@ import Loading from '../../Loading'
 
 const Index = () => {
 
-  const img = [img0, img1, img2]
+  // const img = [img0, img1, img2]
   const [imgNo, setimgNo] = useState(0)
   const [noproduct, setnoproduct] = useState(0)
   const [imgdata, setimgdata] = useState([])
   const [loadersubmit, setloadersubmit] = useState(false)
   const params = useParams();
-  // console.log(params)
+  console.log(params.id)
   const navgate = useNavigate("")
   const dispatch = useDispatch();
 
@@ -36,13 +33,18 @@ const Index = () => {
     setloadersubmit(true)
     axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
       .then((res) => {
-        console.warn(res.data)
+        console.warn("singleproduct", res.data)
         setproductdata(res.data)
         setimgdata(res.data[noproduct].images)
         setloadersubmit(false)
       }).catch((e) => {
-        console.log(e)
-        // setloadersubmit(false)
+        if (e.message === "Network Error") {
+          console.log("Network Error")
+
+        } else {
+          setloadersubmit(false)
+          console.log("singleproduct", e)
+        }
         // navgate("/")
       })
   };
@@ -60,9 +62,10 @@ const Index = () => {
         console.warn(res.data)
         setproductdata(res.data)
         setimgdata(res.data[value].images)
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         // setloadersubmit(false)
       }).catch((e) => {
-        console.log(e)
+        console.log("related product error")
         // setloadersubmit(false)
         // navgate("/")
       })
@@ -120,6 +123,7 @@ const Index = () => {
                       <h3>{item.name}</h3>
                     </div>
                     <div className='col-6'>
+                      {/* <button style={{ background: item.option_index.option2 }}></button> */}
                       <h3>{item.option_index.option}</h3>
                     </div>
                   </div>
@@ -159,10 +163,10 @@ const Index = () => {
                         <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.images[0]}`} className='img-fluid' alt=''></img>
                       </div>
                       <div className='row mt-3 px-4'>
-                          <h3>{item.display_name}</h3>
+                        <h3>{item.display_name}</h3>
                       </div>
                       <div className='row mt-1'>
-                          <h4>£ {item.sell_price}</h4>
+                        <h4>€ {item.sell_price}</h4>
                       </div>
                     </div>
                   }) : ""

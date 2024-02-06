@@ -56,10 +56,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .addtocart-main .border-line .second-text .img-box img {
     height: 80px;
+    transition: 0.2s ease-in;
+}
+
+.addtocart-main .border-line .second-text .img-box img:hover {
+    transform: scale(1.3);
 }
 
 .addtocart-main .border-line .second-text h4 {

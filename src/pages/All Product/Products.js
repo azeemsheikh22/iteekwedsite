@@ -3,11 +3,12 @@ import './Products.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { addtocart } from '../../features/Cartslice'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import Loading from '../../Loading'
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 const Products = () => {
     const [Allproducts, setAllProducts] = useState([]);
@@ -21,23 +22,8 @@ const Products = () => {
     const navgate = useNavigate("")
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-        if (params.id) {
-            axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/category/${params.id}`)
-                .then((res) => {
-                    console.log(res.data)
-                    setAllProducts(res.data)
-                }).catch((e) => {
-                    console.log(e)
-                })
-        } else {
-            getdata();
-
-        }
+        getdata();
     }, []);
-
-
-
-
 
     const getdata = () => {
         setloadersubmit(true)
@@ -69,13 +55,10 @@ const Products = () => {
     const searchfilter = (e) => {
         const value = e.target.value.toLowerCase();
         let filteredData = [];
-
-        // Check if Allproducts is an array before filtering
         if (Array.isArray(item)) {
             filteredData = item.filter((product) =>
                 product.name.toLowerCase().includes(value)
             );
-
             setAllProducts(filteredData)
         }
 
@@ -86,35 +69,36 @@ const Products = () => {
         setSelectedValue(event.target.value);
         const value = event.target.value;
         // console.log(event.target.value);
-
         axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/category/${value}`)
             .then((res) => {
-                // console.log(res.data)
+                console.log(res.data)
                 setAllProducts(res.data)
             }).catch((e) => {
                 console.log(e)
             })
     };
 
-    // const handleallCategoryFilter = (event) => {
-    //     const value = event.target.value;
-    //     setallValue(value)
-    //     console.warn("hello")
-    //     getdata()
-
-    // }
-
-    if (loadersubmit) {
-        return (
-            <Loading />
-        )
+    const clearfilter = () => {
+        setSelectedValue("")
+        getdata()
     }
+
+    // if (loadersubmit) {
+    //     return (
+    //         <Loading />
+    //     )
+    // }
 
 
     return (
         <div>
             <Navbar />
             <div className='product-main'>
+                <div className='top-header mt-5'>
+                    <NavLink to="/" style={{ textDecoration: "none", color: "#5B5858", fontWeight: "500" }}>HOME</NavLink>
+                    <a className='mx-2'>/</a>
+                    <a>SHOP</a>
+                </div>
                 <div className='container my-5'>
                     <div className='row'>
 
@@ -133,8 +117,29 @@ const Products = () => {
                                 </div>
 
                                 <div className='row g-0 mt-3 mb-3'>
+                                    <div className='col-12 mb-1 category-check'>
+                                        <a onClick={clearfilter}>All Categories</a>
+                                    </div>
                                     {
-                                        categorydata ? categorydata.map((item, index) => {
+                                        loadersubmit ? <>
+                                            <div className='col-lg-12 col-12 col-sm-4'>
+                                                <Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box>
+                                                <Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box>
+                                                <Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box><Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box><Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box><Box sx={{}}>
+                                                    <Skeleton width="100%" height="60px" />
+                                                </Box>
+                                            </div>
+                                        </> : categorydata.map((item, index) => {
                                             return <div className="col-lg-12 col-12 col-sm-4 mb-1 category-check gap-2" key={index}>
                                                 <input className="form-check-input" type="radio" onChange={handleCategoryFilter} name="flexRadioDefault" id="flexRadioDefault3" value={item.urlName}
                                                     checked={selectedValue === item.urlName} />
@@ -142,36 +147,8 @@ const Products = () => {
                                                     {item.name}
                                                 </label>
                                             </div>
-                                        }) : ""
+                                        })
                                     }
-
-
-                                    {/* <div className="col-lg-12 col-6 mb-1 category-check gap-2">
-                                        <input className="form-check-input" type="radio" onChange={handleCategoryFilter} name="flexRadioDefault" id="flexRadioDefault1" value="accessories"
-                                            checked={selectedValue === 'accessories'} />
-                                        <label className="form-check-label" for="flexRadioDefault1">
-                                            Accessories
-                                        </label>
-                                    </div>
-
-                                    <div className="col-lg-12 col-6 mb-1 category-check gap-2">
-                                        <input className="form-check-input" type="radio" onChange={handleCategoryFilter} name="flexRadioDefault" id="flexRadioDefault2"
-                                            value="cable"
-                                            checked={selectedValue === 'cable'} />
-                                        <label className="form-check-label" for="flexRadioDefault2">
-                                            Cable
-                                        </label>
-
-                                    </div>
-                                    <div className="col-lg-12 col-6 mb-1 category-check gap-2">
-                                        <input className="form-check-input" type="radio" onChange={handleCategoryFilter} name="flexRadioDefault" id="flexRadioDefault2"
-                                            value="incell-lcds"
-                                            checked={selectedValue === 'incell-lcds'} />
-                                        <label className="form-check-label" for="flexRadioDefault2">
-                                            Incell LCDS
-                                        </label>
-
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -179,9 +156,44 @@ const Products = () => {
 
                         <div className='col-lg col-sm-12'>
                             <div className='container-fluid'>
+                                <div className='row show-no mb-2 text-start'>
+                                    <h4>Showing {Allproducts.length} result</h4>
+                                </div>
                                 <div className='row height-product'>
-                                    {Allproducts ?
-                                        Allproducts.map((item, index) => {
+                                    {loadersubmit ?
+                                        <>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                            <div className='col-lg-4 col-sm-6'>
+                                                <Box sx={{ mt: -12 }}>
+                                                    <Skeleton width="100%" height="450px" />
+                                                </Box>
+                                            </div>
+                                        </>
+                                        : Allproducts.map((item, index) => {
                                             return <div className='col-lg-4 col-sm-6' key={index}>
                                                 <div className='cart-box'>
                                                     <div className='container-fluid'>
@@ -192,7 +204,7 @@ const Products = () => {
                                                             <h4>{item.products ? item.products[0].name : item.product.name}</h4>
                                                         </div>
                                                         <div className='row text-start'>
-                                                            <h5>£ {item.products ? item.products[0].sell_price : item.product.sell_price}</h5>
+                                                            <h5>€ {item.products ? item.products[0].sell_price : item.product.sell_price}</h5>
                                                         </div>
                                                         <div className='row row-icon'>
                                                             <div className='col-2 text-start'>
@@ -206,7 +218,6 @@ const Products = () => {
                                                 </div>
                                             </div>
                                         })
-                                        : ""
                                     }
 
                                 </div>

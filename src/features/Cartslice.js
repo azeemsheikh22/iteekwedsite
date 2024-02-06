@@ -6,8 +6,15 @@ export const productsdata = createAsyncThunk("cartdata", async () => {
     return result;
 })
 
+export const categoriesdata = createAsyncThunk("cartdata", async () => {
+    const response = await fetch("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled");
+    const result = await response.json(); // await the JSON parsing
+    return result;
+})
+
 const initialState = {
     products: [],
+    category: [],
     cart: [],
     totalQuantity: 0,
     totalprice: 0,
@@ -20,7 +27,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addtocart: (state, action) => {
-            let find = state.cart.findIndex((item) => item.display_name === action.payload.display_name);
+            let find = state.cart.findIndex((item) => item._id === action.payload._id);
             if (find >= 0) {
                 // state.cart[find].quantity += 1;
                 console.log("hello")
@@ -51,7 +58,9 @@ const cartSlice = createSlice({
             .addCase(productsdata.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message; // assuming you want to capture the error message
-            });
+            })
+
+            
     }
 });
 

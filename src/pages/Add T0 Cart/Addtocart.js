@@ -2,15 +2,15 @@ import React from 'react'
 import './Addtocart.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
-// import watch from '../../assiets/img/smart watches png.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeItem } from '../../features/Cartslice'
+import { useNavigate } from 'react-router-dom'
 
 
 const Addtocart = () => {
 
     const { cart, totalQuantity, totalprice } = useSelector((state) => state.carts);
-
+    const navgate = useNavigate("")
     const dispatch = useDispatch();
 
     return (
@@ -37,13 +37,13 @@ const Addtocart = () => {
                                         return <tr key={index}>
                                             <th scope="row" className='second-text '>
                                                 <div className='img-box mx-auto'>
-                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products ? item.products[0].images[0] : item.images[0]?item.images[0]:"null"}`} alt='' className='img-fluid'></img>
+                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products ? item.products[0].images[0] : item.images[0]?item.images[0]:"null"}`} alt='' className='img-fluid' onClick={() => navgate(`/product-detail/${item.urlName}`)}></img>
                                                 </div>
                                             </th>
                                             <td className='second-text pt-4'>
-                                                <h4>{item.products ? item.products[0].display_name : item.display_name?item.display_name:"null"}</h4>
+                                                <h4>{item.display_name ? item.display_name : item.name?item.name:"null"}</h4>
                                             </td>
-                                            <td className='second-text pt-4'><h4>£ {item.products ? item.products[0].sell_price : item.sell_price?item.sell_price:0}</h4></td>
+                                            <td className='second-text pt-4'><h4>€ {item.products ? item.products[0].sell_price : item.sell_price?item.sell_price:0}</h4></td>
                                             <td className='second-text pt-4'>
                                                 <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.products ? item.products[0].name : item.name?item.name:""))}></i></h4>
                                             </td>

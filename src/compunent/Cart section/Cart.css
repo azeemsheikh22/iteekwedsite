@@ -87,3 +87,9 @@
     color: #407a17;
     cursor: pointer;
 }
+
+.cart-box .third-row .bottom-text{
+    text-decoration: none;
+    color: rgb(57, 57, 57);
+    font-size: 2rem;
+}

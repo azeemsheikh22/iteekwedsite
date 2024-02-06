@@ -81,13 +81,42 @@
 }
 
 .product-main .side-content .category-check label{
-    font-size: 1.1rem;
-    color: rgb(89, 88, 88);
+    font-size: 1rem;
+    color: rgb(49, 48, 48);
     cursor: pointer;
 }
+.product-main .side-content .category-check a{
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: rgb(108, 107, 107);
+}
+
+/* .product-main .side-content .category-check a:hover{
+
+} */
 
 .product-main .height-product{
     height: 100vh;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.product-main .top-header{
+    width: 100%;
+    height: 14vh;
+    background: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-main .top-header a{
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.product-main .show-no h4{
+    font-size: 1rem;
 }
