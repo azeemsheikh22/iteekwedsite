@@ -4,8 +4,8 @@ import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
 import axios from 'axios'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { addtocart } from '../../features/Cartslice'
-import { useDispatch } from 'react-redux'
+import { addtocart, productsdata } from '../../features/Cartslice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
@@ -20,24 +20,29 @@ const Products = () => {
     const dispatch = useDispatch();
     const params = useParams();
     const navgate = useNavigate("")
+
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+        dispatch(productsdata())
         getdata();
     }, []);
 
+    const items = useSelector((state) => state.carts);
+
     const getdata = () => {
         setloadersubmit(true)
-        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/similar/products")
-            .then((res) => {
-                // console.warn(res.data)
-                setAllProducts(res.data)
-                setitem(res.data)
+        // axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/similar/products")
+        //     .then((res) => {
+        //         console.warn(res.data)
+        //         setAllProducts(res.data)
+                setitem(items.products)
                 setloadersubmit(false)
-            }).catch((e) => {
-                console.log(e)
-                setloadersubmit(false)
+        //     }).catch((e) => {
+        //         console.log(e)
+        //         setloadersubmit(false)
 
-            })
+        //     })
+        setAllProducts(items.products)
 
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled")
             .then((res) => {
@@ -122,7 +127,7 @@ const Products = () => {
                                     </div>
                                     {
                                         loadersubmit ? <>
-                                            <div className='col-lg-12 col-12 col-sm-4'>
+                                            <div className='col-lg-12 col-12 col-sm-6'>
                                                 <Box sx={{}}>
                                                     <Skeleton width="100%" height="60px" />
                                                 </Box>
@@ -140,7 +145,7 @@ const Products = () => {
                                                 </Box>
                                             </div>
                                         </> : categorydata.map((item, index) => {
-                                            return <div className="col-lg-12 col-12 col-sm-4 mb-1 category-check gap-2" key={index}>
+                                            return <div className="col-lg-12 col-12 col-sm-6 mb-1 category-check gap-2" key={index}>
                                                 <input className="form-check-input" type="radio" onChange={handleCategoryFilter} name="flexRadioDefault" id="flexRadioDefault3" value={item.urlName}
                                                     checked={selectedValue === item.urlName} />
                                                 <label className="form-check-label" for="flexRadioDefault3">

@@ -11,6 +11,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const { totalQuantity } = useSelector((state) => state.carts);
+    const token = localStorage.getItem("usertoken")
 
     const dispatch = useDispatch();
     // useEffect(() => {
@@ -40,18 +41,34 @@ const Navbar = () => {
                                 <NavLink to="/contact" className="nav-link" aria-current="page" >Contact Us</NavLink>
                             </li>
                         </ul>
-
+                        <i className=""></i>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <i class="fa-regular fa-circle-user nav-link"></i>
+                                <div className="dropdown">
+                                    <i className="fa-regular fa-circle-user nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                    </i>
+                                    <ul className="dropdown-menu">
+                                        {
+                                            token ? <>
+                                                <li><a className="dropdown-item" href="#" onClick={() => {
+                                                    localStorage.clear()
+                                                }}>Logout</a></li>
+                                                <li><a className="dropdown-item" href="#">Profile</a></li>
+                                            </>:<>
+                                            <li><NavLink className="dropdown-item" to="/login">Login</NavLink></li>
+                                        <li><NavLink className="dropdown-item" to="/register">Register</NavLink></li>
+                                            </>
+                                        }
+                                        
+                                       
+                                    </ul>
+                                </div>
+
                             </li>
-                            {/* <li className="nav-item">
-                                <i class="fa-regular fa-heart nav-link"></i>
-                            </li> */}
+
                             <li className="nav-item d-flex justify-content-center">
-                                <i class="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
-                                {/* <sup> {totalQuantity} </sup> */}
-                                {/* <span>23</span> */}
+                                <i className="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
                                 </i>
                                 <span className="cart-counter">{totalQuantity}</span>
                             </li>

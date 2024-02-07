@@ -22,7 +22,7 @@ const Topsale = () => {
     const getdata = () => {
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/orders/top-selling")
             .then((res) => {
-                console.log("top sale",res.data)
+                // console.log("top sale",res.data)
                 const pageSize = 8;
                 const page = 1;
                 const pages = Math.ceil(res.data.length / pageSize);

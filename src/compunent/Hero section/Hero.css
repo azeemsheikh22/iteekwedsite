@@ -36,3 +36,13 @@
     cursor: pointer;
 }
 
+.hero-main .banner-box{
+    width: 100%;
+    height: 70vh;
+    background-color: #F6F6F6;
+}
+
+.hero-main .slider-card .banner-box img{
+    height: 32rem;
+}
+

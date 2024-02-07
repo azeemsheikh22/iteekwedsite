@@ -1,25 +1,21 @@
 import React, { useEffect } from 'react'
 import './Cart.css'
-// import watch from '../../assiets/img/smart watches png.png'
-// import battery from '../../assiets/img/battery IPHOne.png'
-// import phone from '../../assiets/img/iphones_-2-removebg-preview.png'
 import { NavLink, useNavigate } from 'react-router-dom'
-// import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addtocart, productsdata } from '../../features/Cartslice'
 import { useSelector } from 'react-redux'
-// import { Bounce } from 'react-toastify'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-// import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
+import axios from 'axios'
 
 const Cart = () => {
 
     const navgate = useNavigate("")
     const dispatch = useDispatch();
+    const userId = localStorage.getItem("userid")
+    const token = localStorage.getItem("usertoken")
 
     useEffect(() => {
         dispatch(productsdata())
@@ -33,21 +29,26 @@ const Cart = () => {
 
     const pageData = items.products.slice((page * pageSize) - pageSize, page * pageSize);
     // const pageData = ""
-    // console.log(pageData);
+    // console.log("pagedata",pageData);
 
     const handladdtocart = (e) => {
-        // toast.success('🦄 Wow so easy!', {
-        //     position: "bottom-left",
-        //     autoClose: 1000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        //     theme: "light",
-        //     transition: Bounce,
-        // });
-        dispatch(addtocart(e))
+        console.log("cartss", e)
+        if (userId) {
+            dispatch(addtocart(e))
+            axios.post(`https://iteekapi.doctorsforhealth.co.uk/api/v1/carts/${userId}`,{product:e._id,qty:1,sell_price:e.sell_price}, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }).then((res) => {
+                console.log(res)
+            }).catch((e) => {
+                console.log(e)
+            })
+
+        } else {
+            dispatch(addtocart(e))
+
+        }
     }
 
 
@@ -64,7 +65,7 @@ const Cart = () => {
 
                 <div className='row mt-5'>
                     {
-                        pageData ? pageData.map((item, index) => {
+                        pageData.length >= 1 ? pageData.map((item, index) => {
                             return <div className='col-lg-3 col-sm-6' key={index}>
                                 <div className='cart-box'>
                                     <div className='container-fluid'>
@@ -90,31 +91,31 @@ const Cart = () => {
                                 </div>
                             </div>
                         }) : <>
-                           <div className='col-lg-3'>
-                           <Box sx={{ mt: -12 }}>
-                                <Skeleton width="100%"height="450px" />
-                            </Box>
-                           </div>
-                           <div className='col-lg-3'>
-                           <Box sx={{ mt: -12 }}>
-                                <Skeleton width="100%"height="450px" />
-                            </Box>
-                           </div>
-                           <div className='col-lg-3'>
-                           <Box sx={{ mt: -12 }}>
-                                <Skeleton width="100%"height="450px" />
-                            </Box>
-                           </div>
-                           <div className='col-lg-3'>
-                           <Box sx={{ mt: -12 }}>
-                                <Skeleton width="100%"height="450px" />
-                            </Box>
-                           </div>
+                            <div className='col-lg-3'>
+                                <Box sx={{ mt: -12 }}>
+                                    <Skeleton width="100%" height="450px" />
+                                </Box>
+                            </div>
+                            <div className='col-lg-3'>
+                                <Box sx={{ mt: -12 }}>
+                                    <Skeleton width="100%" height="450px" />
+                                </Box>
+                            </div>
+                            <div className='col-lg-3'>
+                                <Box sx={{ mt: -12 }}>
+                                    <Skeleton width="100%" height="450px" />
+                                </Box>
+                            </div>
+                            <div className='col-lg-3'>
+                                <Box sx={{ mt: -12 }}>
+                                    <Skeleton width="100%" height="450px" />
+                                </Box>
+                            </div>
                         </>
                     }
                 </div>
 
-                {pageData ? <>
+                {pageData >= 1 ? <>
                     <div className='row mt-3 third-row'>
                         <NavLink to="/products" style={{ color: 'rgb(57, 57, 57)', fontWeight: "bold" }}> VIEW MORE PRODUCTS </NavLink>
                     </div>

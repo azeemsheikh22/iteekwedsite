@@ -13,6 +13,7 @@ import Loading from '../../Loading';
 import Box from '@mui/material/Box';
 // import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
+import img1 from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
 
 const Hero = () => {
 
@@ -48,8 +49,8 @@ const Hero = () => {
 
     return (
         <div className='hero-main'>
-            <div className='container'>
-                <div className='row slider-card'>
+            <div className='container-fluid'>
+                <div className='row slider-card px-lg-5'>
                     {
                         loadersubmit ? <>
                             <div className='col-12'>
@@ -85,10 +86,10 @@ const Hero = () => {
                                         },
                                     }}
                                     navigation={true}
-                                    modules={[Autoplay, Pagination, Navigation]}
+                                    modules={[Autoplay, Navigation]}
                                     className="mySwiper"
                                 >
-
+                                    {/* 
                                     {
                                         sliderimg.map((item, index) => {
                                             return <SwiperSlide className='' key={index}>
@@ -103,7 +104,21 @@ const Hero = () => {
                                                 </div>
                                             </SwiperSlide>
                                         })
-                                    }
+                                    } */}
+
+                                    <SwiperSlide>
+                                        <div className='banner-box'>
+                                            <div className='container'>
+                                                <div className='row'>
+                                                    <div className='col-lg-6'></div>
+                                                    <div className='col-lg-6'>
+                                                        <img src={img1} className='img-fluid'></img>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                    
 
                                 </Swiper>
                             </div>

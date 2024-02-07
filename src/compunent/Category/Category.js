@@ -42,7 +42,7 @@ const Category = (props) => {
                 <div className='row '>
                     {
                         categorydata.length >= 1? <>
-                            <div className='col-lg-4 col-sm-6 mb-3'>
+                            <div className='col-lg-4 col-sm-12 mb-3'>
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
@@ -52,7 +52,7 @@ const Category = (props) => {
                                                         <h3>{categorydata[0] ? categorydata[0].name : ""}</h3>
                                                     </div>
 
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>
@@ -60,14 +60,14 @@ const Category = (props) => {
 
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
+                                            <div className='col-7' style={{overflow: "hidden"}}>
                                                 <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[0] ? categorydata[0].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-lg-4 col-sm-6 mb-3'>
+                            <div className='col-lg-4 col-sm-12 mb-3'>
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
@@ -76,7 +76,7 @@ const Category = (props) => {
                                                     <div className='row'>
                                                         <h3>{categorydata[1] ? categorydata[1].name : ""}</h3>
                                                     </div>
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>
@@ -101,7 +101,7 @@ const Category = (props) => {
                                                         <h3>{categorydata[2] ? categorydata[2].name : ""}</h3>
                                                     </div>
 
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>

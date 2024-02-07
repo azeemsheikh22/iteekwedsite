@@ -35,6 +35,7 @@
 
 .nav-main .navbar .nav-item .active{
     color: #39792C;
+    background-color: white;
 }
 
 .nav-main .navbar .cart-counter{

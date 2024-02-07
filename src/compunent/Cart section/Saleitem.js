@@ -23,7 +23,7 @@ const Saleitem = () => {
     const getdata = () => {
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/sale/items")
             .then((res) => {
-                console.warn("sell items", res.data)
+                // console.warn("sell items", res.data)
                 setsellproduct(res.data)
                 setproductfound(res.data[0].name)
             }).catch((e) => {

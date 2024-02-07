@@ -35,7 +35,7 @@ const Category2 = (props) => {
 
                     {
                         categorydata.length >= 1 ? <>
-                            <div className='col-lg-4 col-sm-6 mb-3'>
+                            <div className='col-lg-4 col-sm-12 mb-3'>
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
@@ -45,7 +45,7 @@ const Category2 = (props) => {
                                                         <h3>{categorydata[3] ? categorydata[3].name : ""}</h3>
                                                     </div>
 
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>
@@ -60,7 +60,7 @@ const Category2 = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-lg-4 col-sm-6 mb-3'>
+                            <div className='col-lg-4 col-sm-12 mb-3'>
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
@@ -69,7 +69,7 @@ const Category2 = (props) => {
                                                     <div className='row'>
                                                         <h3>{categorydata[4] ? categorydata[4].name : ""}</h3>
                                                     </div>
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>
@@ -94,7 +94,7 @@ const Category2 = (props) => {
                                                         <h3>{categorydata[5] ? categorydata[5].name : ""}</h3>
                                                     </div>
 
-                                                    <div className='row mt-3'>
+                                                    <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
                                                             <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                         </div>

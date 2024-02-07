@@ -12,7 +12,7 @@
 
 .Category-main .category-cart{
     background-color: #F6F6F6;
-    height: 200px;
+    height: 210px;
     /* border-radius: 2px; */
     overflow: hidden;
     /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
@@ -31,12 +31,14 @@
 .Category-main .category-cart .cart-text h3{
     color: #915342;
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .Category-main .category-cart img{
-    height: 150px;
+    height: 220px;
     transition: 0.3s ease-in;
+    
+    transform: rotate(10deg);
 }
 .Category-main .category-cart img:hover{
     transform: scale(1.2);
