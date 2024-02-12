@@ -4,11 +4,12 @@ import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
 import axios from 'axios'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { addtocart, productsdata } from '../../features/Cartslice'
+import { addtocart } from '../../features/Cartslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import { productsdata } from '../../features/Cartslice'
 
 const Products = () => {
     const [Allproducts, setAllProducts] = useState([]);
@@ -25,24 +26,25 @@ const Products = () => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         dispatch(productsdata())
         getdata();
-    }, []);
+    },[]);
 
-    const items = useSelector((state) => state.carts);
+    const items = useSelector((state) => state.carts.products);
 
     const getdata = () => {
-        setloadersubmit(true)
-        // axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/similar/products")
+        // setloadersubmit(true)
+        // axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/e-commerce/products")
         //     .then((res) => {
         //         console.warn(res.data)
         //         setAllProducts(res.data)
-                setitem(items.products)
+                setitem(items)
+                // setitem(res.data)
                 setloadersubmit(false)
-        //     }).catch((e) => {
-        //         console.log(e)
-        //         setloadersubmit(false)
+            // }).catch((e) => {
+            //     console.log(e)
+            //     setloadersubmit(false)
 
-        //     })
-        setAllProducts(items.products)
+            // })
+        setAllProducts(items)
 
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled")
             .then((res) => {
@@ -59,10 +61,11 @@ const Products = () => {
 
     const searchfilter = (e) => {
         const value = e.target.value.toLowerCase();
+        console.warn(item)
         let filteredData = [];
         if (Array.isArray(item)) {
             filteredData = item.filter((product) =>
-                product.name.toLowerCase().includes(value)
+                product.products[0].name.toLowerCase().includes(value)
             );
             setAllProducts(filteredData)
         }
@@ -99,7 +102,7 @@ const Products = () => {
         <div>
             <Navbar />
             <div className='product-main'>
-                <div className='top-header mt-5'>
+                <div className='top-header mt-2'>
                     <NavLink to="/" style={{ textDecoration: "none", color: "#5B5858", fontWeight: "500" }}>HOME</NavLink>
                     <a className='mx-2'>/</a>
                     <a>SHOP</a>
@@ -126,7 +129,7 @@ const Products = () => {
                                         <a onClick={clearfilter}>All Categories</a>
                                     </div>
                                     {
-                                        loadersubmit ? <>
+                                        Allproducts === 0 ? <>
                                             <div className='col-lg-12 col-12 col-sm-6'>
                                                 <Box sx={{}}>
                                                     <Skeleton width="100%" height="60px" />

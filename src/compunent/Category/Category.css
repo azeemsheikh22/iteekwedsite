@@ -35,13 +35,15 @@
 }
 
 .Category-main .category-cart img{
-    height: 220px;
+    height: 210px;
     transition: 0.3s ease-in;
-    
-    transform: rotate(10deg);
+    width: 220px;
+    transform: scale(1.2);
+
+    /* transform: rotate(10deg); */
 }
 .Category-main .category-cart img:hover{
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 .Category-main .category-cart .cart-text .circle-box{

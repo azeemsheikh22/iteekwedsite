@@ -4,6 +4,9 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import head2 from '../../assiets/img/headphone2.png'
+import mobile from '../../assiets/img/mobile.png'
+import console from '../../assiets/img/console.png'
 
 const Category2 = (props) => {
 
@@ -35,81 +38,93 @@ const Category2 = (props) => {
 
                     {
                         categorydata.length >= 1 ? <>
-                            <div className='col-lg-4 col-sm-12 mb-3'>
-                                <div className='category-cart'>
-                                    <div className='container'>
-                                        <div className='row'>
-                                            <div className='col-5 cart-text'>
-                                                <div className='container'>
-                                                    <div className='row'>
-                                                        <h3>{categorydata[3] ? categorydata[3].name : ""}</h3>
-                                                    </div>
+                    <div className='col-lg-4 col-sm-12 mb-3'>
+                        <div className='category-cart'>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className='col cart-text'>
+                                        <div className='container'>
+                                            <div className='row'>
+                                                <h3>{categorydata[3] ? categorydata[3].name : ""}</h3>
+                                            </div>
 
-                                                    <div className='row mt-2'>
-                                                        <div className='circle-box mx-auto'>
-                                                            <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
-                                                        </div>
-                                                    </div>
-
+                                            <div className='row mt-2'>
+                                                <div className='circle-box mx-auto'>
+                                                    <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
-                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[3] ? categorydata[3].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
-                                            </div>
+
                                         </div>
                                     </div>
+                                    <div className='col' style={{ transform: "scale(1.1)" }}>
+                                        <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[3] ? categorydata[3].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
+                                    </div>
+
+                                    {/* <div className='col' style={{ transform: "scale(1.1)" }}>
+                                        <img src={console} alt='' className='imgluid' onClick={() => navgate("/products")}></img>
+                                    </div> */}
                                 </div>
                             </div>
-                            <div className='col-lg-4 col-sm-12 mb-3'>
-                                <div className='category-cart'>
-                                    <div className='container'>
-                                        <div className='row'>
-                                            <div className='col-5 cart-text'>
-                                                <div className='container'>
-                                                    <div className='row'>
-                                                        <h3>{categorydata[4] ? categorydata[4].name : ""}</h3>
-                                                    </div>
-                                                    <div className='row mt-2'>
-                                                        <div className='circle-box mx-auto'>
-                                                            <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
-                                                        </div>
-                                                    </div>
-
+                        </div>
+                    </div>
+                    <div className='col-lg-4 col-sm-12 mb-3'>
+                        <div className='category-cart'>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className='col cart-text'>
+                                        <div className='container'>
+                                            <div className='row'>
+                                                <h3>{categorydata[4] ? categorydata[4].name : ""}</h3>
+                                            </div>
+                                            <div className='row mt-2'>
+                                                <div className='circle-box mx-auto'>
+                                                    <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
-                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[4] ? categorydata[4].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
-                                            </div>
+
                                         </div>
                                     </div>
+                                    <div className='col'>
+                                        <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[4] ? categorydata[4].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
+                                    </div>
+
+                                    {/* <div className='col'>
+                                        <img src={head2} alt='' className='' onClick={() => navgate("/products")}></img>
+                                    </div> */}
                                 </div>
                             </div>
-                            <div className='col-lg-4 col-sm-12 mb-3'>
-                                <div className='category-cart'>
-                                    <div className='container'>
-                                        <div className='row'>
-                                            <div className='col-5 cart-text'>
-                                                <div className='container'>
-                                                    <div className='row'>
-                                                        <h3>{categorydata[5] ? categorydata[5].name : ""}</h3>
-                                                    </div>
+                        </div>
+                    </div>
+                    <div className='col-lg-4 col-sm-12 mb-3'>
+                        <div className='category-cart'>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className='col cart-text'>
+                                        <div className='container'>
+                                            <div className='row'>
+                                                <h3>{categorydata[5] ? categorydata[5].name : ""}</h3>
+                                            </div>
 
-                                                    <div className='row mt-2'>
-                                                        <div className='circle-box mx-auto'>
-                                                            <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
-                                                        </div>
-                                                    </div>
-
+                                            <div className='row mt-2'>
+                                                <div className='circle-box mx-auto'>
+                                                    <i class="fa-solid fa-arrow-right-long" onClick={() => navgate("/products")}></i>
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
-                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[5] ? categorydata[5].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
-                                            </div>
+
                                         </div>
                                     </div>
+                                    <div className='col' style={{ transform: "scale(1.1)" }}>
+                                        <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[5] ? categorydata[5].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
+                                    </div>
+
+                                    {/* <div className='col' style={{ transform: "scale(1.1)" }}>
+                                        <img src={mobile} alt='' className='imgluid' onClick={() => navgate("/products")}></img>
+                                    </div> */}
                                 </div>
                             </div>
-                        </> : <>
+                        </div>
+                    </div>
+                    </> : <>
                             <div className='col-lg-4'>
                                 <Box sx={{ mt: -2 }}>
                                     <Skeleton width="100%" height="400px" />

@@ -1,16 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const productsdata = createAsyncThunk("cartdata", async () => {
-    const response = await fetch("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/similar/products");
+    const response = await fetch("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/e-commerce/products");
     const result = await response.json(); // await the JSON parsing
     return result;
 })
 
-export const categoriesdata = createAsyncThunk("cartdata", async () => {
-    const response = await fetch("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled");
-    const result = await response.json(); // await the JSON parsing
-    return result;
-})
+
 
 const initialState = {
     products: [],

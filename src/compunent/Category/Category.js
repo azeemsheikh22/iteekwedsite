@@ -4,6 +4,10 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import watch from '../../assiets/img/smart watches png.png'
+import air from '../../assiets/img/airpods.png'
+import tab from '../../assiets/img/tablet-mockup.png'
+
 
 const Category = (props) => {
 
@@ -41,16 +45,20 @@ const Category = (props) => {
             <div className='container'>
                 <div className='row '>
                     {
-                        categorydata.length >= 1? <>
+                        categorydata.length >= 1 ? <>
                             <div className='col-lg-4 col-sm-12 mb-3'>
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
-                                            <div className='col-5 cart-text'>
+                                            <div className='col cart-text'>
                                                 <div className='container'>
                                                     <div className='row'>
                                                         <h3>{categorydata[0] ? categorydata[0].name : ""}</h3>
                                                     </div>
+
+                                                    {/* <div className='row'>
+                                                        <h3>Watches</h3>
+                                                    </div> */}
 
                                                     <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
@@ -60,9 +68,13 @@ const Category = (props) => {
 
                                                 </div>
                                             </div>
-                                            <div className='col-7' style={{overflow: "hidden"}}>
+                                            <div className='col' style={{ transform: "scale(1.1)" }}>
                                                 <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[0] ? categorydata[0].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
                                             </div>
+
+                                            {/* <div className='col' style={{ transform: "scale(1.1)" }}>
+                                                <img src={watch} alt='' className='imgluid' onClick={() => navgate("/products")}></img>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -71,8 +83,11 @@ const Category = (props) => {
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
-                                            <div className='col-5 cart-text'>
+                                            <div className='col cart-text'>
                                                 <div className='container'>
+                                                    {/* <div className='row'>
+                                                        <h3>Airbuds</h3>
+                                                    </div> */}
                                                     <div className='row'>
                                                         <h3>{categorydata[1] ? categorydata[1].name : ""}</h3>
                                                     </div>
@@ -84,9 +99,13 @@ const Category = (props) => {
 
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
+                                            <div className='col' style={{ overflow: "hidden" }}>
                                                 <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[1] ? categorydata[1].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
                                             </div>
+
+                                            {/* <div className='col' style={{ overflow: "hidden" }}>
+                                                <img src={air} alt='' className='imgluid' onClick={() => navgate("/products")}></img>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -95,11 +114,15 @@ const Category = (props) => {
                                 <div className='category-cart'>
                                     <div className='container'>
                                         <div className='row'>
-                                            <div className='col-5 cart-text'>
+                                            <div className='col cart-text'>
                                                 <div className='container'>
                                                     <div className='row'>
                                                         <h3>{categorydata[2] ? categorydata[2].name : ""}</h3>
                                                     </div>
+
+                                                    {/* <div className='row'>
+                                                        <h3>Tablets</h3>
+                                                    </div> */}
 
                                                     <div className='row mt-2'>
                                                         <div className='circle-box mx-auto'>
@@ -109,29 +132,32 @@ const Category = (props) => {
 
                                                 </div>
                                             </div>
-                                            <div className='col-7'>
+                                            <div className='col' style={{ transform: "scale(1.1)" }}>
                                                 <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/images/${categorydata[2] ? categorydata[2].image : ""}`} alt='' className='img-fluid' onClick={() => navgate("/products")}></img>
                                             </div>
+                                            {/* <div className='col' style={{ transform: "scale(1.1)" }}>
+                                                <img src={tab} alt='' className='imgluid' onClick={() => navgate("/products")}></img>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </> : <>
-                        <div className='col-lg-4'>
-                                    <Box sx={{ mt: -2 }}>
-                                        <Skeleton width="100%" height="400px" />
-                                    </Box>
-                                </div>
-                                <div className='col-lg-4'>
-                                    <Box sx={{ mt: -2 }}>
-                                        <Skeleton width="100%" height="400px" />
-                                    </Box>
-                                </div>
-                                <div className='col-lg-4 col-sm-12'>
-                                    <Box sx={{ mt: -2 }}>
-                                        <Skeleton width="100%" height="400px" />
-                                    </Box>
-                                </div>
+                            <div className='col-lg-4'>
+                                <Box sx={{ mt: -2 }}>
+                                    <Skeleton width="100%" height="400px" />
+                                </Box>
+                            </div>
+                            <div className='col-lg-4'>
+                                <Box sx={{ mt: -2 }}>
+                                    <Skeleton width="100%" height="400px" />
+                                </Box>
+                            </div>
+                            <div className='col-lg-4 col-sm-12'>
+                                <Box sx={{ mt: -2 }}>
+                                    <Skeleton width="100%" height="400px" />
+                                </Box>
+                            </div>
                         </>
                     }
 

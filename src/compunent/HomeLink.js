@@ -8,6 +8,7 @@ import Topsale from './Cart section/Topsale'
 import Saleitem from './Cart section/Saleitem'
 import Category2 from './Category/Category2'
 import axios from 'axios'
+import Mostwanted from '../pages/Card slider/Mostwanted'
 
 const HomeLink = () => {
 
@@ -18,8 +19,9 @@ const HomeLink = () => {
     }, []);
 
     const getdata = () => {
-        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled")
+        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/sequence-maintained")
             .then((res) => {
+                console.warn(res.data)
                 setcategorydata(res.data)
             }).catch((e) => {
                 console.log(e)
@@ -31,11 +33,12 @@ const HomeLink = () => {
         <div>
             <Navbar />
             <Hero />
-            <Category categorydata={categorydata} />
-            <Cart />
+            <Mostwanted/>
+            {/* <Category categorydata={categorydata} /> */}
+            {/* <Cart />
             <Topsale />
             <Category2 categorydata={categorydata} />
-            <Saleitem />
+            <Saleitem /> */}
             <Footer />
         </div>
     )

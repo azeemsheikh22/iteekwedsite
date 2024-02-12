@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import axios from 'axios'
+import ipad2 from '../../assiets/img/ipad2.png'
 
 const Cart = () => {
 
@@ -29,7 +30,7 @@ const Cart = () => {
 
     const pageData = items.products.slice((page * pageSize) - pageSize, page * pageSize);
     // const pageData = ""
-    // console.log("pagedata",pageData);
+    console.log("pagedata",items);
 
     const handladdtocart = (e) => {
         console.log("cartss", e)
@@ -66,11 +67,12 @@ const Cart = () => {
                 <div className='row mt-5'>
                     {
                         pageData.length >= 1 ? pageData.map((item, index) => {
-                            return <div className='col-lg-3 col-sm-6' key={index}>
+                            return <div className='col-lg-3 col-sm-6' key={item.products[0]._id}>
                                 <div className='cart-box'>
                                     <div className='container-fluid'>
                                         <div className='row cart-img-box' onClick={() => navgate(`/product-detail/${item.products[0].urlName}`)}>
                                             <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.products[0].images[0]}`} alt='' className='img-fluid'></img>
+                                            {/* <img src={ipad2} alt='' className='img-fluid'></img> */}
                                         </div>
                                         <div className='row mt-3 text-start'>
                                             <h4>{item.products[0].name}</h4>
@@ -115,7 +117,7 @@ const Cart = () => {
                     }
                 </div>
 
-                {pageData >= 1 ? <>
+                {pageData.length >= 1 ? <>
                     <div className='row mt-3 third-row'>
                         <NavLink to="/products" style={{ color: 'rgb(57, 57, 57)', fontWeight: "bold" }}> VIEW MORE PRODUCTS </NavLink>
                     </div>

@@ -28,7 +28,7 @@ const Addtocart = () => {
                     Authorization: `Bearer ${token}`,
                 },
             }).then((res) => {
-                console.log(res)
+                console.warn(res)
                 setcartdata(res.data.products)
             }).catch((e) => {
                 console.log(e)
@@ -62,13 +62,13 @@ const Addtocart = () => {
                                         return <tr key={index}>
                                             <th scope="row" className='second-text '>
                                                 <div className='img-box mx-auto'>
-                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.id.images[0]?item.id.images[0]:""}`} alt='' className='img-fluid' onClick={() => navgate(`/product-detail/${item.id.urlName}`)}></img>
+                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.id?item.id.images[0]:"null"}`} alt='' className='img-fluid' onClick={() => navgate(`/product-detail/${item.id.urlName}`)}></img>
                                                 </div>
                                             </th>
                                             <td className='second-text pt-4'>
-                                                <h4>{item.id.display_name ?item.id.display_name : "null"}</h4>
+                                                <h4>{item.id ?item.id.display_name : "null"}</h4>
                                             </td>
-                                            <td className='second-text pt-4'><h4>€ {item.id.sell_price ? item.id.sell_price : ""}</h4></td>
+                                            <td className='second-text pt-4'><h4>€ {item.id ? item.id.sell_price : ""}</h4></td>
                                             <td className='second-text pt-4'>
                                                 <h4><i className="fa-solid fa-xmark" onClick={() => dispatch(removeItem(item.products ? item.products[0].name : item.name ? item.name : ""))}></i></h4>
                                             </td>

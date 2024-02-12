@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Index.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { addtocart } from '../../features/Cartslice'
@@ -74,8 +74,14 @@ const Index = () => {
   return (
     <div>
       <Navbar />
-      <div className='single-page-main py-4'>
-        <div className='container mt-4 mb-4'>
+      <div className='single-page-main '>
+
+        <div className='top-header mt-2'>
+          <NavLink to="/" style={{ textDecoration: "none", color: "#5B5858", fontWeight: "500" }}>HOME</NavLink>
+          <a className='mx-2'>/</a>
+          <a>SHOP PRODUCT</a>
+        </div>
+        <div className='container mt-5 mb-4'>
           <div className='row'>
             <div className='col-lg-6'>
               <div className='container-fluid'>

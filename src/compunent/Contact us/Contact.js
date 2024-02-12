@@ -9,7 +9,7 @@ const Contact = () => {
         <div>
             <Navbar />
             <div className='contact-main'>
-                <div className='top-header mt-5'>
+                <div className='top-header mt-2'>
                     <NavLink to="/" style={{ textDecoration: "none", color: "#5B5858", fontWeight: "500" }}>HOME</NavLink>
                     <a className='mx-2'>/</a>
                     <a>CONTACT</a>
