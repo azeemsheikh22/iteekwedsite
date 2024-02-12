@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.topseller-main{
+    background: #F9F9F9;
+    width: 100%;
+    height: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.topseller-main h2{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    /* font-weight: 500; */
+}
+
+.topseller-main h2 span{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #121212;
+    letter-spacing: 0px;
+}
+
+.topseller-main .card-main .card-1{
+    min-height: 45vh;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.topseller-main .card-main .card-1:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.topseller-main .card-main .card-1 .img-box{
+    /* background-color: black; */
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topseller-main .card-main .card-1 img{
+    height: 200px;
+    width: 250px;
+}
+
+.topseller-main .card-main .card-1 h3{
+    font-size: 1.1rem;
+    color: #121212;
+    font-weight: 400;
+}
+
+.topseller-main .card-main .card-1 p{
+    font-size: 1rem;
+    color: #767474;
+    
+}
+

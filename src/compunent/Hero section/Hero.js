@@ -34,7 +34,7 @@ const Hero = () => {
     const [sliderimg, setsliderimg] = useState([])
 
     const getdata = () => {
-        // setloadersubmit(true)
+        setloadersubmit(true)
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders")
             .then((res) => {
                 // console.warn(res.data)

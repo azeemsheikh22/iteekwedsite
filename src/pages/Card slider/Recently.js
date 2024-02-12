@@ -7,17 +7,15 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import ipad2 from '../../assiets/img/ipad2.png'
-import { useNavigate } from 'react-router-dom';
+import HEADPHONE from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
+import watch from '../../assiets/img/dsfsdfsdfsdf.png'
 
-const Mostwanted = () => {
-
-    const navigate = useNavigate();
-
+const Recently = () => {
     return (
         <div className='mostwanted-main'>
-            <div className='container py-5 px-lg-5'>
+            <div className='container py-2 pb-5 px-lg-5'>
                 <div className='row text-start mt-2'>
-                    <h2>Most wanted <span>The tech in everyone’s search bar</span></h2>
+                    <h2>Recently viewed <span>And stuff we recommend</span></h2>
                 </div>
 
                 <div className='row mt-lg-1'>
@@ -53,7 +51,7 @@ const Mostwanted = () => {
                             className="mySwiper"
                         >
                             <SwiperSlide>
-                                <div className='card-1 g-0' onClick={(() => navigate("/product-detail/:id"))}>
+                                <div className='card-1 g-0'>
                                     <div className='container py-3 px-lg-4'>
                                         <div className='row text-start'>
                                             <div className='col-lg-6 col text-center'>
@@ -62,7 +60,7 @@ const Mostwanted = () => {
                                         </div>
 
                                         <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
+                                            <img src={HEADPHONE} alt='' className='mx-auto'></img>
                                         </div>
 
                                         <div className='row text-start mt-2'>
@@ -112,7 +110,7 @@ const Mostwanted = () => {
                                         </div>
 
                                         <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
+                                            <img src={watch} alt='' className='mx-auto'></img>
                                         </div>
 
                                         <div className='row text-start mt-2'>
@@ -137,7 +135,7 @@ const Mostwanted = () => {
                                         </div>
 
                                         <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
+                                            <img src={watch} alt='' className='mx-auto'></img>
                                         </div>
 
                                         <div className='row text-start mt-2'>
@@ -187,4 +185,4 @@ const Mostwanted = () => {
     )
 }
 
-export default Mostwanted
+export default Recently

@@ -7,13 +7,15 @@ import Products from '../pages/All Product/Products'
 import Contact from '../compunent/Contact us/Contact'
 import Register from '../pages/Sign up/Register'
 import Login from '../pages/Sign up/Login'
+import Detailpage from '../pages/Single product page/detailpage'
 
 const Routelink = () => {
     return (
         <div>
             <Routes>
                 <Route path='/' element={<HomeLink />}></Route>
-                <Route path='/product-detail/:id' element={<Index />}></Route>
+                {/* <Route path='/product-detail/:id' element={<Index />}></Route> */}
+                <Route path='/product-detail/:id' element={<Detailpage/>}></Route>
                 <Route path='/addtocart' element={<Addtocart />}></Route>
                 <Route path='/products/:id?' element={<Products />}></Route>
                 <Route path='/contact' element={<Contact />}></Route>

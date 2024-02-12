@@ -9,6 +9,8 @@ import Saleitem from './Cart section/Saleitem'
 import Category2 from './Category/Category2'
 import axios from 'axios'
 import Mostwanted from '../pages/Card slider/Mostwanted'
+import Recently from '../pages/Card slider/Recently'
+import Topseller from '../pages/Card slider/Topseller'
 
 const HomeLink = () => {
 
@@ -34,6 +36,8 @@ const HomeLink = () => {
             <Navbar />
             <Hero />
             <Mostwanted/>
+            <Recently/>
+            <Topseller />
             {/* <Category categorydata={categorydata} /> */}
             {/* <Cart />
             <Topsale />
