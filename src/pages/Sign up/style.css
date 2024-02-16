@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.register-mains{
+    width: 100%;
+    min-height: 70vh;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-mains h2{
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.register-mains h3{
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: gray;
+}
+
+.register-mains .input-form input{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.register-mains .input-form input:hover{
+    border: 2px solid gray;
+    
+}
+
+.register-mains .input-form .input2{
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(181, 7, 7);
+}
+
+.register-mains .input-form p{
+    color: rgb(181, 7, 7);
+    font-size: 15px;
+}
+
+.register-mains .input-form select{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.register-mains .input-form select:hover{
+    border: 2px solid gray;
+    
+}
+
+
+
+.register-mains .input-form .input2{
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(181, 7, 7);
+}
+
+.register-mains .input-form p{
+    color: rgb(181, 7, 7);
+    font-size: 15px;
+}
+
+.register-mains  button{
+    background-color: #80E142;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.register-mains  button:hover{
+    background-color: #66c12e;
+
+}
+
+.register-mains h5{
+    cursor: pointer;
+    font-size: 1.2rem;
+}

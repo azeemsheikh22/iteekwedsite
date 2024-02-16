@@ -23,7 +23,7 @@
 
 .hero-main .slider-card .swiper-slide img {
     /* display: block; */
-    /* width: 100%; */
+    width: 100%;
     height: 60vh;
     /* object-fit: cover; */
     /* border-radius: 10px; */
@@ -52,11 +52,13 @@
 
 .hero-main .slider-card .banner-box img{
     height: 33rem;
-  
+    width: 100%;
 }
 
 .hero-main .slider-card .banner-box .img-2{
     height: 29rem;
+    width: 100%;
+
   
 }
 

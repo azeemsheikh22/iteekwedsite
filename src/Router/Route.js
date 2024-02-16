@@ -8,6 +8,8 @@ import Contact from '../compunent/Contact us/Contact'
 import Register from '../pages/Sign up/Register'
 import Login from '../pages/Sign up/Login'
 import Detailpage from '../pages/Single product page/detailpage'
+import Email from '../pages/Sign up/Email'
+import Login2 from '../pages/Sign up/Login2'
 
 const Routelink = () => {
     return (
@@ -20,8 +22,8 @@ const Routelink = () => {
                 <Route path='/products/:id?' element={<Products />}></Route>
                 <Route path='/contact' element={<Contact />}></Route>
 
-                <Route path='/register' element={<Register />}></Route>
-                <Route path='/login' element={<Login />}></Route>
+                <Route path='/register' element={<Email />}></Route>
+                <Route path='/login' element={<Login2 />}></Route>
             </Routes>
         </div>
     )

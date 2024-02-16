@@ -37,7 +37,7 @@ const Hero = () => {
         setloadersubmit(true)
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders")
             .then((res) => {
-                // console.warn(res.data)
+                console.warn(res.data)
                 setsliderimg(res.data)
                 setloadersubmit(false)
             }).catch((e) => {
@@ -55,13 +55,13 @@ const Hero = () => {
 
     return (
         <div className='hero-main g-0'>
-            <div className='container-fluid'>
-                <div className='row slider-card'>
+            {/* <div className='container-fluid'> */}
+                <div className='slider-card'>
                     {
                         loadersubmit ? <>
                             <div className='col-12'>
-                                <Box sx={{ mt: -3 }}>
-                                    <Skeleton width="100%" height="510px" />
+                                <Box sx={{ mt: -10 }}>
+                                    <Skeleton width="100%" height="600px" />
                                 </Box>
                             </div>
                         </> : <>
@@ -69,10 +69,10 @@ const Hero = () => {
                                 <Swiper
                                     slidesPerView={1}
                                     spaceBetween={10}
-                                    // autoplay={{
-                                    //     delay: 3500,
-                                    //     disableOnInteraction: false,
-                                    // }}
+                                    autoplay={{
+                                        delay: 3500,
+                                        disableOnInteraction: false,
+                                    }}
                                     pagination={{
                                         clickable: true,
                                     }}
@@ -96,21 +96,23 @@ const Hero = () => {
                                     className="mySwiper"
                                 >
                                     
-                                    {
+                                    {/* {
                                         sliderimg.map((item, index) => {
-                                            return <SwiperSlide className='' key={index}>
+                                            return */}
+                                            
+                                            <SwiperSlide className=''>
                                                 <div className='card-1 g-0'>
-                                                    <div className='container-fluid'>
-                                                        <div className='row'>
-                                                            <div className='col-12'>
-                                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders/images/${item.image}`} alt='' className='img-fluid'></img>
-                                                            </div>
+                                                    {/* <div className='container-fluid'> */}
+                                                        {/* <div className='row'>
+                                                            <div className='col-12'> */}
+                                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders/images/${sliderimg[1]?.image}`} alt='' className='img-fluid'></img>
+                                                            {/* </div>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </SwiperSlide>
-                                        })
-                                    }
+                                        {/* })
+                                    } */}
 
                                     {/* <SwiperSlide>
                                         <div className='banner-box'>
@@ -181,7 +183,7 @@ const Hero = () => {
                     }
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 

@@ -1,12 +1,16 @@
 import React from 'react'
 import './Topseller.css'
 import ipad2 from '../../assiets/img/ipad2.png'
-import HEADPHONE from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
+import HEADPHONE from '../../assiets/img/headphone2.png'
 import watch from '../../assiets/img/dsfsdfsdfsdf.png'
 import tv from '../../assiets/img/tv.png'
 import mac from '../../assiets/img/macbook.png'
+import air_pods from '../../assiets/img/air_pods-removebg-preview.png'
 
 const Topseller = () => {
+
+    
+
   return (
     <div className='topseller-main'>
     <div className='container py-2 pb-5 px-lg-5'>
@@ -88,7 +92,7 @@ const Topseller = () => {
             <div className='col-lg-4 col-sm-6'>
                 <div className='card-1 py-3  text-start mb-3'>
                     <div className='row img-box'>
-                        <img src={HEADPHONE} alt='' className='img-fluid'></img>
+                        <img src={air_pods} alt='' className='img-fluid'></img>
                     </div>
 
                     <div className='row px-5'>

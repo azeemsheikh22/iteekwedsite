@@ -7,11 +7,16 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import ipad2 from '../../assiets/img/ipad2.png'
+import mobile from '../../assiets/img/mobile.png'
+import airpod from '../../assiets/img/airpods.png'
+import watch22 from '../../assiets/img/smart watches png.png'
 import { useNavigate } from 'react-router-dom';
 
 const Mostwanted = () => {
 
     const navigate = useNavigate();
+
+    const arr = [ipad2,mobile,airpod,watch22,mobile]
 
     return (
         <div className='mostwanted-main'>
@@ -39,7 +44,7 @@ const Mostwanted = () => {
                                     slidesPerView: 2,
                                     spaceBetween: 20,
                                 },
-                                768: { 
+                                768: {
                                     slidesPerView: 3,
                                     spaceBetween: 20,
                                 },
@@ -52,132 +57,37 @@ const Mostwanted = () => {
                             modules={[Autoplay, Navigation]}
                             className="mySwiper"
                         >
-                            <SwiperSlide>
-                                <div className='card-1 g-0' onClick={(() => navigate("/product-detail/:id"))}>
-                                    <div className='container py-3 px-lg-4'>
-                                        <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
-                                            <h4>Best Seller</h4>
+                            {
+                                arr.map((item,index) => {
+                                   return <SwiperSlide key={index}>
+                                    <div className='card-1 g-0' onClick={(() => navigate("/product-detail/:id"))}>
+                                        <div className='container py-3 px-lg-4'>
+                                            <div className='row text-start'>
+                                                <div className='col-lg-6 col text-center'>
+                                                    <h4>Best Seller</h4>
+                                                </div>
+                                            </div>
+    
+                                            <div className='row img-box'>
+                                                <img src={item} alt='' className='mx-auto'></img>
+                                            </div>
+    
+                                            <div className='row text-start mt-2'>
+                                                <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
+                                            </div>
+                                            <div className='row text-start'>
+                                                <h5>Starting at</h5>
+                                            </div>
+                                            <div className='row text-start '>
+                                                <h2>£165.55</h2>
                                             </div>
                                         </div>
-
-                                        <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
-                                        </div>
-
-                                        <div className='row text-start mt-2'>
-                                            <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                        </div>
-                                        <div className='row text-start'>
-                                            <h5>Starting at</h5>
-                                        </div>
-                                        <div className='row text-start '>
-                                            <h2>£165.55</h2>
-                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='card-1 g-0'>
-                                    <div className='container py-3 px-lg-4'>
-                                        <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
-                                            <h4>Best Seller</h4>
-                                            </div>
-                                        </div>
+                                </SwiperSlide>
+                                })
+                            }
+                           
 
-                                        <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
-                                        </div>
-
-                                        <div className='row text-start mt-2'>
-                                            <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                        </div>
-                                        <div className='row text-start'>
-                                            <h5>Starting at</h5>
-                                        </div>
-                                        <div className='row text-start '>
-                                            <h2>£165.55</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='card-1 g-0'>
-                                    <div className='container py-3 px-lg-4'>
-                                        <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
-                                            <h4>Best Seller</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
-                                        </div>
-
-                                        <div className='row text-start mt-2'>
-                                            <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                        </div>
-                                        <div className='row text-start'>
-                                            <h5>Starting at</h5>
-                                        </div>
-                                        <div className='row text-start '>
-                                            <h2>£165.55</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='card-1 g-0'>
-                                    <div className='container py-3 px-lg-4'>
-                                        <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
-                                            <h4>Best Seller</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
-                                        </div>
-
-                                        <div className='row text-start mt-2'>
-                                            <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                        </div>
-                                        <div className='row text-start'>
-                                            <h5>Starting at</h5>
-                                        </div>
-                                        <div className='row text-start '>
-                                            <h2>£165.55</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='card-1 g-0'>
-                                    <div className='container py-3 px-lg-4'>
-                                        <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
-                                            <h4>Best Seller</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='row img-box'>
-                                            <img src={ipad2} alt='' className='mx-auto'></img>
-                                        </div>
-
-                                        <div className='row text-start mt-2'>
-                                            <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                        </div>
-                                        <div className='row text-start'>
-                                            <h5>Starting at</h5>
-                                        </div>
-                                        <div className='row text-start '>
-                                            <h2>£165.55</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                      
                         </Swiper>
 
                     </div>

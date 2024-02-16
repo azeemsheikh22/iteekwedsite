@@ -1,11 +1,14 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
 .detailpage-main{
     background: white;
     width: 100%;
     height: auto;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .detailpage-main .img-box-2{
@@ -18,7 +21,8 @@
 }
 
 .detailpage-main .img-box-2 img{
-   height: 80vh;
+   height: 450px;
+   width: 520px;
 }
 
 .detailpage-main .img-box-1{
@@ -50,4 +54,124 @@
 }
 .detailpage-main .img-box-1 img{
     height: 50px;
+}
+
+.detailpage-main .content-main h1{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: serif;
+}
+
+.detailpage-main .content-main p{
+    color: #545454;
+    /* letter-spacing: 1px; */
+}
+
+.detailpage-main .content-main h2{
+    font-size: 1.4rem;
+}
+
+.detailpage-main .content-main button{
+    background-color: black;
+    border: none;
+    width: 190px;
+    height: 50px;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.detailpage-main .content-main button:hover{
+    background-color: #545454;
+}
+
+.detailpage-main .content-main .liness{
+    border-bottom: 2px solid rgb(219, 212, 212);
+}
+
+.detailpage-main .content-main h3{
+    font-size: 1.2rem;
+}
+
+.detailpage-main .content-main .box-1{
+    border: 1px solid black;
+    height: 48px;
+    border-radius: 7px;
+    background-color: #F8F8F8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailpage-main .content-main .box-1 h4{
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.detailpage-main .content-main h4{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: rgb(82, 81, 81);
+}
+.detailpage-main .content-main .box-1 button{
+    /* background-color: black; */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.detailpage-main .related-product-main{
+    background: #F9F9F9;
+    width: 100%;
+    height: auto;
+}
+.detailpage-main .related-product-main h2{
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+
+.detailpage-main .related-product-main .card-1{
+    /* height: 385px; */
+    height: auto;
+    background: white;
+    width: 100%;
+    border-radius: 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    overflow: hidden;
+    overflow-wrap: break-word;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: 0.2s ease;
+}
+
+.detailpage-main .related-product-main .card-1:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.detailpage-main .related-product-main .card-1 h4{
+    font-size: 1rem;
+    font-weight: 500;
+    background: #F9F9F9;
+    border-radius: 5px;
+}
+
+.detailpage-main .related-product-main .card-1 .img-box img{
+    height: 200px;
+    width: 300px;
+}
+
+.detailpage-main .related-product-main .card-1 h2{
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0px;
+}
+
+.detailpage-main .related-product-main .card-1 h5{
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #121212;
 }

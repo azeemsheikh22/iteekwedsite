@@ -31,13 +31,13 @@
 }
 
 .nav-main .nav-item a{
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     color: black;
 }
 
 .nav-main .nav-item a:hover{
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #39792C;
 }
@@ -78,7 +78,7 @@
 
 
 .nav-main  .slider-navbar .swiper {
-    width: 100%;
+    width: auto;
     height: 100%;
     /* margin: 10px 0px; */
     background: #F9F9F9;
@@ -87,9 +87,9 @@
 .nav-main .slider-navbar .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #F9F9F9;
-
+    /* background: #F9F9F9; */
     /* Center slide text vertically */
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,3 +120,13 @@
     font-weight: 400;
     letter-spacing: 1px;
 }
+
+.nav-main .box-tab {
+    background: #F9F9F9;
+}
+
+.nav-main .tab-main{
+    color: rgb(69, 69, 69);
+    opacity: 1.4;
+    /* font-weight: ; */
+} 

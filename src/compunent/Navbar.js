@@ -11,6 +11,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Tabs } from '@material-ui/core'
+import { Tab } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 
 const Navbar = () => {
 
@@ -29,7 +32,7 @@ const Navbar = () => {
     window.onscroll = () => {
         let temp;
         let top = window.scrollY;
-        if (top > 200) {
+        if (top > 100) {
             // setsticky("navbar navbar-expand-lg bg-body-white sticky")
             set2sticky("sticky")
 
@@ -40,359 +43,168 @@ const Navbar = () => {
         }
     }
 
+    const arry = ["Mobiles", "Repair", "Parts", "Accessories","Service Pack","INCELL Lcd","BATTERIE","SIM CARD","PREMIUM","Computer"]
+
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     return (
         <div className='nav-main'>
             <div className={sticky2}>
-                        {/* <nav className={sticky}>
-                <div className="container">
-                    <a className="navbar-brand" href="#"><img src={logo} alt='' className='my-2'></img></a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-                            <li className="nav-item">
-                                <NavLink to="/" className="nav-link" aria-current="page" >Home</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/products" className="nav-link" aria-current="page" >Shop</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Collection</a>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/contact" className="nav-link" aria-current="page" >Contact Us</NavLink>
-                            </li>
-                        </ul>
-                        <i className=""></i>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                <div className='nav-first'>
+                    <nav className="navbar navbar-expand-lg bg-white px-lg-5">
+                        <div className="container-fluid">
+                            <a className="navbar-brand" href="#"><img src={logo} alt='' className='my-2'></img></a>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div className="offcanvas-header">
+                                    <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src={logo} alt='' className='my-2'></img></h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div className="offcanvas-body">
+                                    <ul className="navbar-nav justify-content-end align-items-center gap-lg-3 flex-grow-1 pe-3 ">
+                                        <li className="nav-item">
+                                            <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                            <NavLink className="nav-link" aria-current="page" to="/contact">Contact Us</NavLink>
+                                        </li>
+                                        {/* <li className="nav-item">
+                                            <a className="nav-link" href="#">Contact Us</a>
+                                        </li> */}
+                                        <li className="nav-item">
+                                            <a className="nav-link" href="#">Help</a>
+                                        </li>
 
-                            <li className="nav-item d-flex justify-content-center">
-                                <i className="fa-solid fa-magnifying-glass nav-link" onClick={() => navigate("/products")}>
-                                </i>
+                                    </ul>
+                                    <form className="d-flex mt-lg-0 mt-3" role="search">
+                                        <input className="form-control me-2 " style={{ width: "400px", border: "1px solid black" }} type="search" placeholder="What are you looking for?" aria-label="Search" />
+                                        <button className="btn btn-outline-success" type="submit" style={{ background: "#198754", color: "white" }}>Search</button>
+                                    </form>
 
-                            </li>
+                                    <ul className="navbar-nav justify-content-end align-items-center mt-3 mt-lg-0 gap-lg- ms-lg-5 pe-3 ">
+                                        <li className="nav-item">
+                                            <div className="dropdown">
+                                                <i className="fa-regular fa-circle-user nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <li className="nav-item">
-                                <div className="dropdown">
-                                    <i className="fa-regular fa-circle-user nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </i>
+                                                <ul className="dropdown-menu">
+                                                    {
+                                                        token ? <>
+                                                            <li><a className="dropdown-item" href="#" onClick={() => {
+                                                                localStorage.clear()
+                                                            }}>Logout</a></li>
+                                                            <li><a className="dropdown-item" href="#">Profile</a></li>
+                                                        </> : <>
+                                                            <li><NavLink className="dropdown-item" to="/login">Login</NavLink></li>
+                                                            <li><NavLink className="dropdown-item" to="/register">Register</NavLink></li>
+                                                        </>
+                                                    }
 
-                                    </i>
-                                    <ul className="dropdown-menu">
-                                        {
-                                            token ? <>
-                                                <li><a className="dropdown-item" href="#" onClick={() => {
-                                                    localStorage.clear()
-                                                }}>Logout</a></li>
-                                                <li><a className="dropdown-item" href="#">Profile</a></li>
-                                            </> : <>
-                                                <li><NavLink className="dropdown-item" to="/login">Login</NavLink></li>
-                                                <li><NavLink className="dropdown-item" to="/register">Register</NavLink></li>
-                                            </>
-                                        }
 
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li className="nav-item d-flex justify-content-center">
+                                            <i className="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
+                                            </i>
+                                            <span className="cart-counter">{totalQuantity}</span>
+                                        </li>
 
                                     </ul>
                                 </div>
-
-                            </li>
-
-                            <li className="nav-item d-flex justify-content-center">
-                                <i className="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
-                                </i>
-                                <span className="cart-counter">{totalQuantity}</span>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </nav> */}
 
-            <nav className={sticky}>
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#"><img src={logo} alt='' className='my-2'></img></a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-                            <li className="nav-item">
-                                <NavLink to="/" className="nav-link" aria-current="page" >Home</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/products" className="nav-link" aria-current="page" >Shop</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="#">Collection</a>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/contact" className="nav-link" aria-current="page" >Contact Us</NavLink>
-                            </li>
-                        </ul>
-                        <i className=""></i>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                {/* <div className="slider-navbar px-lg-5" style={{ background: "#F9F9F9" }}>
+                    <Swiper
+                        slidesPerView={4}
+                        spaceBetween={10}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
 
-                            <li className="nav-item d-flex justify-content-center">
-                                <i className="fa-solid fa-magnifying-glass nav-link" onClick={() => navigate("/products")}>
-                                </i>
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 4,
+                                spaceBetween: 0,
+                            },
+                            768: {
+                                slidesPerView: 7,
+                                spaceBetween: 0,
+                            },
+                            1024: {
+                                slidesPerView: 12,
+                                spaceBetween: 0,
+                            },
+                        }}
+                        // navigation={true}
+                        // modules={[Autoplay, Navigation]}
+                        modules={[Autoplay]}
 
-                            </li>
-
-                            <li className="nav-item">
-                                <div className="dropdown">
-                                    <i className="fa-regular fa-circle-user nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                                    </i>
-                                    <ul className="dropdown-menu">
-                                        {
-                                            token ? <>
-                                                <li><a className="dropdown-item" href="#" onClick={() => {
-                                                    localStorage.clear()
-                                                }}>Logout</a></li>
-                                                <li><a className="dropdown-item" href="#">Profile</a></li>
-                                            </> : <>
-                                                <li><NavLink className="dropdown-item" to="/login">Login</NavLink></li>
-                                                <li><NavLink className="dropdown-item" to="/register">Register</NavLink></li>
-                                            </>
-                                        }
-
-
-                                    </ul>
-                                </div>
-
-                            </li>
-
-                            <li className="nav-item d-flex justify-content-center">
-                                <i className="fa-solid fa-cart-shopping nav-link" onClick={() => navigate("/addtocart")}>
-                                </i>
-                                <span className="cart-counter">{totalQuantity}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-
-
-            {/* <div className='secondnavbar'>
-                <nav className="navbar  navbar-expand-lg bg-body-tertiary ">
-                    <div className="container-fluid">
-                        <a className="navbar-brand" href="#">All categories</a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                            <div className="offcanvas-header">
-                                <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div className="offcanvas-body mx-auto">
-                                <ul className="navbar-nav  justify-content-end flex-grow-1 pe-3 gap-2 text-start">
-
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Good Deals</a>
-                                    </li>
-                              
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Gift finder</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Smartphones</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">iPhone</a>
-                                    </li> <li className="nav-item">
-                                        <a className="nav-link" href="#">Samsung Smartphones</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">MacBook</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">MacBook Pro</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">MacBook Air</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">iMac</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">iMac</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">iPad</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">iPad Pro</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">AirPods</a>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </nav>
-            </div> */}
-
-            <div className="slider-navbar">
-                <Swiper
-                    slidesPerView={4}
-                    spaceBetween={10}
-                    autoplay={{
-                        delay: 3500,
-                        disableOnInteraction: false,
-                    }}
-                    // pagination={{
-                    //     clickable: true,
-                    // }}
-
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 4,
-                            spaceBetween: 0,
-                        },
-                        768: {
-                            slidesPerView: 7,
-                            spaceBetween: 0,
-                        },
-                        1024: {
-                            slidesPerView: 11,
-                            spaceBetween: 0,
-                        },
-                    }}
-                    // navigation={true}
-                    // modules={[Autoplay, Navigation]}
-                    modules={[Autoplay]}
-
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>apple</h4>
+                        className="mySwiper"
+                    >
+                        {
+                            arry.map((item, index) => {
+                               return <SwiperSlide key={index}>
+                                    <div className='card-1 g-0'>
+                                        <div className='container py-2'>
+                                            <div className='row text-start'>
+                                                <div className='col text-center'>
+                                                    <h4>{item}</h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>samsung</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>huawei</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>oppo</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>realme</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>vivo</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>durata</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>xissive</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                     <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>motrola</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>sony</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='card-1 g-0'>
-                            <div className='container py-2'>
-                                <div className='row text-start'>
-                                    <div className='col text-center'>
-                                        <h4>xiomie</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                                </SwiperSlide>
+                            })
+                        }
+                    </Swiper>
 
-                </Swiper>
-                
-            </div>
+                </div> */}
+
+                <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }} className='box-tab'>
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        aria-label="scrollable auto tabs example"
+                        className='tabs-tab'
+                    >
+                        {
+                            arry.map((item) => {
+                                return <Tab label={item} className='tab-main' />
+
+                            })
+                        }
+                        {/* <Tab label="Item Two" />
+                        <Tab label="Item Three" />
+                        <Tab label="Item Four" />
+                        <Tab label="Item Five" />
+                        <Tab label="Item Six" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" />
+                        <Tab label="Item Seven" /> */}
+                    </Tabs>
+                </Box>
             </div>
         </div>
     )

@@ -31,7 +31,7 @@ const Footer = () => {
                     </div>
 
                     <div className='col-md-3 col-lg-2 col-xl-2 mx-auto mt-3'>
-                        <h5 className='text-uppercase text-weight-bold mb-4'>Usefull link</h5>
+                        <h5 className='text-uppercase text-weight-bold mb-4'>Useful link</h5>
                         <p>
                             <a href='/'>Returns</a>
 

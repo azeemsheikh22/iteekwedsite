@@ -57,6 +57,8 @@
     overflow: hidden;
     overflow-wrap: break-word;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: 0.2s ease;
 }
 
 .mostwanted-main .slider-card .card-1:hover{
