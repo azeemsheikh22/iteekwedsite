@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.cart3-main {
+    width: 100%;
+    height: auto;
+    background: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cart3-main .box-1 {
+    height: auto;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+}
+
+.cart3-main .box-1 img {
+    height: 260px;
+    width: 100%;
+}
+
+.cart3-main .box-1 h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+}
+
+.cart3-main .box-1 h4{
+    font-size: 1rem;
+    color: rgb(51, 51, 51);
+}
+
+.cart3-main .box-1 h3{
+    font-size: 1rem;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+
+}
+.cart3-main .box-1 h3 i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: rgb(51, 51, 51);
+
+}

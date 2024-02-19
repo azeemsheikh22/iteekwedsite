@@ -27,7 +27,7 @@
 }
 
 .nav-main img{
-    height: 36px;
+    height: 40px;
 }
 
 .nav-main .nav-item a{
@@ -129,4 +129,21 @@
     color: rgb(69, 69, 69);
     opacity: 1.4;
     /* font-weight: ; */
+} 
+
+
+.nav-main .nav-first .search-button button{
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    /* width: 100px; */
+    padding: 0 20px;
+    background: #3f811d;
+    color: white;
+}
+
+.nav-main .nav-first .search-button button i:hover{
+    padding-left: 5px;
+    transition: 0.3s ease-in;
+    /* font-size: 2rem; */
 } 

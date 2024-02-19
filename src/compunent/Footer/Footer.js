@@ -4,79 +4,140 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='main-footer pt-5 pb-4 mt-'>
-            <div className='container text-center text-md-start'>
+            <div className='container px-lg-5'>
+                <div className='row text-start p-decs'>
+                    <p>Hello there! We're Back Market, the leading online marketplace dedicated to refurbished devices. Our mission is to make restored devices mainstream. Making old the 'new new' so to speak.</p>
+                </div>
                 <div className='row text-center text-md-start'>
                     <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
-                        <h5 className='text-weight-bold '>iteek</h5>
-                        <p>It is a long established fact that a<br /> reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
-                    </div>
-
-                    <div className='col-md-2 col-lg-2 col-xl-2 mx-auto mt-3'>
-                        <h5 className='text-uppercase text-weight-bold mb-4'>about us</h5>
-                        <p>
-                            <a href='/'>About us</a>
-
+                        <h5 className='mb-4'>About</h5>
+                        <p className=''>
+                            <a href='/'>Who are we?</a>
                         </p>
-                        <p>
-
-                            <a href='/'>Store location</a>
-
+                        <p className='p-tag'>
+                            <a href='/'>Sell old tech</a>
                         </p>
-                        <p>
-                            <a href='/'>Contact</a>
+                        <p className='p-tag'>
+                            <a href='/'>Student offer</a>
                         </p>
-                        <p>
-                            <a href='/'>Orders track</a>
+                        <p className='p-tag'>
+                            <a href='/'>We're hiring!</a>
+                        </p>
+                         <p className='p-tag'>
+                            <a href='/'>Press</a>
                         </p>
                     </div>
 
-                    <div className='col-md-3 col-lg-2 col-xl-2 mx-auto mt-3'>
-                        <h5 className='text-uppercase text-weight-bold mb-4'>Useful link</h5>
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                        <h5 className='mb-4'>Help</h5>
                         <p>
-                            <a href='/'>Returns</a>
+                            <a href='/'>Sellers: Register to sell</a>
+                        </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Seller portal</a>
 
                         </p>
-                        <p>
-
-                            <a href='/'>Support Policy</a>
-
+                        <p className='p-tag'>
+                            <a href='/'>Payments</a>
                         </p>
-                        <p>
-
-                            <a href='/'>Size guide</a>
+                        <p className='p-tag'>
+                            <a href='/'>Delivery</a>
                         </p>
-                        <p>
-
-                            <a href='/'>FAQs</a>
+                        <p className='p-tag'>
+                            <a href='/'>Returns and refunds</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Insurances</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Contact us</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Guides and reviews</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Compare devices</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Gift ideas</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Blog</a>
                         </p>
                     </div>
 
-                    <div className='col-md-4 col-lg-3 col-xl-3 mx-auto mt-3'>
-                        <h5 className='text-uppercase text-weight-bold mb-4'>Contact</h5>
-                        <p>
-                            <i className='fas fa-home mr-3 me-2'></i>New York, NY 2333, US
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                        <h5 className='mb-4'>Law and order</h5>
+                        <p >
+                            <a href='/'>Terms of Use</a>
+
                         </p>
-                        <p>
-                            <i className='fas fa-envelope mr-3 me-2'></i>iteek@gmail.com
+                        <p className='p-tag'>
+
+                            <a href='/'>Terms of Sale</a>
+
                         </p>
-                        <p>
-                            <i className='fas fa-phone mr-3 me-2'></i>+92 232131123
+                        <p className='p-tag'>
+
+                            <a href='/'>Trade-in Terms and Conditions</a>
                         </p>
-                        <p>
-                            <i className='fas fa-print mr-3 me-2'></i>+1 232 656 565
+                        <p className='p-tag'>
+
+                            <a href='/'>Commercial warranty</a>
                         </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Data protection</a>
+                        </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Cookies</a>
+                        </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Other legal information</a>
+                        </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Legal notices</a>
+                        </p>
+                        <p className='p-tag'>
+
+                            <a href='/'>Payments 100% secured</a>
+                        </p>
+                    </div>
+
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                        <h5 className='mb-4'>Hello there!</h5>
+                        <p className=''>
+                            <a href='/'>Trustpilot</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Glassdoor</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Medium</a>
+                        </p>
+                        <p className='p-tag'>
+                            <a href='/'>Deep Fried Mars Bars</a>
+                        </p>
+                        {/* <p>
+                            <i className='fas fa-home mr-3 me-2'></i>\\New York, NY 2333, US
+                        </p> */}
+
                     </div>
 
                     <hr className='mb-4'></hr>
                     <div className='row align-atems-center'>
                         <div className='col-md-7 col-md-8'>
-                            <p className='fw-bold text-black'>© 2023 - iteek.</p>
-                            <div className='d-flex gap-3'>
+                            <h3 className=''>© 2023 - iteek.</h3>
+                            {/* <div className='d-flex gap-3'>
                                 <p>Terms & conditions</p>
                                 <p>Cookies</p>
                                 <p>Privacy</p>
                                 <p>Complaints & compliments</p>
-                            </div>
+                            </div> */}
 
 
                         </div>
@@ -101,7 +162,7 @@ const Footer = () => {
                                 </ul>
                             </div>
 
-                            <p className='text-lg-end'>Designed by <a href='https://www.cloudlabweb.com/' style={{ color: "gray" }} target='blank'>Cloud Lab Private Ltd</a></p>
+                            {/* <p className='text-lg-end'>Designed by <a href='https://www.cloudlabweb.com/' style={{ color: "gray" }} target='blank'>Cloud Lab Private Ltd</a></p> */}
                         </div>
 
                     </div>

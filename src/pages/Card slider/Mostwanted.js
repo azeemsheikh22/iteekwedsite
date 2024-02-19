@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Mostwanted.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -17,6 +17,12 @@ const Mostwanted = () => {
     const navigate = useNavigate();
 
     const arr = [ipad2,mobile,airpod,watch22,mobile]
+    const [cardclass,setcardclass] = useState("card-1 g-0") 
+
+    const click = () => {
+        // setcardclass("card-1 card-2 g-0")
+        navigate("/product-detail/:id")
+    }
 
     return (
         <div className='mostwanted-main'>
@@ -60,8 +66,8 @@ const Mostwanted = () => {
                             {
                                 arr.map((item,index) => {
                                    return <SwiperSlide key={index}>
-                                    <div className='card-1 g-0' onClick={(() => navigate("/product-detail/:id"))}>
-                                        <div className='container py-3 px-lg-4'>
+                                    <div className={cardclass}>
+                                        <div className='container py-3 px-lg-4' onClick={click}>
                                             <div className='row text-start'>
                                                 <div className='col-lg-6 col text-center'>
                                                     <h4>Best Seller</h4>

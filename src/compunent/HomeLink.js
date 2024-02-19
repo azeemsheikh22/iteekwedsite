@@ -6,11 +6,16 @@ import Cart from './Cart section/Cart'
 import Footer from './Footer/Footer'
 import Topsale from './Cart section/Topsale'
 import Saleitem from './Cart section/Saleitem'
-import Category2 from './Category/Category2'
+// import Category2 from './Category/Category2'
 import axios from 'axios'
 import Mostwanted from '../pages/Card slider/Mostwanted'
 import Recently from '../pages/Card slider/Recently'
 import Topseller from '../pages/Card slider/Topseller'
+import Slider from './logo Slider/Slider'
+import Category1 from '../pages/Card slider/Category1'
+import Category2 from '../pages/Card slider/Category2'
+import Category3 from '../pages/Card slider/Category3'
+import Cart3 from './Three cart/Cart3'
 
 const HomeLink = () => {
 
@@ -35,14 +40,19 @@ const HomeLink = () => {
         <div>
             <Navbar />
             <Hero />
-            <Mostwanted/>
-            <Recently/>
+            <Slider />
+            <Category1 />
+            <Category2 />
+            <Category3 />
+            {/* <Mostwanted/> */}
+            {/* <Recently/> */}
             <Topseller />
             {/* <Category categorydata={categorydata} /> */}
             {/* <Cart />
             <Topsale />
             <Category2 categorydata={categorydata} />
             <Saleitem /> */}
+            <Cart3 />
             <Footer />
         </div>
     )

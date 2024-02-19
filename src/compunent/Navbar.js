@@ -82,9 +82,9 @@ const Navbar = () => {
                                         </li>
 
                                     </ul>
-                                    <form className="d-flex mt-lg-0 mt-3" role="search">
+                                    <form className="d-flex mt-lg-0 mt-3 search-button" role="search">
                                         <input className="form-control me-2 " style={{ width: "400px", border: "1px solid black" }} type="search" placeholder="What are you looking for?" aria-label="Search" />
-                                        <button className="btn btn-outline-success" type="submit" style={{ background: "#198754", color: "white" }}>Search</button>
+                                        <button className="btn btn-outline-success">Search <i className="fa-solid fa-arrow-right-long ms-1"></i></button>
                                     </form>
 
                                     <ul className="navbar-nav justify-content-end align-items-center mt-3 mt-lg-0 gap-lg- ms-lg-5 pe-3 ">
@@ -174,7 +174,7 @@ const Navbar = () => {
 
                 </div> */}
 
-                <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }} className='box-tab'>
+                {/* <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }} className='box-tab'>
                     <Tabs
                         value={value}
                         onChange={handleChange}
@@ -189,22 +189,8 @@ const Navbar = () => {
 
                             })
                         }
-                        {/* <Tab label="Item Two" />
-                        <Tab label="Item Three" />
-                        <Tab label="Item Four" />
-                        <Tab label="Item Five" />
-                        <Tab label="Item Six" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" />
-                        <Tab label="Item Seven" /> */}
                     </Tabs>
-                </Box>
+                </Box> */}
             </div>
         </div>
     )
