@@ -1,12 +1,17 @@
 import React from 'react'
 import './Cart3.css'
 import image1 from '../../assiets/img/cart1.jpg'
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Cart3 = () => {
+
+    Aos.init({duration: 1000});
+
     return (
         <div className='cart3-main pt-2 pb-5'>
             <div className='container'>
-                <div className='row'>
+                <div className='row' data-aos="fade-up-right">
                     <div className='col-lg-4 mb-3'>
                         <div className='box-1'>
                             <div className='row'>

@@ -11,6 +11,8 @@ import mobile from '../../assiets/img/mobile.png'
 import airpod from '../../assiets/img/airpods.png'
 import watch22 from '../../assiets/img/smart watches png.png'
 import { useNavigate } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Category1 = () => {
 
@@ -18,6 +20,8 @@ const Category1 = () => {
 
     const arr = [ipad2, mobile, airpod, watch22, mobile]
     const [a, seta] = useState()
+    Aos.init({duration: 1000});
+
 
     const click = (e) => {
         seta(e)
@@ -68,7 +72,7 @@ const Category1 = () => {
                             {
                                 arr.map((item, index) => {
                                     return <SwiperSlide key={index}>
-                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
+                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"} data-aos="fade-up">
                                             <div className='container py-3 px-lg-4' onClick={() => click(index)}>
                                                 <div className='row text-start'>
                                                     <div className='col-lg-6 col text-center'>

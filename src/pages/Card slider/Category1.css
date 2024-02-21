@@ -8,10 +8,10 @@
 }
 
 .category1-main h2{
-    font-size: 25px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
     color: rgb(51, 51, 51);
     /* letter-spacing: 1px; */
-    font-weight: 500;
 }
 
 .category1-main h2 span{

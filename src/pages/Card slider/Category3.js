@@ -12,6 +12,8 @@ import watch from '../../assiets/img/dsfsdfsdfsdf.png'
 import air_pods from '../../assiets/img/air_pods-removebg-preview.png'
 import console from '../../assiets/img/console.png'
 import { useNavigate } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Category3 = () => {
 
@@ -19,6 +21,8 @@ const Category3 = () => {
 
     const arr = [console, air_pods,watch ,HEADPHONE, ipad2  ]
     const [a, seta] = useState()
+    Aos.init({duration: 1000});
+
 
     const click = (e) => {
         seta(e)
@@ -35,7 +39,7 @@ const Category3 = () => {
         </div>
 
         <div className='row mt-lg-1'>
-            <div className='slider-card'>
+            <div className='slider-card' >
 
                 <Swiper
                     slidesPerView={2}

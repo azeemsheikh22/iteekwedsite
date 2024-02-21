@@ -4,16 +4,16 @@ import logo from '../assiets/img/logo.png'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCartTotal } from '../features/Cartslice'
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { getCartTotal } from '../features/Cartslice'
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Tabs } from '@material-ui/core'
-import { Tab } from '@material-ui/core'
-import { Box } from '@material-ui/core'
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+// import { Tabs } from '@material-ui/core'
+// import { Tab } from '@material-ui/core'
+// import { Box } from '@material-ui/core'
+
 
 const Navbar = () => {
 
@@ -43,7 +43,7 @@ const Navbar = () => {
         }
     }
 
-    const arry = ["Mobiles", "Repair", "Parts", "Accessories","Service Pack","INCELL Lcd","BATTERIE","SIM CARD","PREMIUM","Computer"]
+    const arry = ["Mobiles", "Repair", "Parts", "Accessories", "Service", "INCELL", "BATTERIE", "SIM", "PREMIUM", "Computer","Accessoire","Cle sss","Accessoire"]
 
     const [value, setValue] = useState(0);
 
@@ -123,74 +123,112 @@ const Navbar = () => {
                     </nav>
                 </div>
 
-                {/* <div className="slider-navbar px-lg-5" style={{ background: "#F9F9F9" }}>
-                    <Swiper
-                        slidesPerView={4}
-                        spaceBetween={10}
-                        autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        }}
-                        // pagination={{
-                        //     clickable: true,
-                        // }}
+                <div className='category-nav'>
+                    <div className='container'>
+                        <div className='col-lg-2 mt-2'>
+                            <nav className="navbar">
+                                <ul className="navbar-menu">
+                                    <li className="navbar-item dropdown">
+                                        <h4 style={{fontWeight: "500"}} className='dropdown-toggle'>All items</h4>
+                                        <ul className="dropdown-menu">
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">Mobiles</a>
+                                                <ul className="submenu">
+                                                    <li className="submenu-item">
+                                                        <a href="#" className="submenu-link">Google pixel</a>
+                                                        <ul className="submenu2">
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Google pixel 3xl</a>
+                                                            </li>
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Google pixel 4xl</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li className="submenu-item">
+                                                        <a href="#" className="submenu-link">iPhone</a>
+                                                        <ul className="submenu2">
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">iPhone 11 Pro Max</a>
+                                                            </li>
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">iPhone 12 Pro Max</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li className="submenu-item dropdown">
+                                                        <a href="#" className="submenu-link">Infinix</a>
+                                                        <ul className="submenu2">
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Infinix smart 4</a>
+                                                            </li>
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Infinix smart 5</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li className="dropdown-item dropdown">
+                                                <a href="#" className="dropdown-link">Repair</a>
+                                                <ul className="submenu">
+                                                    <li className="submenu-item">
+                                                        <a href="#" className="submenu-link">Submenu 2.1</a>
+                                                    </li>
+                                                    <li className="submenu-item">
+                                                        <a href="#" className="submenu-link">Submenu 2.2</a>
+                                                    </li>
+                                                    <li className="submenu-item dropdown">
+                                                        <a href="#" className="submenu-link">Submenu 2.3</a>
+                                                        <ul className="submenu">
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Submenu 2.3.1</a>
+                                                            </li>
+                                                            <li className="submenu-item">
+                                                                <a href="#" className="submenu-link">Submenu 2.3.2</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">Parts</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">Accessories</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">Service Pack</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">INCELL Lcd</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">BATTERIE</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">SIM CARD</a>
+                                            </li>
+                                            <li className="dropdown-item">
+                                                <a href="#" className="dropdown-link">PREMIUM</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 4,
-                                spaceBetween: 0,
-                            },
-                            768: {
-                                slidesPerView: 7,
-                                spaceBetween: 0,
-                            },
-                            1024: {
-                                slidesPerView: 12,
-                                spaceBetween: 0,
-                            },
-                        }}
-                        // navigation={true}
-                        // modules={[Autoplay, Navigation]}
-                        modules={[Autoplay]}
+                                </ul>
+                            </nav>
 
-                        className="mySwiper"
-                    >
-                        {
-                            arry.map((item, index) => {
-                               return <SwiperSlide key={index}>
-                                    <div className='card-1 g-0'>
-                                        <div className='container py-2'>
-                                            <div className='row text-start'>
-                                                <div className='col text-center'>
-                                                    <h4>{item}</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            })
-                        }
-                    </Swiper>
+                        </div>
+                        <div className='col-lg-10 d-flex gap-4 mt-2' style={{overflow: "hidden"}}>
+                            {
+                                arry.map((item) => {
+                                    return <h4>{item}</h4>
 
-                </div> */}
-
-                {/* <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }} className='box-tab'>
-                    <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        variant="scrollable"
-                        scrollButtons="auto"
-                        aria-label="scrollable auto tabs example"
-                        className='tabs-tab'
-                    >
-                        {
-                            arry.map((item) => {
-                                return <Tab label={item} className='tab-main' />
-
-                            })
-                        }
-                    </Tabs>
-                </Box> */}
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
