@@ -43,7 +43,7 @@ const Navbar = () => {
         }
     }
 
-    const arry = ["Mobiles", "Repair", "Parts", "Accessories", "Service", "INCELL", "BATTERIE", "SIM", "PREMIUM", "Computer","Accessoire","Cle sss","Accessoire"]
+    const arry = ["Mobiles Accessories", "Repair", "Tempered Glass", "Computer", "Computer Accessories", "Batterie", "Sim", "Electronics Accessories", "Audio"]
 
     const [value, setValue] = useState(0);
 
@@ -129,13 +129,19 @@ const Navbar = () => {
                             <nav className="navbar">
                                 <ul className="navbar-menu">
                                     <li className="navbar-item dropdown">
-                                        <h4 style={{fontWeight: "500"}} className='dropdown-toggle'>All items</h4>
+                                        <h4 style={{ fontWeight: "500" }} className='dropdown-toggle'>All items</h4>
                                         <ul className="dropdown-menu">
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">Mobiles</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Mobiles Accessories</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                                 <ul className="submenu">
                                                     <li className="submenu-item">
-                                                        <a href="#" className="submenu-link">Google pixel</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">Google pixel</a>
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                         <ul className="submenu2">
                                                             <li className="submenu-item">
                                                                 <a href="#" className="submenu-link">Google pixel 3xl</a>
@@ -146,7 +152,11 @@ const Navbar = () => {
                                                         </ul>
                                                     </li>
                                                     <li className="submenu-item">
-                                                        <a href="#" className="submenu-link">iPhone</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">iPhone</a>
+
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                         <ul className="submenu2">
                                                             <li className="submenu-item">
                                                                 <a href="#" className="submenu-link">iPhone 11 Pro Max</a>
@@ -157,9 +167,15 @@ const Navbar = () => {
                                                         </ul>
                                                     </li>
                                                     <li className="submenu-item dropdown">
-                                                        <a href="#" className="submenu-link">Infinix</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">Infinix</a>
+
+
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                         <ul className="submenu2">
                                                             <li className="submenu-item">
+
                                                                 <a href="#" className="submenu-link">Infinix smart 4</a>
                                                             </li>
                                                             <li className="submenu-item">
@@ -170,16 +186,29 @@ const Navbar = () => {
                                                 </ul>
                                             </li>
                                             <li className="dropdown-item dropdown">
-                                                <a href="#" className="dropdown-link">Repair</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Repair</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
+
                                                 <ul className="submenu">
                                                     <li className="submenu-item">
-                                                        <a href="#" className="submenu-link">Submenu 2.1</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">Submenu 2.1</a>
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                     </li>
                                                     <li className="submenu-item">
-                                                        <a href="#" className="submenu-link">Submenu 2.2</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">Submenu 2.2</a>
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                     </li>
                                                     <li className="submenu-item dropdown">
-                                                        <a href="#" className="submenu-link">Submenu 2.3</a>
+                                                        <div className='arror-icon'>
+                                                            <a href="#" className="submenu-link">Submenu 2.3</a>
+                                                            <i className="fa-solid fa-angle-right"></i>
+                                                        </div>
                                                         <ul className="submenu">
                                                             <li className="submenu-item">
                                                                 <a href="#" className="submenu-link">Submenu 2.3.1</a>
@@ -192,25 +221,47 @@ const Navbar = () => {
                                                 </ul>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">Parts</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Tempered Glass</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">Accessories</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Computer</a>
+
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">Service Pack</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Computer Accessories</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">INCELL Lcd</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Batterie</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">BATTERIE</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Sim</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">SIM CARD</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Electronics Accessories</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                             <li className="dropdown-item">
-                                                <a href="#" className="dropdown-link">PREMIUM</a>
+                                                <div className='arror-icon'>
+                                                    <a href="#" className="dropdown-link">Audio</a>
+                                                    <i className="fa-solid fa-angle-right"></i>
+                                                </div>
                                             </li>
                                         </ul>
                                     </li>
@@ -219,7 +270,7 @@ const Navbar = () => {
                             </nav>
 
                         </div>
-                        <div className='col-lg-10 d-flex gap-4 mt-2' style={{overflow: "hidden"}}>
+                        <div className='col-lg-10 d-flex gap-4 mt-2' style={{ overflow: "hidden" }}>
                             {
                                 arry.map((item) => {
                                     return <h4>{item}</h4>

@@ -49,13 +49,15 @@
 
 .topseller-main .card-main .card-1 h3{
     font-size: 1.1rem;
-    color: #121212;
-    font-weight: 400;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
 }
 
 .topseller-main .card-main .card-1 p{
-    font-size: 1rem;
-    color: #767474;
-    
+    font-size: 15px;
+    color: rgb(150, 148, 148);
+    font-family: sans-serif;
 }
 

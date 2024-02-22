@@ -35,10 +35,10 @@ const Category3 = () => {
     <div className='category1-main pb-5'>
     <div className='container px-lg-5'>
         <div className='row text-start'>
-            <h2>Samsung LCDs</h2>
+            <h2>Tempered Glass</h2>
         </div>
 
-        <div className='row mt-lg-1'>
+        <div className='row'>
             <div className='slider-card' >
 
                 <Swiper
@@ -92,7 +92,7 @@ const Category3 = () => {
                                             <h5>Starting at</h5>
                                         </div>
                                         <div className='row text-start '>
-                                            <h2>£165.55</h2>
+                                            <h2>€165.55</h2>
                                         </div>
                                     </div>
                                 </div>

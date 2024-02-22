@@ -37,7 +37,7 @@ const Category1 = () => {
                     <h2>Mobile Accessories</h2>
                 </div>
 
-                <div className='row mt-lg-1'>
+                <div className='row'>
                     <div className='slider-card'>
 
                         <Swiper
@@ -72,7 +72,7 @@ const Category1 = () => {
                             {
                                 arr.map((item, index) => {
                                     return <SwiperSlide key={index}>
-                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"} data-aos="fade-up">
+                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
                                             <div className='container py-3 px-lg-4' onClick={() => click(index)}>
                                                 <div className='row text-start'>
                                                     <div className='col-lg-6 col text-center'>
@@ -91,7 +91,7 @@ const Category1 = () => {
                                                     <h5>Starting at</h5>
                                                 </div>
                                                 <div className='row text-start '>
-                                                    <h2>£165.55</h2>
+                                                    <h2>€165.55</h2>
                                                 </div>
                                             </div>
                                         </div>

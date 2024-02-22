@@ -16,6 +16,10 @@ import Category1 from '../pages/Card slider/Category1'
 import Category2 from '../pages/Card slider/Category2'
 import Category3 from '../pages/Card slider/Category3'
 import Cart3 from './Three cart/Cart3'
+import Category4 from '../pages/Card slider/Category4'
+import Category5 from '../pages/Card slider/Category5'
+import Category6 from '../pages/Card slider/Category6'
+import CardSlider from './Customer card slider/CardSlider'
 
 const HomeLink = () => {
 
@@ -44,6 +48,9 @@ const HomeLink = () => {
             <Category1 />
             <Category2 />
             <Category3 />
+            <Category4 />
+            <Category5 />
+            <Category6 />
             {/* <Mostwanted/> */}
             {/* <Recently/> */}
             <Topseller />
@@ -53,6 +60,7 @@ const HomeLink = () => {
             <Category2 categorydata={categorydata} />
             <Saleitem /> */}
             <Cart3 />
+            <CardSlider/>
             <Footer />
         </div>
     )
