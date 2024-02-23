@@ -29,19 +29,26 @@ const Navbar = () => {
     //   dispatch(getCartTotal());
     // }, [cart]);
 
-    window.onscroll = () => {
-        let temp;
-        let top = window.scrollY;
-        if (top > 100) {
-            // setsticky("navbar navbar-expand-lg bg-body-white sticky")
-            set2sticky("sticky")
+    // window.onscroll = () => {
+    //     let temp;
+    //     let top = window.scrollY;
+    //     if (top > 100) {
+    //         // setsticky("navbar navbar-expand-lg bg-body-white sticky")
+    //         const value = top;
+    //         set2sticky("")
+    //         if (value < top) {
+    //             set2sticky("sticky")
+    //             console.log(top)
 
-        } else {
-            // setsticky("navbar navbar-expand-lg bg-body-white")
-            set2sticky("")
 
-        }
-    }
+    //         }
+
+    //     } else {
+    //         // setsticky("navbar navbar-expand-lg bg-body-white")
+    //         set2sticky("")
+
+    //     }
+    // }
 
     const arry = ["Mobiles Accessories", "Repair", "Tempered Glass", "Computer", "Computer Accessories", "Batterie", "Sim", "Electronics Accessories", "Audio"]
 
@@ -51,9 +58,32 @@ const Navbar = () => {
         setValue(newValue);
     };
 
+
+    
+
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
+
+    // Function to handle scroll event
+    const handleScroll = () => {
+        const currentScrollPos = window.pageYOffset;
+
+        setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+        setPrevScrollPos(currentScrollPos);
+    };
+
+    // Add scroll event listener using useEffect
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollPos, visible]);
+
     return (
         <div className='nav-main'>
-            <div className={sticky2}>
+            <div className={`app ${visible ? 'sticky' : ''}`}>
                 <div className='nav-first'>
                     <nav className="navbar navbar-expand-lg bg-white px-lg-5">
                         <div className="container-fluid">
@@ -131,7 +161,7 @@ const Navbar = () => {
                                     <li className="navbar-item dropdown">
                                         <h4 style={{ fontWeight: "500" }} className='dropdown-toggle'>All items</h4>
                                         <ul className="dropdown-menu">
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Mobiles Accessories</a>
                                                     <i className="fa-solid fa-angle-right"></i>
@@ -185,7 +215,7 @@ const Navbar = () => {
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li className="dropdown-item dropdown">
+                                            <li className="dropdown-item-2 dropdown">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Repair</a>
                                                     <i className="fa-solid fa-angle-right"></i>
@@ -220,44 +250,44 @@ const Navbar = () => {
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Tempered Glass</a>
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Computer</a>
 
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Computer Accessories</a>
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Batterie</a>
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Sim</a>
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Electronics Accessories</a>
                                                     <i className="fa-solid fa-angle-right"></i>
                                                 </div>
                                             </li>
-                                            <li className="dropdown-item">
+                                            <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
                                                     <a href="#" className="dropdown-link">Audio</a>
                                                     <i className="fa-solid fa-angle-right"></i>

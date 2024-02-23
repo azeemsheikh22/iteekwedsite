@@ -103,9 +103,55 @@
 .category1-main .swiper-button-next,
 .swiper-button-prev {
     background-color: transparent;
-    color: #000 !important;
+    color: white !important;
     fill: black !important;
     stroke: black !important;
+    font-size: 16px; 
 }
+
+.category1-main .swiper-button-prev,
+.swiper-button-next {
+    background-color: transparent;
+    color: white !important;
+    fill: black !important;
+    stroke: black !important;
+    font-size: 16px; 
+}
+
+/* Customizing Swiper Next and Prev Arrows */
+
+/* Target the next arrow */
+.category1-main .swiper-button-next {
+    background-color: black; /* Set background color */
+    width: 40px; /* Set width */
+    height: 40px; /* Set height */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #000; /* Add border */
+    color: white; /* Set arrow color */
+    font-size: 24px; /* Set font size */
+    line-height: 40px; /* Center the arrow vertically */
+    text-align: center; /* Center the arrow horizontally */
+    overflow: hidden;
+    fill: white;
+  }
+  
+  /* Target the previous arrow */
+  .category1-main .swiper-button-prev {
+    background-color: black; /* Set background color */
+    width: 40px; /* Set width */
+    height: 40px; /* Set height */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #000; /* Add border */
+    color: white; /* Set arrow color */
+    font-size: 10px; /* Set font size */
+    line-height: 40px; /* Center the arrow vertically */
+    text-align: center; /* Center the arrow horizontally */
+    overflow: hidden;
+    fill: white;
+
+  }
+
+  
+  
 
 

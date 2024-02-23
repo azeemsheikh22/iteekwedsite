@@ -23,7 +23,7 @@
 
 .hero-main .slider-card .swiper-slide img {
     /* display: block; */
-    width: 100%;
+    width: 250vh;
     height: 65vh;
     /* object-fit: cover; */
     /* border-radius: 10px; */
@@ -97,4 +97,14 @@
     color: white;
     background-color: #62B026;
     border: 1px solid #62B026;
+}
+
+
+.hero-main .swiper-button-prev,
+.hero-main .swiper-button-next {
+    background-color: transparent;
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+    font-size: 16px; 
 }

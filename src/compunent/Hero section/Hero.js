@@ -15,6 +15,8 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import img1 from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
 import img2 from '../../assiets/img/banner phone.png'
+import banner1 from '../../assiets/img/banner1.png'
+import banner2 from '../../assiets/img/banner2.png'
 import { useNavigate } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
@@ -105,7 +107,20 @@ const Hero = () => {
                                                     {/* <div className='container-fluid'> */}
                                                         {/* <div className='row'>
                                                             <div className='col-12'> */}
-                                                                <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders/images/${sliderimg[1]?.image}`} alt='' className='img-fluid'></img>
+                                                                {/* <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders/images/${sliderimg[1]?.image}`} alt='' className='img-fluid'></img> */}
+                                                                <img src={banner1} alt='' className='img-fluid'></img>
+                                                            {/* </div>
+                                                        </div>
+                                                    </div> */}
+                                                </div>
+                                            </SwiperSlide>
+                                            <SwiperSlide className=''>
+                                                <div className='card-1 g-0'>
+                                                    {/* <div className='container-fluid'> */}
+                                                        {/* <div className='row'>
+                                                            <div className='col-12'> */}
+                                                                {/* <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders/images/${sliderimg[1]?.image}`} alt='' className='img-fluid'></img> */}
+                                                                <img src={banner2} alt='' className='img-fluid'></img>
                                                             {/* </div>
                                                         </div>
                                                     </div> */}

@@ -1,7 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
-.detailpage-main{
+.detailpage-main {
     background: white;
     width: 100%;
     height: auto;
@@ -11,7 +10,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.detailpage-main .img-box-2{
+.detailpage-main .img-box-2 {
     height: 70vh;
     /* background-color: gray; */
     overflow: hidden;
@@ -20,12 +19,19 @@
     justify-content: center;
 }
 
-.detailpage-main .img-box-2 img{
-   height: 450px;
-   width: 520px;
+.detailpage-main .img-box2 {
+    /* position: fixed; */
+    position: sticky;
+    top: 20px;
+    height: 60vh;
 }
 
-.detailpage-main .img-box-1{
+.detailpage-main .img-box-2 img {
+    height: 450px;
+    width: 520px;
+}
+
+.detailpage-main .img-box-1 {
     height: 50px;
     width: 50px;
     /* background-color: gray; */
@@ -39,7 +45,7 @@
     /* opacity: 0.5; */
 }
 
-.detailpage-main .img-box-1:hover{
+.detailpage-main .img-box-1:hover {
     height: 50px;
     width: 50px;
     /* background-color: gray; */
@@ -52,29 +58,30 @@
     justify-content: center;
 
 }
-.detailpage-main .img-box-1 img{
+
+.detailpage-main .img-box-1 img {
     height: 50px;
 }
 
-.detailpage-main .content-main h1{
+.detailpage-main .content-main h1 {
     font-size: 2rem;
     font-weight: 900;
     font-family: serif;
     color: rgb(17, 17, 17);
 }
 
-.detailpage-main .content-main p{
+.detailpage-main .content-main p {
     color: rgb(51, 51, 51);
     font-size: 15px;
     font-family: sans-serif;
 }
 
-.detailpage-main .content-main h2{
+.detailpage-main .content-main h2 {
     font-size: 1.4rem;
     color: rgb(51, 51, 51);
 }
 
-.detailpage-main .content-main button{
+.detailpage-main .content-main button {
     background-color: black;
     border: none;
     width: 190px;
@@ -84,19 +91,19 @@
     border-radius: 30px;
 }
 
-.detailpage-main .content-main button:hover{
+.detailpage-main .content-main button:hover {
     background-color: #545454;
 }
 
-.detailpage-main .content-main .liness{
+.detailpage-main .content-main .liness {
     border-bottom: 1px solid rgb(197, 196, 196);
 }
 
-.detailpage-main .content-main h3{
+.detailpage-main .content-main h3 {
     font-size: 1.1rem;
 }
 
-.detailpage-main .content-main .box-1{
+.detailpage-main .content-main .box-1 {
     border: 1px solid black;
     height: 48px;
     border-radius: 7px;
@@ -107,7 +114,7 @@
     justify-content: center;
 }
 
-.detailpage-main .content-main .boxs .button-normal{
+.detailpage-main .content-main .boxs .button-normal {
     border-radius: 7px;
     background-color: #F8F8F8;
     border: 1px solid black;
@@ -115,9 +122,10 @@
     color: black;
     font-size: 15px;
     opacity: 0.40;
+    width: 100%;
 }
 
-.detailpage-main .content-main .boxs .button-normal:hover{
+.detailpage-main .content-main .boxs .button-normal:hover {
     border-radius: 7px;
     background-color: #F8F8F8;
     border: 1px solid black;
@@ -125,18 +133,20 @@
     color: black;
     font-size: 15px;
     opacity: 0.80;
+    width: 100%;
 }
 
-.detailpage-main .content-main .boxs .active{
+.detailpage-main .content-main .boxs .active {
     border-radius: 7px;
     background-color: #F8F8F8;
     border: 1px solid black;
     height: auto;
     color: black;
     font-size: 15px;
+    width: 100%;
 }
 
-.detailpage-main .content-main .boxs .color-btn{
+.detailpage-main .content-main .boxs .color-btn {
     /* background-color: black; */
     width: 20px;
     height: 20px;
@@ -147,37 +157,38 @@
     
 } */
 
-.detailpage-main .content-main .box-1 h4{
+.detailpage-main .content-main .box-1 h4 {
     font-size: 1.1rem;
     font-family: sans-serif;
     font-weight: 500;
 }
 
-.detailpage-main .content-main h4{
+.detailpage-main .content-main h4 {
     font-size: 1rem;
     letter-spacing: 1px;
     color: rgb(82, 81, 81);
 }
 
 
-.detailpage-main .content-main .delivery-row img{
+.detailpage-main .content-main .delivery-row img {
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.detailpage-main .content-main .delivery-row h3{
+.detailpage-main .content-main .delivery-row h3 {
     font-size: 15px;
 
 }
 
-.detailpage-main .related-product-main{
+.detailpage-main .related-product-main {
     background: #F9F9F9;
     width: 100%;
     height: auto;
 }
-.detailpage-main .related-product-main h2{
+
+.detailpage-main .related-product-main h2 {
     font-size: 1.6rem;
     letter-spacing: 1px;
     font-weight: 600;
@@ -185,7 +196,7 @@
 
 
 
-.detailpage-main .related-product-main .card-1{
+.detailpage-main .related-product-main .card-1 {
     /* height: 385px; */
     height: auto;
     background: white;
@@ -199,35 +210,35 @@
     transition: 0.2s ease;
 }
 
-.detailpage-main .related-product-main .card-1:hover{
+.detailpage-main .related-product-main .card-1:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.detailpage-main .related-product-main .card-1 h4{
+.detailpage-main .related-product-main .card-1 h4 {
     font-size: 1rem;
     font-weight: 500;
     background: #F9F9F9;
     border-radius: 5px;
 }
 
-.detailpage-main .related-product-main .card-1 .img-box img{
+.detailpage-main .related-product-main .card-1 .img-box img {
     height: 200px;
     width: 300px;
 }
 
-.detailpage-main .related-product-main .card-1 h2{
+.detailpage-main .related-product-main .card-1 h2 {
     font-size: 1.1rem;
     font-weight: 500;
     letter-spacing: 0px;
 }
 
-.detailpage-main .related-product-main .card-1 h5{
+.detailpage-main .related-product-main .card-1 h5 {
     font-size: 0.9rem;
     font-weight: 400;
     color: #121212;
 }
 
-.detailpage-main .welcome-main{
+.detailpage-main .welcome-main {
     background: #F9F9F9;
     width: 100%;
     height: auto;
@@ -236,7 +247,7 @@
     align-items: center;
 }
 
-.detailpage-main .welcome-main .box{
+.detailpage-main .welcome-main .box {
     min-height: 300px;
     background-color: white;
     border-radius: 15px;
@@ -246,19 +257,20 @@
     align-items: center;
 }
 
-.detailpage-main .welcome-main .box h1{
+.detailpage-main .welcome-main .box h1 {
     font-size: 30px;
     font-weight: bold;
     color: rgb(51, 51, 51);
 }
 
-.detailpage-main .welcome-main .box p{
+.detailpage-main .welcome-main .box p {
     font-size: 15px;
     color: rgb(51, 51, 51);
     font-family: sans-serif;
     line-height: 22.5px;
 }
-.detailpage-main .welcome-main .box button{
+
+.detailpage-main .welcome-main .box button {
     border-radius: 30px;
     width: 190px;
     height: 45px;
@@ -270,7 +282,7 @@
     height: 200px;
 } */
 
-.detailpage-main .welcome-main .content-center{
+.detailpage-main .welcome-main .content-center {
     display: flex;
     justify-content: center;
     align-items: center;

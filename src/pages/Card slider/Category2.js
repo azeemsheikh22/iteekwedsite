@@ -42,7 +42,7 @@ const Category2 = () => {
             <div className='slider-card'>
 
                 <Swiper
-                    slidesPerView={2}
+                    slidesPerView={1}
                     spaceBetween={10}
                     // autoplay={{
                     //     delay: 3500,
@@ -76,7 +76,7 @@ const Category2 = () => {
                                 <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"} >
                                     <div className='container py-3 px-lg-4' onClick={() => click(index)}>
                                         <div className='row text-start'>
-                                            <div className='col-lg-6 col text-center'>
+                                            <div className='col-6 col text-center'>
                                                 <h4>Best Seller</h4>
                                             </div>
                                         </div>

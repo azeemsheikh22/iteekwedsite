@@ -7,10 +7,11 @@ import HEADPHONE from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-rem
 import watch from '../../assiets/img/dsfsdfsdfsdf.png'
 import tv from '../../assiets/img/tv.png'
 import mac from '../../assiets/img/macbook.png'
-import console from '../../assiets/img/console.png'
+// import console from '../../assiets/img/console.png'
 import air_pods from '../../assiets/img/air_pods-removebg-preview.png'
 import { Rating } from '@mui/material'
 import delivery from '../../assiets/img/delivery_709790.png'
+import welcomedesign from '../../assiets/img/welcome1.png'
 
 const Detailpage = () => {
 
@@ -18,12 +19,31 @@ const Detailpage = () => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
     }, [])
 
-    const arr = [HEADPHONE, ipad2, watch, tv, mac]
+    const arr = [HEADPHONE, ipad2, watch, tv, mac,]
 
-    const arry = [air_pods, console, HEADPHONE, watch,]
+    const arry = [air_pods,HEADPHONE, watch,mac,HEADPHONE, ipad2, tv, mac];
+
     const [value, setValue] = useState(2);
+    const [imagefix, setimagefix] = useState("row");
 
     const [i, seti] = useState(0)
+
+    // window.onscroll = () => {
+    //     let top = window.scrollY;
+    //     if (top > 10) {
+    //     //  console.log(arry)
+    //     setimagefix("row img-box2")
+    //     if(top >= 400){
+    //     setimagefix("row")
+
+    //     }
+    //     } else {
+        
+
+    //     }
+    // }
+
+    console.log(arry)
 
     return (
         <div>
@@ -31,8 +51,8 @@ const Detailpage = () => {
             <div className='detailpage-main pb-4 mt-5'>
                 <div className='container mb-4'>
                     <div className='row'>
-                        <div className='col-lg-6'>
-                            <div className='row'>
+                        <div className='col-lg-6 img-box2'>
+                            <div className={imagefix}>
                                 <div className='col-2 d-flex align-items-center justify-content-center'>
                                     <div className='container'>
                                         {
@@ -99,7 +119,7 @@ const Detailpage = () => {
                                 <h3>Condition</h3>
                             </div>
 
-                            <div className='row boxs g-2'>
+                            <div className='row boxs'>
                                 <div className='col-4'>
                                     <button className='btn btn-primary active'>Fair<br /><span>€307.86</span></button>
                                 </div>
@@ -115,7 +135,7 @@ const Detailpage = () => {
                                 <h3>Colour</h3>
                             </div>
 
-                            <div className='row boxs g-2'>
+                            <div className='row boxs'>
                                 <div className='col-4 mb-2'>
                                     <button className='btn btn-primary active d-flex align-items-center justify-content-center py-2'><button style={{ background: "black" }} className='color-btn me-2'></button> Black</button>
                                 </div>
@@ -131,17 +151,78 @@ const Detailpage = () => {
                                 <div className='col-4'>
                                     <button className='btn btn-primary button-normal d-flex align-items-center justify-content-center py-2'><button style={{ background: "Green" }} className='color-btn me-2'></button> Green</button>
                                 </div>
-
                             </div>
 
+                            <div className='row mt-4 text-start'>
+                                <h3>Colour</h3>
+                            </div>
+
+                            <div className='row boxs'>
+                                <div className='col-4 mb-2'>
+                                    <button className='btn btn-primary active d-flex align-items-center justify-content-center py-2'><button style={{ background: "black" }} className='color-btn me-2'></button> Black</button>
+                                </div>
+
+                                <div className='col-4'>
+                                    <button className='btn btn-primary button-normal d-flex align-items-center justify-content-center py-2'><button style={{ background: "blue" }} className='color-btn me-2'></button> Blue</button>
+                                </div>
+
+                                <div className='col-4'>
+                                    <button className='btn btn-primary button-normal d-flex align-items-center justify-content-center py-2'><button style={{ background: "red" }} className='color-btn me-2'></button> Red</button>
+                                </div>
+
+                                <div className='col-4'>
+                                    <button className='btn btn-primary button-normal d-flex align-items-center justify-content-center py-2'><button style={{ background: "Green" }} className='color-btn me-2'></button> Green</button>
+                                </div>
+                            </div>
+
+                            
                         </div>
                     </div>
 
 
                 </div>
 
+                <div className='related-product-main pt-5 pb-4'>
+                    <div className='container'>
+                        <div className='row text-start'>
+                            <h2>You may also like</h2>
+                        </div>
 
-                <div className='related-product-main py-5'>
+                        <div className='row mt-4'>
+                            {
+                                arry.map((item, index) => {
+                                    return <div className='col-lg-3 col-6 mb-3' key={index}>
+                                        <div className='card-1 g-0'>
+                                            <div className='container py-3 px-lg-4'>
+                                                <div className='row text-start'>
+                                                    <div className='col-lg-6 col text-center'>
+                                                        <h4>Best Seller</h4>
+                                                    </div>
+                                                </div>
+
+                                                <div className='row img-box'>
+                                                    <img src={item} alt='' className='mx-auto img-fluid'></img>
+                                                </div>
+
+                                                <div className='row text-start mt-2'>
+                                                    <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
+                                                </div>
+                                                <div className='row text-start'>
+                                                    <h5>Starting at</h5>
+                                                </div>
+                                                <div className='row text-start '>
+                                                    <h2>€165.55</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                })
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                {/* <div className='related-product-main pb-4'>
                     <div className='container'>
                         <div className='row text-start'>
                             <h2>Related products</h2>
@@ -180,7 +261,7 @@ const Detailpage = () => {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
 
                 <div className='welcome-main '>
@@ -209,7 +290,7 @@ const Detailpage = () => {
                                             </div>
 
                                             <div className='col-lg-6'>
-                                                <img src="https://d1eh9yux7w8iql.cloudfront.net/front/public/statics/pastrami/48dd321b86684bec4c30733a877320c853136265/img/product/about-us-desktop.svg" className='img-fluid'></img>
+                                                <img src={welcomedesign} className='img-fluid'></img>
                                             </div>
                                         </div>
                                     </div>

@@ -94,7 +94,7 @@ const CardSlider = () => {
                     <div className='slider-card'>
 
                         <Swiper
-                            slidesPerView={2}
+                            slidesPerView={1}
                             spaceBetween={10}
                             // autoplay={{
                             //     delay: 3500,
