@@ -83,6 +83,7 @@
     width: 140px;
     height: 45px;
     transition: 0.2s ease-in;
+    border-radius: 30px;
 }
 
 .contact-main .box-2 button:hover{

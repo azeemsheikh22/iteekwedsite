@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import Hero from './Hero section/Hero'
-import Category from './Category/Category'
-import Cart from './Cart section/Cart'
 import Footer from './Footer/Footer'
-import Topsale from './Cart section/Topsale'
-import Saleitem from './Cart section/Saleitem'
-// import Category2 from './Category/Category2'
 import axios from 'axios'
-import Mostwanted from '../pages/Card slider/Mostwanted'
-import Recently from '../pages/Card slider/Recently'
 import Topseller from '../pages/Card slider/Topseller'
 import Slider from './logo Slider/Slider'
 import Category1 from '../pages/Card slider/Category1'
@@ -51,14 +44,9 @@ const HomeLink = () => {
             <Category4 />
             <Category5 />
             <Category6 />
-            {/* <Mostwanted/> */}
-            {/* <Recently/> */}
+          
             <Topseller />
-            {/* <Category categorydata={categorydata} /> */}
-            {/* <Cart />
-            <Topsale />
-            <Category2 categorydata={categorydata} />
-            <Saleitem /> */}
+         
             <Cart3 />
             <CardSlider/>
             <Footer />

@@ -174,7 +174,7 @@
 .nav-main .category-nav h4 {
     color: rgb(51, 51, 51);
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 500;
     cursor: pointer;
     white-space: nowrap;
 }
@@ -235,7 +235,13 @@
     text-decoration: none;
     font-size: 15px;
     font-family: sans-serif;
-    /* font-weight: bold; */
+}
+
+.nav-main .category-nav .dropdown-item-2:hover .dropdown-link{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
 }
 
 .nav-main .category-nav .submenu-item .submenu-link {
@@ -289,9 +295,14 @@
     transition: 0.3s ease-in;
 }
 
-.nav-main .category-nav .dropdown-item-2:hover {
-    background-color: #F8F9FA;
+.nav-main .category-nav .dropdown-item-2:hover{
+    background-color: #65B425;
+    color: white;
+}
 
+.nav-main .category-nav .dropdown-item-2:hover,
+.nav-main .category-nav .dropdown-item-2:hover{
+    color: white;
 }
 
 /* .nav-main .category-nav .sub-submenu {
@@ -321,14 +332,64 @@
     border-bottom: 1px solid rgb(249, 249, 249);
 
 }
+.nav-main .category-nav .submenu-item3 {
+    padding: 5px 10px;
+    list-style: none;
+    border-bottom: 1px solid rgb(249, 249, 249);
+
+}
+
 
 .nav-main .category-nav .sub-submenu-item {
     padding: 5px 10px;
     border-bottom: 1px solid rgb(249, 249, 249);
 }
 
+.nav-main .category-nav .submenu-item .submenu-link {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.nav-main .category-nav .submenu-item3 .submenu-link {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
 .nav-main .category-nav .submenu-item:hover,
 .nav-main .category-nav .sub-submenu-item:hover {
-    background-color: #F8F9FA;
+    background-color: #65B425;
+}
 
+.nav-main .category-nav .submenu-item3:hover{
+    background-color: #65B425;
+}
+
+.nav-main .category-nav .submenu-item:hover .submenu-link{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.nav-main .category-nav .submenu-item3 .submenu-link3 {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.nav-main .category-nav .submenu-item3:hover .submenu-link3 {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    cursor: pointer;
 }

@@ -26,9 +26,10 @@ const Slider = () => {
                 spaceBetween={10}
                 loop={true} // Add this line to enable continuous looping
                 autoplay={{
-                    delay: 1000,
+                    delay: 0,
                     disableOnInteraction: false,
                 }}
+                speed={600} 
                 breakpoints={{
                     640: {
                         slidesPerView: 3,

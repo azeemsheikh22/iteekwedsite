@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+// import GoogleTranslateWidget from '../pages/Translate/GoogleTranslateWidget'
 // import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // import { Tabs } from '@material-ui/core'
 // import { Tab } from '@material-ui/core'
@@ -74,6 +75,7 @@ const Navbar = () => {
 
     // Add scroll event listener using useEffect
     useEffect(() => {
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -159,7 +161,7 @@ const Navbar = () => {
                             <nav className="navbar">
                                 <ul className="navbar-menu">
                                     <li className="navbar-item dropdown">
-                                        <h4 style={{ fontWeight: "500" }} className='dropdown-toggle'>All items</h4>
+                                        <h4 style={{ fontWeight: "bold" }} className='dropdown-toggle'>All items</h4>
                                         <ul className="dropdown-menu">
                                             <li className="dropdown-item-2">
                                                 <div className='arror-icon'>
@@ -173,11 +175,11 @@ const Navbar = () => {
                                                             <i className="fa-solid fa-angle-right"></i>
                                                         </div>
                                                         <ul className="submenu2">
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">Google pixel 3xl</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">Google pixel 3xl</a>
                                                             </li>
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">Google pixel 4xl</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">Google pixel 4xl</a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -187,12 +189,13 @@ const Navbar = () => {
 
                                                             <i className="fa-solid fa-angle-right"></i>
                                                         </div>
+                                                        
                                                         <ul className="submenu2">
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">iPhone 11 Pro Max</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">iPhone 11 Pro Max</a>
                                                             </li>
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">iPhone 12 Pro Max</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">iPhone 12 Pro Max</a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -204,12 +207,11 @@ const Navbar = () => {
                                                             <i className="fa-solid fa-angle-right"></i>
                                                         </div>
                                                         <ul className="submenu2">
-                                                            <li className="submenu-item">
-
-                                                                <a href="#" className="submenu-link">Infinix smart 4</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">Infinix smart 4</a>
                                                             </li>
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">Infinix smart 5</a>
+                                                            <li className="submenu-item3">
+                                                                <a href="#" className="submenu-link3">Infinix smart 5</a>
                                                             </li>
                                                         </ul>
                                                     </li>

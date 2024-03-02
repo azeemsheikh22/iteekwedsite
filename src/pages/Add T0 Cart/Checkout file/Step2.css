@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.step2-main {
+  background: #f9f9f9;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.step2-main .left-box {
+  height: 89vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.step2-main .right-box {
+  height: 89vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.step2-main .left-box h1 {
+  font-size: 25px;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+.step2-main .left-box .fields-box {
+  height: 50vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  overflow: hidden;
+}
+
+.step2-main .left-box .fields-box h1 {
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+}
+
+.step2-main .left-box .fields-box .textfields {
+  height: 20px;
+}
+
+.step2-main .right-box h1 {
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+}
+
+.step2-main .right-box .summary-box {
+  min-height: 200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  overflow: hidden;
+}
+
+.step2-main .right-box .summary-box .img-box img {
+  height: 50px;
+  border: 1px solid rgb(192, 191, 191);
+  border-radius: 5px;
+}
+
+.step2-main .right-box .summary-box h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  /* line-height: 22px; */
+  color: rgb(51, 51, 51);
+}
+
+.step2-main .right-box .summary-box h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+}
+
+.step2-main .right-box .summary-box .line {
+  border-bottom: 1px solid rgb(203, 202, 202);
+}
+
+.step2-main .right-box .summary-box .total-box h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+}
+
+.step2-main .right-box .summary-box .checkout-btn button {
+  background-color: black;
+  border: none;
+  height: 50px;
+  border-radius: 30px;
+  transition: 0.2s ease;
+}
+
+.step2-main .right-box .summary-box .checkout-btn button:hover {
+  background-color: #545454;
+  border: none;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.step2-main .right-box .summary-box h6 {
+  color: rgb(98, 95, 95);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* styles.css */
+.step2-main .customTextField {
+  width: 100%;
+}
+
+.step2-main .customTextField label.Mui-focused {
+  color: green; /* Example focused label color */
+}
+
+/* .customTextField .MuiOutlinedInput-root {
+    fieldset: {
+      border-color: blue;
+    };
+  } */
+
+.step2-main
+  .customTextField
+  .MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border-color: red; /* Example border color on hover */
+}
+
+.step2-main
+  .customTextField
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: green; /* Example border color when focused */
+}
+
+.step2-main
+  .customSelect
+  .MuiOutlinedSelect-root.Mui-focused
+  .MuiOutlinedSelect-notchedOutline {
+  border-color: green; /* Example border color when focused */
+}
+
+/* styles.css */
+.MuiFormControl-root {
+  border: 1px solid red; /* Change the border color to red */
+}
