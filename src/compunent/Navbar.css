@@ -219,7 +219,12 @@
     transition: 0.3s ease-in;
     border-radius: 5px;
     border: 1px solid rgb(214, 208, 208);
+    /* overflow: hidden;
+    height: 400px;
+    overflow-y: scroll; */
 }
+
+
 
 .nav-main .category-nav .dropdown-item-2 {
     padding: 5px 10px;
@@ -287,7 +292,8 @@
     margin-top: 10px;
     border-radius: 5px;
     border: 1px solid rgb(214, 208, 208);
-    z-index: 100;
+    /* z-index: 100; */
+    margin-right: 10px;
 }
 
 .nav-main .category-nav .dropdown-item-2:hover .submenu {
@@ -319,6 +325,7 @@
     transition: 0.3s ease-in;
 
 }
+
 
 .nav-main .category-nav .submenu-item:hover .sub-submenu {
     display: block;

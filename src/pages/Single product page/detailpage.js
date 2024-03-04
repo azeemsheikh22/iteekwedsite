@@ -12,7 +12,7 @@ import { Rating } from '@mui/material'
 import delivery from '../../assiets/img/delivery_709790.png'
 import welcomedesign from '../../assiets/img/welcome1.png'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import { useDispatch } from 'react-redux'
@@ -23,22 +23,24 @@ const Detailpage = () => {
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         getdata();
+
     }, [])
 
     const arr = [HEADPHONE, ipad2, watch, tv, mac,]
     const arry = [air_pods, HEADPHONE, watch, mac, HEADPHONE, ipad2, tv, mac];
     const params = useParams();
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const [value, setValue] = useState(2);
     const [imagefix, setimagefix] = useState("row");
 
     const [i, seti] = useState(0)
 
     const [products, setproducts] = useState([]);
+    const [categorydata, setcategorydata] = useState([]);
     const [filterid, setfilterid] = useState(0)
     const [loader, setloader] = useState(false)
-
+    const [categoryurl, setcategoryurl] = useState("")
 
     const getdata = () => {
         axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
@@ -47,6 +49,10 @@ const Detailpage = () => {
                 if (res.data.length >= 1) {
                     setproducts(res.data)
                     setloader(true)
+                    // setcategoryurl(res.data[0].category.urlName)
+
+                    getdata2(res.data[0].category.urlName);
+
                 }
             }).catch((e) => {
                 if (e.message === "Network Error") {
@@ -59,6 +65,30 @@ const Detailpage = () => {
             })
     };
 
+    const getdata2 = (urlName) => {
+        axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/category/${urlName}`)
+            .then((res) => {
+                const pageSize = 8;
+                const page = 1;
+                const pages = Math.ceil(res.data?.length / pageSize);
+                const pageData = res.data?.slice((page * pageSize) - pageSize, page * pageSize);
+                console.log("categorydata", pageData)
+                setcategorydata(pageData)
+
+            }).catch((e) => {
+                // console.log(e)
+            })
+    }
+
+    const [a, seta] = useState()
+
+    const click = (e,url) => {
+        seta(e)
+        setTimeout(function () {
+            navigate(`/product-detail/${url}`)
+            window.location.reload();
+        }, 500);
+    }
 
     return (
         <div>
@@ -116,6 +146,9 @@ const Detailpage = () => {
                                         </div>
                                     </> : <>
                                         <Box sx={{ mt: 1 }}>
+                                            <Skeleton width="100%" height="100px" />
+                                        </Box>
+                                        <Box sx={{ mt: -2 }}>
                                             <Skeleton width="100%" height="100px" />
                                         </Box>
                                     </>
@@ -179,13 +212,13 @@ const Detailpage = () => {
                                                 {
                                                     products.map((item, index) => {
                                                         return <div className='col-4 mb-2' key={index} onClick={() => setfilterid(index)}>
-                                                            <button className={index === filterid ? "btn btn-primary d-flex align-items-center justify-content-center py-2 active" : "btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal"}><button style={{ background: item.attributes[0].option_index.option2 }} className='color-btn me-2'></button> {item.attributes[0].option_index.option}</button>
+                                                            <button className={index === filterid ? "btn btn-primary d-flex align-items-center justify-content-center py-2 active" : "btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal"}><button style={{ background: item.attributes[0]?.option_index.option2 }} className='color-btn me-2'></button> {item.attributes[0]?.option_index.option}</button>
                                                         </div>
                                                     })
                                                 }
 
                                             </div>
-                                        </> : <>
+                                        </> :products[0]?.attributes[0]? <>
                                             <div className='row mt-4 text-start'>
                                                 <h3>{products[0]?.attributes[0]?.name}</h3>
                                             </div>
@@ -194,13 +227,13 @@ const Detailpage = () => {
                                                 {
                                                     products.map((item, index) => {
                                                         return <div className='col-4 mb-2' key={index} onClick={() => setfilterid(index)}>
-                                                            <button className='btn btn-primary active d-flex align-items-center justify-content-center py-2 button-normal'>{item.attributes[0].option_index.option}</button>
+                                                            <button className='btn btn-primary active d-flex align-items-center justify-content-center py-2 button-normal'>{item.attributes[0]?.option_index.option}</button>
                                                         </div>
                                                     })
                                                 }
 
                                             </div>
-                                        </>
+                                        </>:""
                                     }
 
                                     {
@@ -213,7 +246,7 @@ const Detailpage = () => {
                                                 {
                                                     products.map((item, index) => {
                                                         return <div className='col-4 mb-2' key={index} onClick={() => setfilterid(index)}>
-                                                            <button className='btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal'><button style={{ background: item.attributes[1].option_index.option2 }} className='color-btn me-2'></button> {item.attributes[0].option_index.option}</button>
+                                                            <button className='btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal'><button style={{ background: item.attributes[1]?.option_index.option2 }} className='color-btn me-2'></button> {item.attributes[0].option_index.option}</button>
                                                         </div>
                                                     })
                                                 }
@@ -237,27 +270,45 @@ const Detailpage = () => {
                                         </> : ""
                                     }
 
-                                    {/* {
-                                products[0]?.attributes[1] ? <>
-                                    <div className='row mt-4 text-start'>
-                                        <h3>{products[0]?.attributes[1].name}</h3>
-                                    </div>
 
-                                    <div className='row boxs'>
-                                        {
-                                            products.map((item, index) => {
-                                                return <div className='col-4 mb-2'>
-                                                    <button className='btn btn-primary active d-flex align-items-center justify-content-center py-2'>{item.attributes[1].option_index.option}</button>
-                                                </div>
-                                            })
-                                        }
+{
+                                        products[0]?.attributes[2]?.name === "Colour" ? <>
+                                            <div className='row mt-4 text-start'>
+                                                <h3>{products[0]?.attributes[2]?.name}</h3>
+                                            </div>
 
-                                    </div>
-                                </> : ""
-                            } */}
+                                            <div className='row boxs'>
+                                                {
+                                                    products.map((item, index) => {
+                                                        return <div className='col-4 mb-2' key={index} onClick={() => setfilterid(index)}>
+                                                            <button className='btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal'><button style={{ background: item.attributes[2]?.option_index.option2 }} className='color-btn me-2'></button> {item.attributes[0].option_index.option}</button>
+                                                        </div>
+                                                    })
+                                                }
+
+                                            </div>
+                                        </> : products[0]?.attributes[2] ? <>
+                                            <div className='row mt-4 text-start'>
+                                                <h3>{products[0]?.attributes[2]?.name}</h3>
+                                            </div>
+
+                                            <div className='row boxs'>
+                                                {
+                                                    products.map((item, index) => {
+                                                        return <div className='col-4 mb-2' key={index} onClick={() => setfilterid(index)}>
+                                                            <button className={index === filterid ? "btn btn-primary d-flex align-items-center justify-content-center py-2 active" : "btn btn-primary d-flex align-items-center justify-content-center py-2 button-normal"}>{item.attributes[2]?.option_index.option}</button>
+                                                        </div>
+                                                    })
+                                                }
+
+                                            </div>
+                                        </> : ""
+                                    }
+
+
                                 </> : <>
                                     <Box sx={{ mt: -9 }}>
-                                        <Skeleton width="100%" height="500px" />
+                                        <Skeleton width="100%" height="400px" />
                                     </Box>
                                 </>
                             }
@@ -278,10 +329,10 @@ const Detailpage = () => {
 
                         <div className='row mt-4'>
                             {
-                                arry.map((item, index) => {
+                                categorydata.map((item, index) => {
                                     return <div className='col-lg-3 col-6 mb-3' key={index}>
-                                        <div className='card-1 g-0'>
-                                            <div className='container py-3 px-lg-4'>
+                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
+                                            <div className='container py-3 px-lg-4'  onClick={() => click(index,item.product.urlName)}>
                                                 <div className='row text-start'>
                                                     <div className='col-lg-6 col text-center'>
                                                         <h4>Best Seller</h4>
@@ -289,17 +340,17 @@ const Detailpage = () => {
                                                 </div>
 
                                                 <div className='row img-box'>
-                                                    <img src={item} alt='' className='mx-auto img-fluid'></img>
+                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.product}`} alt='' className='mx-auto img-fluid'></img>
                                                 </div>
 
                                                 <div className='row text-start mt-2'>
-                                                    <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
+                                                    <h2>{item.product.name}</h2>
                                                 </div>
                                                 <div className='row text-start'>
                                                     <h5>Starting at</h5>
                                                 </div>
                                                 <div className='row text-start '>
-                                                    <h2>€165.55</h2>
+                                                    <h2>€{item.product.sell_price}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -310,46 +361,7 @@ const Detailpage = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className='related-product-main pb-4'>
-                    <div className='container'>
-                        <div className='row text-start'>
-                            <h2>Related products</h2>
-                        </div>
 
-                        <div className='row mt-4'>
-                            {
-                                arry.map((item, index) => {
-                                    return <div className='col-lg-3 col-6 mb-3' key={index}>
-                                        <div className='card-1 g-0'>
-                                            <div className='container py-3 px-lg-4'>
-                                                <div className='row text-start'>
-                                                    <div className='col-lg-6 col text-center'>
-                                                        <h4>Best Seller</h4>
-                                                    </div>
-                                                </div>
-
-                                                <div className='row img-box'>
-                                                    <img src={item} alt='' className='mx-auto'></img>
-                                                </div>
-
-                                                <div className='row text-start mt-2'>
-                                                    <h2>iPad 10.2 (2019) 7th gen 32 Go - WiFi</h2>
-                                                </div>
-                                                <div className='row text-start'>
-                                                    <h5>Starting at</h5>
-                                                </div>
-                                                <div className='row text-start '>
-                                                    <h2>€165.55</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                })
-                            }
-
-                        </div>
-                    </div>
-                </div> */}
 
 
                 <div className='welcome-main '>

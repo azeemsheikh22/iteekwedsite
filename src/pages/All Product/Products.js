@@ -46,7 +46,7 @@ const Products = () => {
             // })
         setAllProducts(items)
 
-        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/enabled")
+        axios.get("")
             .then((res) => {
                 // console.warn(res.data)
                 const pageSize = 13;
@@ -77,7 +77,7 @@ const Products = () => {
         setSelectedValue(event.target.value);
         const value = event.target.value;
         // console.log(event.target.value);
-        axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/category/${value}`)
+        axios.get(``)
             .then((res) => {
                 console.log(res.data)
                 setAllProducts(res.data)

@@ -26,19 +26,42 @@ const cartSlice = createSlice({
             let find = state.cart.findIndex((item) => item._id === action.payload._id);
             if (find >= 0) {
                 // state.cart[find].quantity += 1;
-                console.log("hello")
+                console.log(find)
             } else {
                 state.cart.push(action.payload);
                 console.log(find)
                 state.totalQuantity += 1;
+                state.totalprice += action.payload.sell_price;
                 console.log("hello")
-
             }
         },
-        removeItem: (state, action) => {
-            state.cart = state.cart.filter((item) => item.name !== action.payload);
-            state.totalQuantity -= 1;
 
+        getCartTotal: (state) => {
+            let { totalQuantity, totalPrice } = state.cart.reduce(
+              (cartTotal, cartItem) => {
+                console.log("carttotal", cartTotal);
+                console.log("cartitem", cartItem);
+                const { sell_price, quantity } = cartItem;
+                console.log(sell_price, quantity);
+                const itemTotal = sell_price * quantity;
+                cartTotal.totalPrice += itemTotal;
+                cartTotal.totalQuantity += quantity;
+                return cartTotal;
+              },
+              {
+                totalPrice: 0,
+                totalQuantity: 0,
+              }
+            );
+            state.totalPrice = parseInt(totalPrice.toFixed(2));
+            state.totalQuantity = totalQuantity;
+          },
+      
+        removeItem: (state, action) => {
+            state.cart = state.cart.filter((item) => item._id !== action.payload._id);
+            state.totalQuantity -= 1;
+            console.log(action.payload)
+            state.totalprice -= action.payload.sell_price;
           },
      
     },
@@ -60,5 +83,5 @@ const cartSlice = createSlice({
     }
 });
 
-export const { addtocart,removeItem } = cartSlice.actions; // Export any reducers you define
+export const { addtocart,removeItem,getCartTotal } = cartSlice.actions; // Export any reducers you define
 export default cartSlice.reducer;

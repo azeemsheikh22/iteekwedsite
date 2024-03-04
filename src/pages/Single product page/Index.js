@@ -59,7 +59,7 @@ const Index = () => {
     setnoproduct(value)
     axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
       .then((res) => {
-        console.warn(res.data)
+        // console.warn(res.data)
         setproductdata(res.data)
         setimgdata(res.data[value].images)
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" })

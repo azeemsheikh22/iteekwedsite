@@ -16,7 +16,7 @@ import 'aos/dist/aos.css'
 import GoogleTranslateWidget from '../Translate/GoogleTranslateWidget';
 import { useSelector } from 'react-redux';
 
-const Category1 = () => {
+const Category1 = ({data}) => {
 
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Category1 = () => {
 
     const pageData = items?.slice((page * pageSize) - pageSize, page * pageSize);
 
-    console.warn(pageData)
+    // console.warn(pageData)
 
     const click = (e,url) => {
         seta(e)
@@ -40,12 +40,14 @@ const Category1 = () => {
         }, 500);
     }
 
+    console.warn(data)
+
     return (
         <div className='category1-main pb-5'>
             <div className='container pt-5 px-lg-5'>
                 <div className='row text-start mt-2'>
                     <GoogleTranslateWidget />
-                    <h2>Mobile Accessories</h2>
+                    <h2>{data?.name}</h2>
                 </div>
 
                 <div className='row'>
@@ -54,10 +56,6 @@ const Category1 = () => {
                         <Swiper
                             slidesPerView={1}
                             spaceBetween={10}
-                            // autoplay={{
-                            //     delay: 3500,
-                            //     disableOnInteraction: false,
-                            // }}
                             pagination={{
                                 clickable: true,
                             }}
@@ -80,9 +78,9 @@ const Category1 = () => {
                             modules={[Autoplay, Navigation]}
                             className="mySwiper"
                         >
-                            {pageData?.length > 0 ? <>
+                            {data?.name ? <>
                                 {
-                                    pageData.map((item, index) => {
+                                    data?.products.map((item, index) => {
                                         return <SwiperSlide key={index}>
                                         <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
                                             <div className='container py-3 px-lg-4' onClick={() => click(index,item.urlName)}>

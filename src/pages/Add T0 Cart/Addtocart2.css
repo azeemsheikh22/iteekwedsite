@@ -171,3 +171,30 @@
     font-size: 0.8rem;
     font-weight: 400;
   }
+
+  .addtocart2-main .cart-empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+
+  .addtocart2-main .cart-empty h1{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.7rem;
+  }
+
+  .addtocart2-main .cart-empty button{
+    background-color: black;
+    border: none;
+    height: 50px;
+    border-radius: 30px;
+    transition: 0.2s ease;
+  }
+
+  .addtocart2-main .cart-empty button:hover{
+    background-color: #545454;
+    border: none;
+    height: 50px;
+    border-radius: 30px;
+  }

@@ -10,10 +10,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useSelector } from 'react-redux'
 
 const Step2 = () => {
 
   const [amount, setamount] = useState(1)
+  const { cart, totalprice } = useSelector((state) => state.carts);
+
 
   const setdecrease = () => {
     amount > 1 ? setamount(amount - 1) : setamount(1);
@@ -93,28 +96,22 @@ const Step2 = () => {
                 <div className='col'>
                   <div className='summary-box px-3 py-4'>
                     <div className='container-fluid'>
-                      <div className='row g-2 mb-3'>
-                        <div className='col-2 img-box'>
-                          <img src={watch} className='img-fluid' alt=''></img>
-                        </div>
-                        <div className='col-7 text-start'>
-                          <h4>Apple Watch (Series 6) 2020 GPS 44 - Aluminium Space Gray - Sport band Black</h4>
-                        </div>
-                        <div className='col'>
-                          <h3>€209.00</h3>
-                        </div>
-                      </div>
-                      <div className='row g-2 mb-3'>
-                        <div className='col-2 img-box'>
-                          <img src={HEADPHONE} className='img-fluid' alt=''></img>
-                        </div>
-                        <div className='col-7 text-start'>
-                          <h4>Apple Watch (Series 6) 2020 GPS 44 - Aluminium Space Gray - Sport band Black</h4>
-                        </div>
-                        <div className='col'>
-                          <h3>€209.00</h3>
-                        </div>
-                      </div>
+                      {
+                        cart.map((item, index) => {
+                          return <div className='row g-2 mb-3' key={index}>
+                            <div className='col-2 img-box'>
+                              <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.images[0]}`} className='img-fluid' alt=''></img>
+                            </div>
+                            <div className='col-7 text-start'>
+                              <h4>{item.display_name}</h4>
+                            </div>
+                            <div className='col'>
+                              <h3>€{item.sell_price}</h3>
+                            </div>
+                          </div>
+                        })
+                      }
+                      
                       <div className='row line'>
                       </div>
 
@@ -123,7 +120,7 @@ const Step2 = () => {
                           <h5>Subtotal</h5>
                         </div>
                         <div className='col text-end'>
-                          <h5>€418.00</h5>
+                          <h5>€{totalprice}</h5>
 
                         </div>
                       </div>

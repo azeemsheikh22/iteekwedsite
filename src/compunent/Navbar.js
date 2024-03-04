@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import axios from 'axios'
 // import GoogleTranslateWidget from '../pages/Translate/GoogleTranslateWidget'
 // import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 // import { Tabs } from '@material-ui/core'
@@ -26,41 +27,33 @@ const Navbar = () => {
     const [sticky2, set2sticky] = useState("")
 
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //   dispatch(getCartTotal());
-    // }, [cart]);
 
-    // window.onscroll = () => {
-    //     let temp;
-    //     let top = window.scrollY;
-    //     if (top > 100) {
-    //         // setsticky("navbar navbar-expand-lg bg-body-white sticky")
-    //         const value = top;
-    //         set2sticky("")
-    //         if (value < top) {
-    //             set2sticky("sticky")
-    //             console.log(top)
-
-
-    //         }
-
-    //     } else {
-    //         // setsticky("navbar navbar-expand-lg bg-body-white")
-    //         set2sticky("")
-
-    //     }
-    // }
+    // console.log("sub menu", data)
 
     const arry = ["Mobiles Accessories", "Repair", "Tempered Glass", "Computer", "Computer Accessories", "Batterie", "Sim", "Electronics Accessories", "Audio"]
 
     const [value, setValue] = useState(0);
+    const [data, setdata] = useState([])
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    useEffect(() => {
+        getdata();
+    }, []);
 
-    
+    const getdata = () => {
+        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/list/all")
+            .then((res) => {
+                console.warn("sub menu", res.data)
+                setdata(res.data)
+            }).catch((e) => {
+                console.log(e)
+            })
+    };
+
+
 
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -156,162 +149,232 @@ const Navbar = () => {
                 </div>
 
                 <div className='category-nav'>
-                    <div className='container'>
-                        <div className='col-lg-2 mt-2'>
-                            <nav className="navbar">
-                                <ul className="navbar-menu">
-                                    <li className="navbar-item dropdown">
-                                        <h4 style={{ fontWeight: "bold" }} className='dropdown-toggle'>All items</h4>
-                                        <ul className="dropdown-menu">
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Mobiles Accessories</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                                <ul className="submenu">
-                                                    <li className="submenu-item">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">Google pixel</a>
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                        <ul className="submenu2">
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">Google pixel 3xl</a>
-                                                            </li>
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">Google pixel 4xl</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li className="submenu-item">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">iPhone</a>
+                    {
+                        data.length >= 1 ? <>
+                            <div className='container'>
+                                <div className='col-lg-2 mt-2'>
+                                    <nav className="navbar">
+                                        <ul className="navbar-menu">
+                                            <li className="navbar-item dropdown">
+                                                <h4 style={{ fontWeight: "bold" }} className='dropdown-toggle'>All items</h4>
+                                                <ul className="dropdown-menu">
+                                                    <div className='dropdown-3'>
+                                                        {
+                                                            data.map((item, index) => {
 
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                        
-                                                        <ul className="submenu2">
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">iPhone 11 Pro Max</a>
-                                                            </li>
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">iPhone 12 Pro Max</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li className="submenu-item dropdown">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">Infinix</a>
+                                                                return <li className="dropdown-item-2" key={index}>
+                                                                    <div className='arror-icon'>
+                                                                        <a href="#" className="dropdown-link">{item.name}</a>
+                                                                        <i className="fa-solid fa-angle-right"></i>
+                                                                    </div>
+                                                                    <ul className="submenu">
+                                                                        {
+                                                                            item.filtered_sub_categories.map((i, index) => {
+                                                                                return <li className="submenu-item" key={index}>
+                                                                                    <div className='arror-icon'>
+                                                                                        <a href="#" className="submenu-link">{item.name}</a>
+                                                                                        <i className="fa-solid fa-angle-right"></i>
+                                                                                    </div>
+                                                                                    <ul className="submenu2">
+                                                                                        {
+                                                                                            i.filtered_sub_sub_categories.map((d,index) => {
+                                                                                              return <li className="submenu-item3" key={index}>
+                                                                                            <a href="#" className="submenu-link3">{d.name}</a>
+                                                                                        </li>
+                                                                                            })
+                                                                                        }
+                                                                                        
+                                                                                        
+                                                                                    </ul>
+                                                                                </li>
+                                                                            })
+                                                                        }
 
 
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                        <ul className="submenu2">
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">Infinix smart 4</a>
-                                                            </li>
-                                                            <li className="submenu-item3">
-                                                                <a href="#" className="submenu-link3">Infinix smart 5</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
+                                                                      
+                                                                    </ul>
+                                                                </li>
+
+
+                                                            })
+                                                        }
+                                                    </div>
                                                 </ul>
                                             </li>
-                                            <li className="dropdown-item-2 dropdown">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Repair</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
 
-                                                <ul className="submenu">
-                                                    <li className="submenu-item">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">Submenu 2.1</a>
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li className="submenu-item">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">Submenu 2.2</a>
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li className="submenu-item dropdown">
-                                                        <div className='arror-icon'>
-                                                            <a href="#" className="submenu-link">Submenu 2.3</a>
-                                                            <i className="fa-solid fa-angle-right"></i>
-                                                        </div>
-                                                        <ul className="submenu">
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">Submenu 2.3.1</a>
-                                                            </li>
-                                                            <li className="submenu-item">
-                                                                <a href="#" className="submenu-link">Submenu 2.3.2</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Tempered Glass</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Computer</a>
-
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Computer Accessories</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Batterie</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Sim</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Electronics Accessories</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
-                                            <li className="dropdown-item-2">
-                                                <div className='arror-icon'>
-                                                    <a href="#" className="dropdown-link">Audio</a>
-                                                    <i className="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </li>
                                         </ul>
-                                    </li>
+                                    </nav>
 
-                                </ul>
-                            </nav>
+                                </div>
+                                <div className='col-lg-10 d-flex gap-4 mt-2' style={{ overflow: "hidden" }}>
+                                    {
+                                        data.map((item) => {
+                                            return <h4>{item.name}</h4>
 
-                        </div>
-                        <div className='col-lg-10 d-flex gap-4 mt-2' style={{ overflow: "hidden" }}>
-                            {
-                                arry.map((item) => {
-                                    return <h4>{item}</h4>
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </> : <></>
+                    }
 
-                                })
-                            }
-                        </div>
-                    </div>
                 </div>
+
+                {/* <div className='container'>
+                    <div className='col-lg-2 mt-2'>
+                        <nav className="navbar">
+                            <ul className="navbar-menu">
+                                <li className="navbar-item dropdown">
+                                    <h4 style={{ fontWeight: "bold" }} className='dropdown-toggle'>All items</h4>
+                                    <ul className="dropdown-menu">
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Mobiles Accessories</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                            <ul className="submenu">
+                                                <li className="submenu-item">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">Google pixel</a>
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+                                                    <ul className="submenu2">
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">Google pixel 3xl</a>
+                                                        </li>
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">Google pixel 4xl</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li className="submenu-item">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">iPhone</a>
+
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+
+                                                    <ul className="submenu2">
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">iPhone 11 Pro Max</a>
+                                                        </li>
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">iPhone 12 Pro Max</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li className="submenu-item dropdown">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">Infinix</a>
+
+
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+                                                    <ul className="submenu2">
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">Infinix smart 4</a>
+                                                        </li>
+                                                        <li className="submenu-item3">
+                                                            <a href="#" className="submenu-link3">Infinix smart 5</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li className="dropdown-item-2 dropdown">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Repair</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+
+                                            <ul className="submenu">
+                                                <li className="submenu-item">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">Submenu 2.1</a>
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+                                                </li>
+                                                <li className="submenu-item">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">Submenu 2.2</a>
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+                                                </li>
+                                                <li className="submenu-item dropdown">
+                                                    <div className='arror-icon'>
+                                                        <a href="#" className="submenu-link">Submenu 2.3</a>
+                                                        <i className="fa-solid fa-angle-right"></i>
+                                                    </div>
+                                                    <ul className="submenu">
+                                                        <li className="submenu-item">
+                                                            <a href="#" className="submenu-link">Submenu 2.3.1</a>
+                                                        </li>
+                                                        <li className="submenu-item">
+                                                            <a href="#" className="submenu-link">Submenu 2.3.2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Tempered Glass</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Computer</a>
+
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Computer Accessories</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Batterie</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Sim</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Electronics Accessories</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                        <li className="dropdown-item-2">
+                                            <div className='arror-icon'>
+                                                <a href="#" className="dropdown-link">Audio</a>
+                                                <i className="fa-solid fa-angle-right"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div className='col-lg-10 d-flex gap-4 mt-2' style={{ overflow: "hidden" }}>
+                        {
+                            arry.map((item) => {
+                                return <h4>{item}</h4>
+
+                            })
+                        }
+                    </div>
+                </div> */}
             </div>
         </div>
     )

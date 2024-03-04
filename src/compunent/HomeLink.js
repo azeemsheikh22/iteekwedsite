@@ -15,18 +15,17 @@ import Category6 from '../pages/Card slider/Category6'
 import CardSlider from './Customer card slider/CardSlider'
 
 const HomeLink = () => {
-
-    const [categorydata, setcategorydata] = useState([]);
+    const [category_wise, setcategory_wise] = useState([]);
 
     useEffect(() => {
         getdata();
     }, []);
 
     const getdata = () => {
-        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/categories/sequence-maintained")
+        axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/e-commerce/category_wise")
             .then((res) => {
-                console.warn(res.data)
-                setcategorydata(res.data)
+                console.warn("category wise",res.data)
+                setcategory_wise(res.data)
             }).catch((e) => {
                 console.log(e)
             })
@@ -38,17 +37,17 @@ const HomeLink = () => {
             <Navbar />
             <Hero />
             <Slider />
-            <Category1 />
+            <Category1 data={category_wise[0]} />
             <Category2 />
             <Category3 />
             <Category4 />
             <Category5 />
             <Category6 />
-          
+
             <Topseller />
-         
+
             <Cart3 />
-            <CardSlider/>
+            <CardSlider />
             <Footer />
         </div>
     )
