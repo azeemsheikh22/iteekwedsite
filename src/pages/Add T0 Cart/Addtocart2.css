@@ -24,6 +24,19 @@
   color: rgb(51, 51, 51);
 }
 
+@media only screen and (max-width: 600px) {
+  .addtocart2-main .left-box {
+    height: 60vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .addtocart2-main .right-box {
+      height: auto;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+}
+
 .addtocart2-main .left-box .product-box {
   height: auto;
   background-color: #ffffff;

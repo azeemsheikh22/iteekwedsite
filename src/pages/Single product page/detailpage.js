@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './detailpage.css'
 import Navbar from '../../compunent/Navbar'
 import Footer from '../../compunent/Footer/Footer'
-import ipad2 from '../../assiets/img/ipad2.png'
-import HEADPHONE from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
-import watch from '../../assiets/img/dsfsdfsdfsdf.png'
-import tv from '../../assiets/img/tv.png'
-import mac from '../../assiets/img/macbook.png'
-import air_pods from '../../assiets/img/air_pods-removebg-preview.png'
+// import ipad2 from '../../assiets/img/ipad2.png'
+// import HEADPHONE from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
+// import watch from '../../assiets/img/dsfsdfsdfsdf.png'
+// import tv from '../../assiets/img/tv.png'
+// import mac from '../../assiets/img/macbook.png'
+// import air_pods from '../../assiets/img/air_pods-removebg-preview.png'
 import { Rating } from '@mui/material'
 import delivery from '../../assiets/img/delivery_709790.png'
 import welcomedesign from '../../assiets/img/welcome1.png'
@@ -15,8 +15,11 @@ import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addtocart } from '../../features/Cartslice'
+import { Bounce, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Detailpage = () => {
 
@@ -26,13 +29,14 @@ const Detailpage = () => {
 
     }, [])
 
-    const arr = [HEADPHONE, ipad2, watch, tv, mac,]
-    const arry = [air_pods, HEADPHONE, watch, mac, HEADPHONE, ipad2, tv, mac];
+    // const arr = [HEADPHONE, ipad2, watch, tv, mac,]
+    // const arry = [air_pods, HEADPHONE, watch, mac, HEADPHONE, ipad2, tv, mac];
     const params = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [value, setValue] = useState(2);
     const [imagefix, setimagefix] = useState("row");
+    const { cartmessage } = useSelector((state) => state.carts);
 
     const [i, seti] = useState(0)
 
@@ -45,7 +49,7 @@ const Detailpage = () => {
     const getdata = () => {
         axios.get(`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/byUrl/${params.id}`)
             .then((res) => {
-                console.warn("singleproduct", res.data)
+                // console.warn("singleproduct", res.data)
                 if (res.data.length >= 1) {
                     setproducts(res.data)
                     setloader(true)
@@ -72,7 +76,7 @@ const Detailpage = () => {
                 const page = 1;
                 const pages = Math.ceil(res.data?.length / pageSize);
                 const pageData = res.data?.slice((page * pageSize) - pageSize, page * pageSize);
-                console.log("categorydata", pageData)
+                // console.log("categorydata", pageData)
                 setcategorydata(pageData)
 
             }).catch((e) => {
@@ -82,13 +86,41 @@ const Detailpage = () => {
 
     const [a, seta] = useState()
 
-    const click = (e,url) => {
+    const click = (e, url) => {
         seta(e)
         setTimeout(function () {
             navigate(`/product-detail/${url}`)
             window.location.reload();
         }, 500);
     }
+
+    const addtocartsubmit = (data) => {
+        console.log("cart", data)
+        dispatch(addtocart(
+            {
+                _id: data._id,
+                name: data.name,
+                display_name: data.display_name,
+                sell_price: data.sell_price,
+                price2: data.sell_price,
+                qty: 1,
+                images: data.images
+            }
+        ))
+        toast.success('Added to cart', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
+    }
+
+    console.log(categorydata)
 
     return (
         <div>
@@ -173,7 +205,8 @@ const Detailpage = () => {
                                             <Rating name="read-only" value={value} readOnly />
                                         </div>
                                         <div className='col d-flex align-items-center justify-content-end'>
-                                            <button className='btn btn-primary add-btn' onClick={() => dispatch(addtocart(products[filterid]))}>Add to cart</button>
+                                            <button className='btn btn-primary add-btn' onClick={() => addtocartsubmit(products[filterid])}>Add to cart</button>
+                                            <ToastContainer />
                                         </div>
                                     </div>
                                     <div className='row liness mt-3'></div>
@@ -218,7 +251,7 @@ const Detailpage = () => {
                                                 }
 
                                             </div>
-                                        </> :products[0]?.attributes[0]? <>
+                                        </> : products[0]?.attributes[0] ? <>
                                             <div className='row mt-4 text-start'>
                                                 <h3>{products[0]?.attributes[0]?.name}</h3>
                                             </div>
@@ -233,7 +266,7 @@ const Detailpage = () => {
                                                 }
 
                                             </div>
-                                        </>:""
+                                        </> : ""
                                     }
 
                                     {
@@ -271,7 +304,7 @@ const Detailpage = () => {
                                     }
 
 
-{
+                                    {
                                         products[0]?.attributes[2]?.name === "Colour" ? <>
                                             <div className='row mt-4 text-start'>
                                                 <h3>{products[0]?.attributes[2]?.name}</h3>
@@ -321,46 +354,78 @@ const Detailpage = () => {
 
                 </div>
 
-                <div className='related-product-main pt-5 pb-4'>
-                    <div className='container'>
-                        <div className='row text-start'>
-                            <h2>You may also like</h2>
-                        </div>
+                {
+                    categorydata.length > 1 ? <>
+                        <div className='related-product-main pt-5 pb-4'>
+                            <div className='container'>
+                                <div className='row text-start'>
+                                    <h2>You may also like</h2>
+                                </div>
 
-                        <div className='row mt-4'>
-                            {
-                                categorydata.map((item, index) => {
-                                    return <div className='col-lg-3 col-6 mb-3' key={index}>
-                                        <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
-                                            <div className='container py-3 px-lg-4'  onClick={() => click(index,item.product.urlName)}>
-                                                <div className='row text-start'>
-                                                    <div className='col-lg-6 col text-center'>
-                                                        <h4>Best Seller</h4>
+                                <div className='row mt-4'>
+                                    {
+                                        categorydata.map((item, index) => {
+                                            return <div className='col-lg-3 col-6 mb-3' key={index}>
+                                                <div className={a === index ? "card-1 card-2 g-0" : "card-1 g-0"}>
+                                                    <div className='container py-3 px-lg-4' onClick={() => click(index, item.product.urlName)}>
+                                                        <div className='row text-start'>
+                                                            <div className='col-lg-6 col text-center'>
+                                                                <h4>Best Seller</h4>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className='row img-box'>
+                                                            <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.product}`} alt='' className='mx-auto img-fluid'></img>
+                                                        </div>
+
+                                                        <div className='row text-start mt-2'>
+                                                            <h2>{item.product.name}</h2>
+                                                        </div>
+                                                        <div className='row text-start'>
+                                                            <h5>Starting at</h5>
+                                                        </div>
+                                                        <div className='row text-start '>
+                                                            <h2>€{item.product.sell_price}</h2>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div className='row img-box'>
-                                                    <img src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.product}`} alt='' className='mx-auto img-fluid'></img>
-                                                </div>
-
-                                                <div className='row text-start mt-2'>
-                                                    <h2>{item.product.name}</h2>
-                                                </div>
-                                                <div className='row text-start'>
-                                                    <h5>Starting at</h5>
-                                                </div>
-                                                <div className='row text-start '>
-                                                    <h2>€{item.product.sell_price}</h2>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                })
-                            }
+                                        })
+                                    }
 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </> : <>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col-lg-3'>
+                                <Box sx={{ mt: -19 }}>
+                                            <Skeleton width="100%" height="500px" />
+                                        </Box>
+                                </div>
+
+                                <div className='col-lg-3'>
+                                <Box sx={{ mt: -19 }}>
+                                            <Skeleton width="100%" height="500px" />
+                                        </Box>
+                                </div>
+                                <div className='col-lg-3'>
+                                <Box sx={{ mt: -19 }}>
+                                            <Skeleton width="100%" height="500px" />
+                                        </Box>
+                                </div>
+                                <div className='col-lg-3'>
+                                <Box sx={{ mt: -19 }}>
+                                            <Skeleton width="100%" height="500px" />
+                                        </Box>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                }
+
+
 
 
 

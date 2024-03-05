@@ -29,7 +29,7 @@ const Slider = () => {
                     delay: 0,
                     disableOnInteraction: false,
                 }}
-                speed={600} 
+                speed={1000} 
                 breakpoints={{
                     640: {
                         slidesPerView: 3,

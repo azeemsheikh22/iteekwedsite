@@ -12,6 +12,8 @@ const initialState = {
     products: [],
     category: [],
     cart: [],
+    filters: [],
+    cartmessage: "",
     totalQuantity: 0,
     totalprice: 0,
     loading: false,
@@ -25,45 +27,73 @@ const cartSlice = createSlice({
         addtocart: (state, action) => {
             let find = state.cart.findIndex((item) => item._id === action.payload._id);
             if (find >= 0) {
-                // state.cart[find].quantity += 1;
-                console.log(find)
+                console.log(state.cart)
+                state.cart = state.cart.map((item) => {
+                    if (item._id === action.payload._id) {
+                        return { ...item, qty: item.qty + 1,price2: item.price2 += item.sell_price};
+                    }
+                    return item;
+                });
+                state.totalprice += action.payload.sell_price;
+
             } else {
                 state.cart.push(action.payload);
-                console.log(find)
+                console.log(state.cart)
                 state.totalQuantity += 1;
+                state.cartmessage += "Added to cart";
                 state.totalprice += action.payload.sell_price;
                 console.log("hello")
             }
         },
 
+        increaseqty: (state, action) => {
+            state.cart = state.cart.map((item) => {
+                if (item._id === action.payload.id) {
+                    return { ...item, qty: item.qty + 1,price2: item.price2 += item.sell_price};
+                }
+                return item;
+            });
+            state.totalprice += action.payload.Rs;
+        },
+
+        decreaseItemQuantity: (state, action) => {
+            state.cart = state.cart.map((item) => {
+              if (item._id === action.payload.id) {
+                return { ...item, qty: item.qty - 1,price2: item.price2 -= item.sell_price };
+              }
+              return item;
+            });
+            state.totalprice -= action.payload.Rs;
+          },
+
         getCartTotal: (state) => {
             let { totalQuantity, totalPrice } = state.cart.reduce(
-              (cartTotal, cartItem) => {
-                console.log("carttotal", cartTotal);
-                console.log("cartitem", cartItem);
-                const { sell_price, quantity } = cartItem;
-                console.log(sell_price, quantity);
-                const itemTotal = sell_price * quantity;
-                cartTotal.totalPrice += itemTotal;
-                cartTotal.totalQuantity += quantity;
-                return cartTotal;
-              },
-              {
-                totalPrice: 0,
-                totalQuantity: 0,
-              }
+                (cartTotal, cartItem) => {
+                    console.log("carttotal", cartTotal);
+                    console.log("cartitem", cartItem);
+                    const { sell_price, quantity } = cartItem;
+                    console.log(sell_price, quantity);
+                    const itemTotal = sell_price * quantity;
+                    cartTotal.totalPrice += itemTotal;
+                    cartTotal.totalQuantity += quantity;
+                    return cartTotal;
+                },
+                {
+                    totalPrice: 0,
+                    totalQuantity: 0,
+                }
             );
             state.totalPrice = parseInt(totalPrice.toFixed(2));
             state.totalQuantity = totalQuantity;
-          },
-      
+        },
+
         removeItem: (state, action) => {
             state.cart = state.cart.filter((item) => item._id !== action.payload._id);
             state.totalQuantity -= 1;
-            console.log(action.payload)
-            state.totalprice -= action.payload.sell_price;
-          },
-     
+            console.log(state.cart)
+            state.totalprice -= action.payload.price2;
+        },
+
     },
     extraReducers: builder => {
         builder
@@ -79,9 +109,9 @@ const cartSlice = createSlice({
                 state.error = action.error.message; // assuming you want to capture the error message
             })
 
-            
+
     }
 });
 
-export const { addtocart,removeItem,getCartTotal } = cartSlice.actions; // Export any reducers you define
+export const { addtocart, removeItem, getCartTotal, increaseqty ,decreaseItemQuantity} = cartSlice.actions; // Export any reducers you define
 export default cartSlice.reducer;
