@@ -22,6 +22,40 @@
 .addtocart2-main .left-box h1 {
   font-size: 20px;
   color: rgb(51, 51, 51);
+} 
+
+.addtocart2-main .left-box .line{
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.addtocart2-main .left-box .box-2{
+  height: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  overflow: hidden;
+}
+
+.addtocart2-main .left-box .box-2 .h3-1{
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+  
+}
+
+.addtocart2-main .left-box .box-2 .h3-1 i{
+  font-size: 1.5rem;
+  color: #357929;
+}
+
+.addtocart2-main .left-box .box-2-h2 h2{
+ font-size: 1.2rem;
+ color: rgb(51, 51, 51);
 }
 
 @media only screen and (max-width: 600px) {

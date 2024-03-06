@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './style.css'
 import Navbar from '../../compunent/Navbar'
-import Footer from '../../compunent/Footer/Footer'
 import { NavLink } from 'react-router-dom'
 import PhoneInput from 'react-phone-input-2'
 import { allCountries } from '../../result'
 import 'react-phone-input-2/lib/material.css'
+import Registernav from './Registernav'
 // import 'react-phone-input-2/lib/style.css'
 
 const Email = () => {
@@ -124,7 +124,7 @@ const Email = () => {
   return (
 
     <div>
-      <Navbar />
+      <Registernav />
       <div className='register-mains '>
         <div className="container">
           {
@@ -258,135 +258,7 @@ const Email = () => {
                         <div className='col-lg-3'></div>
 
                       </div>
-                    </> : no === 5 ?
-                      <>
-                        <div className='row text-start mb-4'>
-                          <h5 onClick={() => setno(4)}><i class="fa-solid fa-arrow-left"></i> Back</h5>
-                        </div>
-                        <div className='row'>
-                          <div className='col-lg-3'></div>
-                          <div className='col px-lg-5'>
-                            <div className="row">
-                              <h2>Select your country and city</h2>
-                            </div>
-                            <div className='row mt-4 text-start input-form '>
-                              <div className="mx-auto">
-                                <label for="sadasd" className="form-label">Country</label>
-                                <select class="form-select" value={country} onChange={handlecityfilter} aria-label="Default select example" >
-                                  <option selected>Select country</option>
-                                  {
-                                    allCountries.map((item) => {
-                                      return <option value={item.name} key={item._id}> {item.name} </option>
-                                    })
-                                  }
-                                </select>
-                                {/* {
-                                  valid === "form-control input2" ? <>
-                                    <div className='mt-2'><p>Please fill input</p></div>
-                                  </> : ""
-                                } */}
-                              </div>
-                            </div>
-
-                            <div className='row mt-2 text-start input-form '>
-                              <div className="mx-auto">
-                                <label for="sadasd" className="form-label">City</label>
-                                <select class="form-select" value={city} onChange={(e) => setcity(e.target.value)} aria-label="Default select example">
-                                  <option selected>Select city</option>
-                                  {filtercity.length >= 1 ?
-                                    filtercity.map((item) => {
-                                      return <option value={item} key={item._id}>{item}</option>
-                                    }) : ""
-                                  }
-                                </select>
-                                {
-                                  valid === "form-control input2" ? <>
-                                    <div className='mt-2'><p>Please fill input</p></div>
-                                  </> : ""
-                                }
-                              </div>
-                            </div>
-
-                            <div className='row mt-3 px-lg-3'>
-                              <button className='btn btn-primary' onClick={next6}>Next</button>
-                            </div>
-                          </div>
-                          <div className='col-lg-3'></div>
-
-                        </div>
-                      </> : no === 6 ?
-                        <>
-                          <div className='row text-start mb-4'>
-                            <h5 onClick={() => setno(5)}><i class="fa-solid fa-arrow-left"></i> Back</h5>
-                          </div>
-                          <div className='row'>
-                            <div className='col-lg-3'></div>
-                            <div className='col px-lg-5'>
-                              <div className="row">
-                                <h2>Enter your address</h2>
-                              </div>
-                              <div className='row mt-4 text-start input-form '>
-                                <div className="mx-auto">
-                                  <label for="sadasd" className="form-label">Address</label>
-                                  <input type="text" className={valid} value={address} onChange={(e) => setaddress(e.target.value)} id="sadasd" aria-describedby="emailHelp" />
-                                  {
-                                    valid === "form-control input2" ? <>
-                                      <div className='mt-2'><p>Please fill input</p></div>
-                                    </> : ""
-                                  }
-                                </div>
-                              </div>
-
-                              <div className='row mt-3 px-lg-3'>
-                                <button className='btn btn-primary' onClick={next7}>Next</button>
-                              </div>
-                            </div>
-                            <div className='col-lg-3'></div>
-
-                          </div>
-                        </> : no === 7 ?
-                          <>
-                            <div className='row text-start mb-4'>
-                              <h5 onClick={() => setno(6)}><i class="fa-solid fa-arrow-left"></i> Back</h5>
-                            </div>
-                            <div className='row'>
-                              <div className='col-lg-3'></div>
-                              <div className='col px-lg-5'>
-                                <div className="row">
-                                  <h2>Create your password</h2>
-                                </div>
-                                <div className='row mt-4 text-start input-form '>
-                                  <div className="mx-auto">
-                                    <label for="sadasd" className="form-label">Password</label>
-                                    <input type="password" className="form-control" value={password} onChange={(e) => setpassword(e.target.value)} id="sadasd" aria-describedby="emailHelp" />
-                                    {/* {
-                              valid === "form-control input2" ? <>
-                                <div className='mt-2'><p>Please fill input</p></div>
-                              </> : ""
-                            } */}
-                                  </div>
-                                </div>
-
-                                <div className='row mt-2 text-start input-form '>
-                                  <div className="mx-auto">
-                                    <label for="sadasd" className="form-label">Confirm password</label>
-                                    <input type="password" className="form-control" value={password2} onChange={(e) => setpassword2(e.target.value)} id="sadasd" aria-describedby="emailHelp" />
-                                    {
-                                      valid === "form-control input2" ? <>
-                                        <div className='mt-2'><p>Please fill input</p></div>
-                                      </> : ""
-                                    }
-                                  </div>
-                                </div>
-
-                                <div className='row mt-3 px-lg-3'>
-                                  <button className='btn btn-primary' onClick={next8}>Register</button>
-                                </div>
-                              </div>
-                              <div className='col-lg-3'></div>
-
-                            </div>
-                          </> :
+                    </> :
                           <>
                             <div className='row'>
                               <div className='col-lg-3'></div>
@@ -411,7 +283,7 @@ const Email = () => {
                                 </div>
 
                                 <div className='row mt-3 px-lg-3'>
-                                  <button className='btn btn-primary' onClick={next1}>Next</button>
+                                  <button className='btn btn-primary' onClick={next1}>Following</button>
                                 </div>
                               </div>
                               <div className='col-lg-3'></div>
@@ -422,7 +294,6 @@ const Email = () => {
 
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

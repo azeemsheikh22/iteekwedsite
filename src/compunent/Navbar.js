@@ -209,7 +209,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item d-flex justify-content-center">
                       <i
-                        className="fa-solid fa-cart-shopping nav-link"
+                        className="fa-solid fa-cart-shopping nav-link cart-icon"
                         onClick={() => navigate("/addtocart")}
                       ></i>
                       <span className="cart-counter">{totalQuantity}</span>
@@ -232,6 +232,7 @@ const Navbar = () => {
                         <h4
                           style={{ fontWeight: "bold" }}
                           className="dropdown-toggle"
+                          data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
                         >
                           All items
                         </h4>
@@ -309,6 +310,28 @@ const Navbar = () => {
           ) : (
             <></>
           )}
+        </div>
+        {/* <a className="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          Link with href
+        </a> */}
+      
+        <div className="offcanvas offcanvas-start side-menu1" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
+          <div className="offcanvas-header">
+            <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div className="offcanvas-body">
+              <div className="container-fluid">
+                <div className="row">
+                  <div className="col">
+                    <div className="row">
+                      <h3>Mobile</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
         </div>
       </div>
     </div>

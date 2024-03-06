@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import './style.css'
-import Navbar from '../../compunent/Navbar'
-import Footer from '../../compunent/Footer/Footer'
 import { NavLink } from 'react-router-dom'
 import PhoneInput from 'react-phone-input-2'
 
 import 'react-phone-input-2/lib/material.css'
+import Registernav from './Registernav'
 
 const Login2 = () => {
 
@@ -25,7 +24,7 @@ const Login2 = () => {
     return (
 
         <div>
-            <Navbar />
+            <Registernav />
             <div className='register-mains '>
                 <div className="container">
 
@@ -72,7 +71,7 @@ const Login2 = () => {
                         </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

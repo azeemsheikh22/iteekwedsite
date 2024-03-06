@@ -59,7 +59,7 @@ const Addtocart2 = () => {
         }
       )
       .then((res) => {
-        // console.warn("cart", res.data)
+        console.warn("cart", res.data)
         // setcategory_wise(res.data)
       })
       .catch((e) => {
@@ -93,7 +93,9 @@ const Addtocart2 = () => {
                                     src={`https://iteekapi.doctorsforhealth.co.uk/api/v1/products/images/${item.images[0]}`}
                                     className="im"
                                     alt=""
-                                  ></img>
+                                   onClick={() =>  navigate(`/product-detail/${item.urlName}`)} 
+                                   style={{cursor: "pointer"}}></img>
+                                   
                                 </div>
                                 <div className="col-lg-6 col-9">
                                   <div className="row text-start">
@@ -144,6 +146,30 @@ const Addtocart2 = () => {
                       </div>
                     );
                   })}
+
+                  <div className="row mt-5">
+                    <div className="col-lg-11">
+                      <div className="line"></div>
+                    </div>
+                  </div>
+
+                  <div className="row box-2-h2 text-start mt-4">
+                    <h2>Your perks with every purchase:</h2>
+                  </div>
+                  <div className="row mt-2">
+                    <div className="col-lg-11">
+                      <div className="box-2">
+                        <div className="row py-4 ps-4">
+                          <div className="col-6 d-flex justify-centent-start">
+                            <h3 className="h3-1 gap-3"><i className="fa-solid fa-shield"></i> 1-year minimum warranty</h3>
+                          </div>
+                          <div className="col-6 d-flex justify-centent-start">
+                          <h3 className="h3-1 gap-3"><i className="fa-solid fa-truck"></i> Free delivery by 23 Feb - 26 Feb</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

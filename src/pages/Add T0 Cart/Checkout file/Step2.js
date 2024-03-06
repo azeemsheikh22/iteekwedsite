@@ -3,18 +3,65 @@ import "./Step2.css";
 
 import AddtocartNav from "../AddtocartNav";
 import { useNavigate } from "react-router-dom";
-import TextField from "@mui/material/TextField";
 
 import { useSelector } from "react-redux";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const Step2 = () => {
-
   const { cart, totalprice } = useSelector((state) => state.carts);
-  const [name, setname] = useState("")
-  const [email, setemail] = useState("")
-  const [address, setaddress] = useState("")
-  const [contact_no, setcontact_no] = useState(0)
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [address, setaddress] = useState("");
+  const [contact_no, setcontact_no] = useState();
   const navigate = useNavigate();
+
+  const products = [
+    cart.map((i, index) => {
+      return {
+        _id: i._id,
+        qty: i.qty
+      }
+    })
+  ];
+
+  const total_amount = parseFloat(totalprice);
+
+  const ordersubmit = () => {
+    if (email,name,address,contact_no) {
+      axios
+        .post("https://iteekapi.doctorsforhealth.co.uk/api/v1/orders", {
+          name,
+          email,
+          address,
+          contact_no,
+          guest: false,
+          products: products[0],
+          total_amount
+        })
+        .then((res) => {
+          console.log(res.data);
+          if (res.data === "Order has been placed successfully") {
+            Swal.fire({
+              title: "Thank you",
+              text: "Order has been placed successfully",
+              icon: "success"
+            });
+          } else {
+           
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill input",
+    });
+    }
+  };
 
   return (
     <div className="step2-main">
@@ -41,22 +88,57 @@ const Step2 = () => {
 
                     <div className="row mt-4">
                       <div className="col-6 mb-3 text-start">
-                        <label for="exampleInputEmail1" className="form-label">Name</label>
-                        <input type="text" className="form-control"value={name}
-                         id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" className="form-label">
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={name}
+                          onChange={(e) => setname(e.target.value)}
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                        />
                       </div>
 
                       <div className="col-6 mb-3 text-start">
-                        <label for="exampleInputEmail1" className="form-label">Email</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" className="form-label">
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          value={email}
+                          onChange={(e) => setemail(e.target.value)}
+                        />
                       </div>
                       <div className="col-6 mb-3 text-start">
-                        <label for="exampleInputEmail1" className="form-label">Phone number</label>
-                        <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" className="form-label">
+                          Phone number
+                        </label>
+                        <input
+                          type="number"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          value={contact_no}
+                          onChange={(e) => setcontact_no(e.target.value)}
+                        />
                       </div>
                       <div className="col-6 mb-3 text-start">
-                        <label for="exampleInputEmail1" className="form-label">address</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label for="exampleInputEmail1" className="form-label">
+                          Address
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          value={address}
+                          onChange={(e) => setaddress(e.target.value)}
+                        />
                       </div>
                     </div>
                   </div>
@@ -108,10 +190,8 @@ const Step2 = () => {
                       <div className="row line mt-3"></div>
 
                       <div className="row checkout-btn mt-4">
-                        <button className="btn btn-primary">Order Now</button>
+                        <button className="btn btn-primary" onClick={ordersubmit}>Order Now</button>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
