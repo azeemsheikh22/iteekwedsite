@@ -20,9 +20,9 @@ const Contact = () => {
               <iframe
                 className="map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988756716!2d-0.26640578112070873!3d51.528739804788714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1701948948220!5m2!1sen!2s"
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
@@ -33,7 +33,7 @@ const Contact = () => {
                 <div className="container-fluid">
                   <div className="row d-flex align-items-center justify-content-center mb-3">
                     <div className="col-2 text-end">
-                      <i class="fa-solid fa-phone"></i>
+                      <i className="fa-solid fa-phone"></i>
                     </div>
                     <div className="col-6 text-start">
                       <h4>+33 6 77 54 17 62</h4>
@@ -41,7 +41,7 @@ const Contact = () => {
                   </div>
                   <div className="row d-flex align-items-center justify-content-center mb-3">
                     <div className="col-2 text-end">
-                      <i class="fa-solid fa-envelope"></i>
+                      <i className="fa-solid fa-envelope"></i>
                     </div>
                     <div className="col-6 text-start">
                       <h4>info@iteek.com</h4>
@@ -49,7 +49,7 @@ const Contact = () => {
                   </div>
                   <div className="row d-flex align-items-center justify-content-center mb-3">
                     <div className="col-2 text-end">
-                      <i class="fa-solid fa-location-dot"></i>
+                      <i className="fa-solid fa-location-dot"></i>
                     </div>
                     <div className="col-6 text-start">
                       <h4>118 Av. Victor Hugo, 93300 Aubervilliers, France.</h4>
@@ -61,10 +61,10 @@ const Contact = () => {
                   </div>
                   <div className="row mt-2">
                     <div className="social-icon gap-2">
-                      <i class="fa-brands fa-facebook"></i>
-                      <i class="fa-brands fa-twitter"></i>
-                      <i class="fa-brands fa-instagram"></i>
-                      <i class="fa-brands fa-youtube"></i>
+                      <i className="fa-brands fa-facebook"></i>
+                      <i className="fa-brands fa-twitter"></i>
+                      <i className="fa-brands fa-instagram"></i>
+                      <i className="fa-brands fa-youtube"></i>
                     </div>
                   </div>
                 </div>
@@ -79,10 +79,10 @@ const Contact = () => {
 
                   <div className="row mt-3">
                     <div className="col-6">
-                      <div class="mb-3 text-start">
+                      <div className="mb-3 text-start">
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="sadasdasd"
                           placeholder="Name*"
                           aria-describedby="emailHelp"
@@ -90,10 +90,10 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="col-6">
-                      <div class="mb-3 text-start">
+                      <div className="mb-3 text-start">
                         <input
                           type="email"
-                          class="form-control"
+                          className="form-control"
                           id="sadasdasd"
                           placeholder="Email*"
                           aria-describedby="emailHelp"
@@ -101,10 +101,10 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="col-12">
-                      <div class="mb-3 text-start">
+                      <div className="mb-3 text-start">
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="sadasdasd"
                           placeholder="Subject*"
                           aria-describedby="emailHelp"
@@ -112,10 +112,10 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="col-12">
-                      <div class="mb-3 text-start">
+                      <div className="mb-3 text-start">
                         <textarea
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           id="sadasdasd"
                           placeholder="Subject*"
                           aria-describedby="emailHelp"

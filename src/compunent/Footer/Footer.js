@@ -9,7 +9,7 @@ const Footer = () => {
                     <p>Hello there! We're Back Market, the leading online marketplace dedicated to refurbished devices. Our mission is to make restored devices mainstream. Making old the 'new new' so to speak.</p>
                 </div>
                 <div className='row text-center text-md-start'>
-                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
                         <h5 className='mb-4'>About</h5>
                         <p className=''>
                             <a href='/'>Who are we?</a>
@@ -28,7 +28,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
                         <h5 className='mb-4'>Help</h5>
                         <p>
                             <a href='/'>Sellers: Register to sell</a>
@@ -67,7 +67,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
                         <h5 className='mb-4'>Law and order</h5>
                         <p >
                             <a href='/'>Terms of Use</a>
@@ -108,7 +108,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3'>
+                    <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
                         <h5 className='mb-4'>Hello there!</h5>
                         <p className=''>
                             <a href='/'>Trustpilot</a>

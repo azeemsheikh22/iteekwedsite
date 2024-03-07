@@ -1,20 +1,14 @@
 import React, { useState } from 'react'
 import './CardSlider.css'
 import 'aos/dist/aos.css'
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import ipad2 from '../../assiets/img/ipad2.png'
-import mobile from '../../assiets/img/mobile.png'
-import airpod from '../../assiets/img/airpods.png'
-import watch22 from '../../assiets/img/smart watches png.png'
 import { Avatar, Rating } from '@mui/material';
 
 const CardSlider = () => {

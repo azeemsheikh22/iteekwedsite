@@ -145,7 +145,7 @@ const Category4= ({ data }) => {
         }, 500);
     }
 
-    console.warn(data)
+    // console.warn(data)
 
     return (
         <div className='category1-main pb-5'>

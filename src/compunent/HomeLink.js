@@ -24,7 +24,7 @@ const HomeLink = () => {
     const getdata = () => {
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/products/e-commerce/category_wise")
             .then((res) => {
-                console.warn("category wise", res.data)
+                // console.warn("category wise", res.data)
                 setcategory_wise(res.data)
             }).catch((e) => {
                 console.log(e)
@@ -33,7 +33,7 @@ const HomeLink = () => {
 
 
     return (
-        <div>
+        <div style={{scrollBehavior: "smooth"}}>
             <Navbar />
             <Hero />
             <Slider />
@@ -43,9 +43,7 @@ const HomeLink = () => {
             <Category4 data={category_wise[3]} />
             <Category5 data={category_wise[4]} />
             <Category6 data={category_wise[5]} />
-
             <Topseller />
-
             <Cart3 />
             <CardSlider />
             <Footer />

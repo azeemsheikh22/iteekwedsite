@@ -9,12 +9,12 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { productsdata } from '../../features/Cartslice';
-import Loading from '../../Loading';
+// import Loading from '../../Loading';
 import Box from '@mui/material/Box';
 // import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
-import img1 from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
-import img2 from '../../assiets/img/banner phone.png'
+// import img1 from '../../assiets/img/alexunder-hess-bWZAPKm0zZE-unsplash-removebg-preview.png'
+// import img2 from '../../assiets/img/banner phone.png'
 import banner1 from '../../assiets/img/banner1.png'
 import banner2 from '../../assiets/img/banner2.png'
 import { useNavigate } from 'react-router-dom';
@@ -39,7 +39,7 @@ const Hero = () => {
         setloadersubmit(true)
         axios.get("https://iteekapi.doctorsforhealth.co.uk/api/v1/sliders")
             .then((res) => {
-                console.warn(res.data)
+                // console.warn(res.data)
                 setsliderimg(res.data)
                 setloadersubmit(false)
             }).catch((e) => {

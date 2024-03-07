@@ -4,17 +4,11 @@ import logo from "../assiets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { getCartTotal } from '../features/Cartslice'
-// import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import axios from "axios";
-// import GoogleTranslateWidget from '../pages/Translate/GoogleTranslateWidget'
-// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-// import { Tabs } from '@material-ui/core'
-// import { Tab } from '@material-ui/core'
-// import { Box } from '@material-ui/core'
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -104,7 +98,7 @@ const Navbar = () => {
               </button>
               <div
                 className="offcanvas offcanvas-end"
-                tabindex="-1"
+                tabIndex="-1"
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
               >
@@ -301,8 +295,8 @@ const Navbar = () => {
                   className="col-lg-10 d-flex gap-4 mt-2"
                   style={{ overflow: "hidden" }}
                 >
-                  {data.map((item) => {
-                    return <h4>{item.name}</h4>;
+                  {data.map((item,index) => {
+                    return <h4 key={index}>{item.name}</h4>;
                   })}
                 </div>
               </div>
@@ -315,7 +309,7 @@ const Navbar = () => {
           Link with href
         </a> */}
       
-        <div className="offcanvas offcanvas-start side-menu1" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
+        <div className="offcanvas offcanvas-start side-menu1" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

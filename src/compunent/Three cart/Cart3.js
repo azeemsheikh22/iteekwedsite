@@ -17,16 +17,16 @@ const Cart3 = () => {
                             <div className='row'>
                             <img src={image1} alt='' className='img-fluid'></img>
                             </div>
-                            <div className='row mt-3'>
+                            <div className='row mt-3 text-center'>
                                 <h1>Venue Sourcing</h1>
                             </div>
 
-                            <div className='row mt-1'>
+                            <div className='row mt-1 text-center'>
                                 <h4>We are always looking to expand our portfolio</h4>
                             </div>
 
-                            <div className='row mt-2 mb-3'>
-                                <h3>More Information <i class="fa-solid fa-arrow-right-long ms-1"></i></h3>
+                            <div className='row mt-2 mb-3 text-center'>
+                                <h3>More Information <i className="fa-solid fa-arrow-right-long ms-1"></i></h3>
                             </div>
                             
                         </div>
@@ -36,16 +36,16 @@ const Cart3 = () => {
                             <div className='row'>
                             <img src={image1} alt='' className='img-fluid'></img>
                             </div>
-                            <div className='row mt-3'>
+                            <div className='row mt-3 text-center'>
                                 <h1>Wholesale</h1>
                             </div>
 
-                            <div className='row mt-1'>
+                            <div className='row mt-1 text-center'>
                                 <h4>We are always looking to expand our portfolio</h4>
                             </div>
 
-                            <div className='row mt-2 mb-3'>
-                                <h3>More Information <i class="fa-solid fa-arrow-right-long ms-1"></i></h3>
+                            <div className='row mt-2 mb-3 text-center'>
+                                <h3>More Information <i className="fa-solid fa-arrow-right-long ms-1"></i></h3>
                             </div>
                             
                         </div>
@@ -55,16 +55,16 @@ const Cart3 = () => {
                             <div className='row'>
                             <img src={image1} alt='' className='img-fluid'></img>
                             </div>
-                            <div className='row mt-3'>
+                            <div className='row mt-3 text-center'>
                                 <h1>Retail</h1>
                             </div>
 
-                            <div className='row mt-1'>
+                            <div className='row mt-1 text-center'>
                                 <h4>We are always looking to expand our portfolio</h4>
                             </div>
 
-                            <div className='row mt-2 mb-3'>
-                                <h3>More Information <i class="fa-solid fa-arrow-right-long ms-1"></i></h3>
+                            <div className='row mt-2 mb-3 text-center'>
+                                <h3>More Information <i className="fa-solid fa-arrow-right-long ms-1"></i></h3>
                             </div>
                             
                         </div>

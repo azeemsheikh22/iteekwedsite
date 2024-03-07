@@ -263,10 +263,10 @@ const Email = () => {
                             <div className='row'>
                               <div className='col-lg-3'></div>
                               <div className='col px-lg-5'>
-                                <div className="row">
+                                <div className="row text-center">
                                   <h2>Create your iteek account</h2>
                                 </div>
-                                <div className="row mt-2">
+                                <div className="row mt-2 text-center">
                                   <h3>Already have an account? <NavLink to="/login">Log in</NavLink></h3>
                                 </div>
 

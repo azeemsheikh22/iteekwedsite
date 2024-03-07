@@ -23,6 +23,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.4",
+    "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.10.5",
     "swiper": "^11.0.5",

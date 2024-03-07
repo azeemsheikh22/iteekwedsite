@@ -127,7 +127,7 @@ const Detailpage = () => {
     });
   };
 
-  console.log(categorydata);
+  // console.log(categorydata);
 
   return (
     <div>

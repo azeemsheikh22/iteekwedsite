@@ -60,14 +60,13 @@
 
 @media only screen and (max-width: 600px) {
   .addtocart2-main .left-box {
-    height: 60vh;
+    /* height: 60vh;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: scroll; */
+    height: auto;
   }
   .addtocart2-main .right-box {
       height: auto;
-      overflow: hidden;
-      overflow-y: scroll;
     }
 }
 
