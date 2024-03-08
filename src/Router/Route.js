@@ -8,6 +8,7 @@ import Email from '../pages/Sign up/Email'
 import Login2 from '../pages/Sign up/Login2'
 import Addtocart2 from '../pages/Add T0 Cart/Addtocart2'
 import Step2 from '../pages/Add T0 Cart/Checkout file/Step2'
+import Signup2 from '../pages/Sign up/Signup2'
 
 const Routelink = () => {
     return (
@@ -21,6 +22,7 @@ const Routelink = () => {
                 <Route path='/contact' element={<Contact />}></Route>
 
                 <Route path='/register' element={<Email />}></Route>
+                <Route path='/account-type' element={<Signup2 />}></Route>
                 <Route path='/login' element={<Login2 />}></Route>
             </Routes>
         </div>

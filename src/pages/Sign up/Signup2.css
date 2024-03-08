@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.register2-mains{
+    width: 100%;
+    min-height: 70vh;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register2-mains h2{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.register2-mains h3{
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: rgb(51, 45, 45);
+}
+
+.register2-mains h4{
+    font-size: 1.1rem;
+}
+
+.register2-mains .input-form input{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.register2-mains .input-form input:hover{
+    border: 2px solid gray;
+    
+}
+
+.register2-mains .input-form .input2{
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(181, 7, 7);
+}
+
+.register2-mains .input-form p{
+    color: rgb(181, 7, 7);
+    font-size: 15px;
+}
+
+.register2-mains .input-form select{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.register2-mains .input-form select:hover{
+    border: 2px solid gray;
+    
+}
+
+
+
+.register2-mains .input-form .input2{
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(181, 7, 7);
+}
+
+.register2-mains .input-form p{
+    color: rgb(181, 7, 7);
+    font-size: 15px;
+}
+
+.register2-mains  button{
+    background-color: #80E142;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.register2-mains  button:hover{
+    background-color: #66c12e;
+
+}
+
+.register2-mains h5{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+
+.register2-mains .card-1{
+    height: 240px;
+    background-color: #EDEFEB;
+    border-radius: 10px;
+}

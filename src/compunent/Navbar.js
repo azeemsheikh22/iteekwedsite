@@ -15,24 +15,8 @@ const Navbar = () => {
 
   const { totalQuantity } = useSelector((state) => state.carts);
   const token = localStorage.getItem("usertoken");
-  // const [sticky, setsticky] = useState("navbar navbar-expand-lg bg-body-white");
-  // const [sticky2, set2sticky] = useState("");
-
   const dispatch = useDispatch();
 
-  // console.log("sub menu", data)
-
-  const arry = [
-    "Mobiles Accessories",
-    "Repair",
-    "Tempered Glass",
-    "Computer",
-    "Computer Accessories",
-    "Batterie",
-    "Sim",
-    "Electronics Accessories",
-    "Audio",
-  ];
 
   const [value, setValue] = useState(0);
   const [data, setdata] = useState([]);

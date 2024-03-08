@@ -5,66 +5,42 @@ const Footer = () => {
     return (
         <div className='main-footer pt-5 pb-4 mt-'>
             <div className='container px-lg-5'>
-                <div className='row text-start p-decs'>
+                {/* <div className='row text-start p-decs'>
                     <p>Hello there! We're Back Market, the leading online marketplace dedicated to refurbished devices. Our mission is to make restored devices mainstream. Making old the 'new new' so to speak.</p>
-                </div>
+                </div> */}
                 <div className='row text-center text-md-start'>
                     <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
-                        <h5 className='mb-4'>About</h5>
+                        <h5 className='mb-4'>Campany</h5>
                         <p className=''>
                             <a href='/'>Who are we?</a>
                         </p>
                         <p className='p-tag'>
-                            <a href='/'>Sell old tech</a>
+                            <a href='/'>Trustpilot</a>
                         </p>
                         <p className='p-tag'>
-                            <a href='/'>Student offer</a>
+                            <a href='/'>Blog</a>
                         </p>
-                        <p className='p-tag'>
-                            <a href='/'>We're hiring!</a>
-                        </p>
-                         <p className='p-tag'>
-                            <a href='/'>Press</a>
-                        </p>
+                        
                     </div>
 
                     <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
                         <h5 className='mb-4'>Help</h5>
                         <p>
-                            <a href='/'>Sellers: Register to sell</a>
+                            <a href='/'>Contact us</a>
                         </p>
                         <p className='p-tag'>
 
-                            <a href='/'>Seller portal</a>
-
-                        </p>
-                        <p className='p-tag'>
                             <a href='/'>Payments</a>
+
                         </p>
                         <p className='p-tag'>
                             <a href='/'>Delivery</a>
                         </p>
+                       
                         <p className='p-tag'>
                             <a href='/'>Returns and refunds</a>
                         </p>
-                        <p className='p-tag'>
-                            <a href='/'>Insurances</a>
-                        </p>
-                        <p className='p-tag'>
-                            <a href='/'>Contact us</a>
-                        </p>
-                        <p className='p-tag'>
-                            <a href='/'>Guides and reviews</a>
-                        </p>
-                        <p className='p-tag'>
-                            <a href='/'>Compare devices</a>
-                        </p>
-                        <p className='p-tag'>
-                            <a href='/'>Gift ideas</a>
-                        </p>
-                        <p className='p-tag'>
-                            <a href='/'>Blog</a>
-                        </p>
+                       
                     </div>
 
                     <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
@@ -73,19 +49,7 @@ const Footer = () => {
                             <a href='/'>Terms of Use</a>
 
                         </p>
-                        <p className='p-tag'>
-
-                            <a href='/'>Terms of Sale</a>
-
-                        </p>
-                        <p className='p-tag'>
-
-                            <a href='/'>Trade-in Terms and Conditions</a>
-                        </p>
-                        <p className='p-tag'>
-
-                            <a href='/'>Commercial warranty</a>
-                        </p>
+                       
                         <p className='p-tag'>
 
                             <a href='/'>Data protection</a>
@@ -96,20 +60,13 @@ const Footer = () => {
                         </p>
                         <p className='p-tag'>
 
-                            <a href='/'>Other legal information</a>
-                        </p>
-                        <p className='p-tag'>
-
-                            <a href='/'>Legal notices</a>
-                        </p>
-                        <p className='p-tag'>
-
                             <a href='/'>Payments 100% secured</a>
                         </p>
+                        
                     </div>
 
                     <div className='col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start'>
-                        <h5 className='mb-4'>Hello there!</h5>
+                        <h5 className='mb-4'>Our apps</h5>
                         <p className=''>
                             <a href='/'>Trustpilot</a>
                         </p>
